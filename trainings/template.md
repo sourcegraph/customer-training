@@ -10,6 +10,10 @@
 
 Section 1 content. All sections together should be between 500 and 1500 words per unit for customer-facing written content. Units may have multiple sections.
 
+#### Activity
+
+Self-directed (or assisted by the trainer) activity to cover what was taught in the Section(s). i.e. a section on literal search would have the individual perform a literal search as a practical activity.
+
 ### Conclusion
 
 Summarize what was learned in Unit 1, transition into the next unit, next training training, etc.
