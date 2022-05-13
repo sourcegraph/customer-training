@@ -1,6 +1,12 @@
 # Sourcegraph 101
 
-**Topic:** This training is focused on end users, and serves as a start-from-zero training for new end users. Admin tasks and more advanced search functionality are covered in other trainings. The training is broken into 5 units, but you don't need to call the units out to the customer—they serve more as a way to structure the training for yourself.
+**Topic:** This training is focused on end users, and serves as a start-from-zero training for new end users. Admin tasks and more advanced search functionality are covered in other trainings. The training is broken into 5 units, but you don't need to call the units out to the customer—they serve more as a way to structure the training for yourself.
+
+## Intro
+
+Hi! Today I'm going to be walking you thorugh what we call Sourcegraph 101—it should take you from 0 to being able to use Sourcegraph confidently. We of course don't have time for a dive into all of what Sourcegraph can do today, so we'll be running a Sourcegraph 102 training in our next session to talk about advanced features. That said, throughout today, please ask questions! You can take yourself off mute or drop it into the chat, and my colleague will read them out for us when we come to a pause. Even if I can't answer the question today, I'll connect you to someone who can.
+
+Today we'll walk through what Sourcegraph is, our search options, our search filters, our code intelligence functionality, and our notebook functionality. By the end, you should be comfortable using all of those features!
 
 ## Unit 1: Get familiar with Sourcegraph
 
@@ -152,6 +158,26 @@ Our full search syntax is available over in this box—you can see common filter
 
 This will allow you to build your own queries beyond what's suggested by dynamic filters. 
 
+### Type filters
+
+Very briefly—we'll cover this in more detail in Sourcegraph 102—I want to cover our `type:` filter. You can see here on the top left we have "find a symbol", "search commit messages", and "search diffs". I want to very briefly show how those work.
+
+So, with my  `new auth provider` search here, if I click "find a symbol", it will append `type:symbol`. 
+
+*Do this.*
+
+You can see that I'm now seeing functions, variables, etc. that match this pattern—so if I'm looking for a specific symbol, this is how I'd do that!
+
+Now, if I wanted to search the history of the code—say I want to go beyond the history for the file, because the code has moved between files—I can use this `type:diff` filter. So if I search for `new auth provider repo:sourcegraph/sourcegraph$ type:diff`, I can now see every time that code was changed in the codebase, no matter where in the repo it was.
+
+*Run the search.*
+
+Finally, I want to highlight how you can search commit messages. Say that I'm a new Sourcegraph dev and I want to look for info about `gitserver`, one of our app components. If I search for `gitserver repo:sourcegraph/sourcegraph$ type: commit`, I'm now able to look at all the commit messages where we talk about gitserver!
+
+*Run the search.*
+
+We'll dive more into how to use these type filters in Sourcegraph 102, but I wanted to call your attention to them!
+
 ### Conclusion
 
 With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
@@ -225,3 +251,76 @@ I want to pause here—do folks have questions about creating notebooks? Can any
 ### Conclusion
 
 With notebooks, you can share code context and explanations with your teammates. The Notepad feature lets you build notebooks on the go.
+
+### Resources 
+
+* [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
+
+## Unit 6: Extensions
+
+**Learning goals:** The user will understand how our extensions platform functions and that IDE extensions exist.
+
+### Intro to the extensions page
+
+The final thing that I want to touch on is our extensions platform. You can access that by clicking the puzzle icon at the top right here.
+
+*Navigate to https://demo.sourcegraph.com/extensions*
+
+### Editor extensions 
+
+We integrate with a variety of services here, but the one I particularly want to draw your attention to is this "code editors" section. If you click into that, you'll see a list of supported editors and a generic "open in editor" extension. 
+
+*Navigate to https://demo.sourcegraph.com/extensions?category=Code+editors*
+
+You'll want to enable the appropriate extension for your editor, and then click on the extension name to view the customization settings you'll need to configure. 
+
+*Go to https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor and highlight the different config options on that page.*
+
+This does rely on having the code locally on your machine—but if you do, you'll have an "open in editor" button in Sourcegraph to open the file locally. And if you want to navigate from your editor back into Sourcegraph, you can do so with the extensions here.
+
+*Open https://docs.sourcegraph.com/integration/editor*
+
+We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at the right Sourcegraph instance in your settings. 
+
+### VSCode extension
+
+For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everythign we've seen so far directly in VSCode.
+
+*Share VSCode, open the Sourcegraph extension, run a search*
+
+So as you can see here, I'm able to search all of the same code that's on my Sourcegraph instance, no matter what's local. We really encourage VSCode users to install this extension, since it gives you all of Sourcegraph's search power right in the environment you're already using.
+
+### Browser extension
+
+The final thing I want to touch on is our browser extension, which you can see I have installed here.
+
+*Share browser, show the extension button, click it.*
+
+Remember the code intelligence functionality that we saw earlier? If I have this set up and pointing to my Sourcegraph instance, I have the ability to get that same functionality in my code host, which is *super* useful for code review. So, if I open a page in Sourcegraph, I can go to GitHub in our case.
+
+*Jump from whatever Sourcegraph page you were on into GitHub. Ideally, use one from our repo.*
+
+And now if I hover over any of the symbols, I get access to that same code intelligence functionality and navigation. Super helpful for code review!
+
+To install the extension, you'll want to go to this page. We'll share that in our follow-up email.
+
+*Show them https://docs.sourcegraph.com/integration/browser_extension*
+
+### Conclusion
+
+Our editors functionality lets you integrate with third-party tools, including your editor, for a seamless experience.
+
+### Resources
+
+* [VSCode extension](https://marketplace.visualstudio.com/items?itemName=sourcegraph.sourcegraph)
+* [Editor plugins](https://docs.sourcegraph.com/integration/editor)
+* [Integrations](https://docs.sourcegraph.com/integration)
+* [Browser extension](https://docs.sourcegraph.com/integration/browser_extension)
+
+## Closing thoughts
+
+Thanks so much for staying with me through this training! Today we covered our basic search functionality, our search filters, how to search commit and code history, code intelligence, notebooks, and our extensions platform. This should set you up for success in using Sourcegraph—if you have any issues, please post in Slack or shoot an email to support@sourcegraph.com so we can help you out.
+
+I want to pause here for questions—we can dive into anything you want. 
+
+*If there are questions, answer them. If not, kick it back to the AE.*
