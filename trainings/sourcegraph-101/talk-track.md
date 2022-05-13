@@ -155,3 +155,73 @@ This will allow you to build your own queries beyond what's suggested by dynamic
 ### Conclusion
 
 With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
+
+### Resources
+
+- [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
+
+## Unit 4: Code intelligence
+
+**Learning goals:** Users will know how our code intelligence functionality works and how they can use it.
+
+### Viewing code intelligence in a file
+
+So, I mentioned earlier that we offer code intelligence functionality, and I want to show that to you now.
+
+*Click in to a file of your choice, and find a symbol to hover on.*
+
+So you can see here that I clicked in to one of my search results, and I can now see the source code. What I'm also seeing here is this over tool tip, which has what we call code intelligence. By default we'll ship with search-based code intelligence; for some languages, we also offer what we call precise code intelligence, which is compiler-accurate. 
+
+*If you know they've set up precise code intel or will, speak to that. If you're not sure, you can use this space to ask what langauges they're working in in order to see if there's any that are a good fit. This section will necessarily require some customization based on what you know about the customer.*
+
+Something to call out here is that when I click "find references" to find places where this symbol is used, or "go to definition" to find where it's defined, that works cross-repo. So, you should be able to see that no matter where in the code it's being used, allowing you to really track the downstream impact of changes. 
+
+*Typically at this point it's worth calling out any limitations of code intelligence for the customer's languages if known—challenging accuracy for Ruby or Python, for example.*
+
+I want to pause here and see if anyone has questions about how the code intel functionality works, or wants to share something that comes to mind about how this could be useful for them!
+
+### Conclusion 
+
+Code intel allows you determine the downstream impacts of changes across repos, and for some languages you can have access to compiler-accurate code intelligence if enabled.
+
+### Resources
+
+- [Code intelligence docs](https://docs.sourcegraph.com/code_intelligence)
+
+## Unit 5: Notebooks
+
+**Learning goals:** Understand the Notebooks functionality and how to use it to share information with colleagues. 
+
+### What are notebooks?
+
+Our notebooks functionality is inspired by Jupyter notebooks—it's a great way to share code with your colleagues. 
+
+*Open up a notebook. Up to you what you want to use, but https://demo.sourcegraph.com/notebooks/Tm90ZWJvb2s6Nzg= is a nice one if you don't have a go-to. Modify the talk track if you pick a different demo, but hit the same general points.*
+
+### What do you use notebooks for?
+
+So you can see here that we're sharing information about the code—in this case we're talking about how we handle something in the Sourcegraph codebase. As a new developer, I can be given this notebook to educate myself, and read what my colleagues have said. And, as you can see, I can click "run all blocks" and these searches will all run inline. 
+
+For a lot of our customers, this replaces typed-out documentation that lives in a wiki tool like Confluence. Since the examples run live, you're not going to have out-of-date references here—devs can always see where you're using a particular pattern in the codebase today. 
+
+As I scroll down here, you can see that we're actually highlighting some parts of the code as it existed at a specific time in the codebase (in this case, symbol definitions). Our devs have written out info about why they're structured this way, and gotchas about using them. Now if a teammate has a question, they can send this along as a first step in allowing fokls to answer their own questions.
+
+### Creating notebooks
+
+To create a notebook, go to the notebooks tab and click "create notebook."
+
+*Show that.*
+
+From there, you're able to create markdown blocks, code search blocks, code reference blocks, or symbol blocks. If you prefer, you can upload the notebook as a fully built-out markdown file and we'll convert it.
+
+You can also enable the Notepad feature by clicking "enable Notepad" up here in the top right of the screen.
+
+*Show that.*
+
+That will allow you to create a new note snippet from your searches. So you can see that if I search for `context:global new auth provider repo:sourcegraph patternType:regexp`, it prompts me to add that search to my notepad. I can then convert the notepad to a notebook.
+
+I want to pause here—do folks have questions about creating notebooks? Can anyone share a situation where they might use the notebooks feature?
+
+### Conclusion
+
+With notebooks, you can share code context and explanations with your teammates. The Notepad feature lets you build notebooks on the go.
