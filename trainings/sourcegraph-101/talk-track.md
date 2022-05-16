@@ -185,6 +185,7 @@ With our query filters, you can narrow things down to find just the content you 
 ### Resources
 
 - [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
+- [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 
 ## Unit 4: Code intelligence
 
