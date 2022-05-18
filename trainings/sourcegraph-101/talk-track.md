@@ -32,7 +32,7 @@ Typically, developers use Sourcegraph for [five key use cases](https://about.sou
 4. Streamlining code reuse - Surfacing code via search means it’s easier to avoid reinventing existing code, leading to more consistent, efficient coding practices.
 5. Improving code health - If you’re trying to change from an antipattern to a best practice, use Sourcegraph to see how much work there is to do across the entire codebase.
 
-While we're working together today, think about which of these use cases is most relevant to your day to day work. That will help you conceive of how the tool might be most relevant to your particular needs, so that you can get the most out of the tool.
+While we're working together today, think about which of these use cases is most relevant to your day to day work. That will help you conceive of how Sourcegraph might be most relevant to your particular needs, so that you can get the most out of the tool.
 
 ### Conclusion
 
