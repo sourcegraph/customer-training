@@ -20,7 +20,7 @@ Sourcegraph is a code search engine that runs in the browser, as well as being a
 
 With Sourcegraph, you can use literal, regular expression, or structurally aware searches and search filters to find information across your company’s entire source code. Unlike using grep or searching locally in your editor, Sourcegraph allows you to see all of your company’s code, regardless of what you have available locally. 
 
-In addition to allowing you to search for your code, Sourcegraph provides additional functionality, such as code intelligence (“find references” and “go to def” like you’d see in a local editor, available for all of your code); you can also do advanced searches such as searching commit messages, searching changes to your code, searching non-default branches, and searching symbols in your code. In this module, we’ll cover basic searches, and in our Sourcegraph 102 training, you’ll learn more advanced search techniques.
+In addition to allowing you to search for your code, Sourcegraph provides additional functionality, such as code intelligence (“find references” and “go to definition” as you’d see in a local editor, available for all of your code); you can also do advanced searches such as searching commit messages, searching changes to your code, searching non-default branches, and searching symbols in your code. In this module, we’ll cover basic searches, and in our Sourcegraph 102 training, you’ll learn more advanced search techniques.
 
 ### What are common use cases for Sourcegraph?
 
