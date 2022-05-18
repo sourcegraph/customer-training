@@ -299,7 +299,7 @@ The final thing I want to touch on is our browser extension, which you can see I
 
 Remember the code intelligence functionality that we saw earlier? If I have this set up and pointing to my Sourcegraph instance, I have the ability to get that same functionality in my code host, which is *super* useful for code review. So, if I open a page in Sourcegraph, I can go to GitHub in our case.
 
-*Jump from whatever Sourcegraph page you were on into GitHub. Ideally, use one from our repo.*
+*Jump from whatever Sourcegraph page you were on into GitHub. Ideally, use one from the Sourcegraph monorepo.*
 
 And now if I hover over any of the symbols, I get access to that same code intelligence functionality and navigation. Super helpful for code review!
 
