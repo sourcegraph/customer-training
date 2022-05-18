@@ -305,7 +305,7 @@ And now if I hover over any of the symbols, I get access to that same code intel
 
 To install the extension, you'll want to go to this page. We'll share that in our follow-up email.
 
-*Show them https://docs.sourcegraph.com/integration/browser_extension*
+*Show them `https://docs.sourcegraph.com/integration/browser_extension`*
 
 ### Conclusion
 
