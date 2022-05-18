@@ -281,7 +281,7 @@ This does rely on having the code locally on your machine—but if you do, you'l
 
 *Open https://docs.sourcegraph.com/integration/editor*
 
-We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at the right Sourcegraph instance in your settings. 
+We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at your Sourcegraph instance in your settings. 
 
 ### VSCode extension
 
