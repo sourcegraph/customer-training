@@ -16,7 +16,7 @@ Today we'll walk through what Sourcegraph is, our search options, our search fil
 
 ### What is Sourcegraph?
 
-Sourcegraph is a code search engine that runs in the browser, as well as being available via a CLI or (in some editors) in your editor. Today, we’ll focus on the browser, but after this training I will share info on the CLI and the IDE extensions for you to explore.
+Sourcegraph is a code search engine that runs in the browser, as well as being available via a CLI or (for some editors) directly in your IDE. Today, we’ll focus on the browser, but after this training I will share info on the CLI and the IDE extensions for you to explore.
 
 With Sourcegraph, you can use literal, regular expression, or structurally aware searches and search filters to find information across your company’s entire source code. Unlike using grep or searching locally in your editor, Sourcegraph allows you to see all of your company’s code, regardless of what you have available locally. 
 
@@ -55,7 +55,7 @@ Sourcegraph is a code search and intelligence platform that allows you to find a
 
 ### The Sourcegraph home page
 
-*At this point the CE should share demo.sourcegraph.com*
+*At this point the Trainer should share demo.sourcegraph.com*
 
 As you can see here, Sourcegraph is primarily a browser application. I'm using my own Sourcegraph instance, but you'll be using yours—we'll drop the URL in the Zoom chat.
 
@@ -81,11 +81,11 @@ In addition to our default literal, or exact match, search mode, Sourcegraph off
 
 To run your search using [RE2 regex syntax](https://github.com/google/re2/wiki/Syntax), click the .* icon before running your search. If you click that icon after running your search, your search will re-run as a regex search. In regular expression searches, space characters are handled as fuzzy matches. So you see here that if I run that `new auth provider` search as a regex, I'm now getting matches for `new authz provider`, `newOAuthProvider`, etc. I can also enforce word boundaries, so if I run a search for `new \bauth\b provider`, I'm only going to see results where auth is not a substring.
 
-*Search for context:global new \bauth\b provider patternType:regexp , show the results*
+*Search for `context:global new \bauth\b provider patternType:regexp`, show the results*
 
-The final search mode option is our language-aware structural search option, represented by the square bracket button ([]). When selected, you’ll have the option to include structural holes, represented by … or :[a] in your query, to run multi-line fuzzy searches. 
+The final search mode option is our language-aware structural search option, represented by the square bracket button `[]`. When selected, you’ll have the option to include structural holes, represented by `…` or `:[a]` in your query, to run multi-line fuzzy searches. 
 
-*Search for context:global lang:JavaScript class ... extends ... {...} count:all patternType:structural*
+*Search for `context:global lang:JavaScript class ... extends ... {...} count:all patternType:structural`, show the results*
 
 So, for example, if I search for `context:global lang:JavaScript class ... extends ... {...} count:all patternType:structural`, I get a really wide variety of results that match that pattern. Something to call out is that structural search mode is smart enough to match nested characters—so you can see it won't prematurely close on the first closing curly brace it sees; instead, it will wait until it finds the matching one.
 
@@ -97,7 +97,7 @@ I'm going to pause here: are there any questions about our three search modes, o
 
 Awesome! So, let's chat through what you'll see when you run the search. When you run your search, you will be redirected to a search results page. It will look something like this:
 
-*run the `new auth provider` regex search again*
+*run the `context:global new auth provider patternType:regexp` search again*
 
 The main area of the page will show your search results, with the matching text highlighted. By default, you’ll see one line above and below your matching line, in order to provide some context on the search result. The number of lines shown can be customized in your user settings page, if you prefer. Above the search result, you’ll see the repo name and the file path within the repo. If your match is for a file path or repo name, you’ll see just a link to that repo or file, with no preview code.
 
@@ -107,7 +107,7 @@ Clicking on your search results will open the matching code, file, or repo in So
 
 ### Conclusion
 
-Sourcegraph offers three search modes, controlled by buttons in the search toolbar. In our next units, we’ll learn more about those search modes and filters to narrow down your search results. 
+Sourcegraph offers three search modes (literal, regex, and structural) controlled by buttons in the search toolbar. In our next units, we’ll learn more about those search modes and filters to narrow down your search results. 
 
 ### Resources
 
@@ -122,13 +122,13 @@ Sourcegraph offers three search modes, controlled by buttons in the search toolb
 
 So as I mentioned, Sourcegraph provides filters to narrow down your search result. You'll see on the top left here that it's suggesting filters based on the results that were returned—so in this case, I can narrow down to just Golang files by clicking this `lang:go` option.
 
-*Click the lang:go filter.*
+*Click the `lang:go` filter.*
 
 If I prefer, of course, I can type that filter in as well. 
 
-*Type in the lang: filter, show the autocomplete language options.*
+*Type in the `lang:` filter, show the autocomplete language options.*
 
-It's also suggesting I exclude test code—often super useful if you just want to look at application code. So if I click this `-file:_test.go$` button
+It's also suggesting I exclude test code—often super useful if you just want to look at application code. So if I click this `-file:_test.go$` button...
 
 *Click the button*
 
@@ -140,13 +140,13 @@ The final filter I want to highlight here is this list of repositories. These re
 
 Something to highlight is that our repo filter, like most of our filters, automatically supports partial matching—so if I search `repo:sourcegraph`, I'll see matches from all of the repos in the Sourcegraph org. 
 
-*Delete the first repo filter, run the repo:sourcegraph search, highlight the repos that are now being returned*
+*Delete the first repo filter, run the `repo:sourcegraph` search, highlight the repos that are now being returned*
 
-But to go back to the monorepo filter
+But to go back to the monorepo filter...
 
-*Go back to the repo:github.com/sourcegraph/sourcegraph$ filter*
+*Go back to the `repo:github.com/sourcegraph/sourcegraph$` filter*
 
-you'll see here on the side that it's now suggesting other branches and tags I could search. We're looking at the default main/master branch usually, but if I want to check out the code on an old version, I just click here to do that.
+...you'll see here on the side that it's now suggesting other branches and tags I could search. We're looking at the default `main`/`master` branch usually, but if I want to check out the code on an old version or a `develop` branch for example, I just click here to do that.
 
 *Click on one of them, highlight it in the query syntax in the search bar*
 
@@ -162,7 +162,7 @@ This will allow you to build your own queries beyond what's suggested by dynamic
 
 ### Type filters
 
-Very briefly—we'll cover this in more detail in Sourcegraph 102—I want to cover our `type:` filter. You can see here on the top left we have "find a symbol", "search commit messages", and "search diffs". I want to very briefly show how those work.
+Next, I wanted to briefly cover our `type:` filter. We'll cover this in more detail in Sourcegraph 102. You can see here on the top left we have "find a symbol", "search commit messages", and "search diffs". I will quickly show how those work.
 
 So, with my  `new auth provider` search here, if I click "find a symbol", it will append `type:symbol`. 
 
@@ -174,11 +174,11 @@ Now, if I wanted to search the history of the code—say I want to go beyond the
 
 *Run the search.*
 
-Finally, I want to highlight how you can search commit messages. Say that I'm a new Sourcegraph dev and I want to look for info about `gitserver`, one of our app components. If I search for `gitserver repo:sourcegraph/sourcegraph$ type: commit`, I'm now able to look at all the commit messages where we talk about gitserver!
+Finally, I want to highlight how you can search commit messages. Say that I'm a new Sourcegraph dev and I want to look for info about `gitserver`, one of our app components. If I search for `gitserver repo:sourcegraph/sourcegraph$ type:commit`, I'm now able to look at all the commit messages where we talk about gitserver!
 
 *Run the search.*
 
-We'll dive more into how to use these type filters in Sourcegraph 102, but I wanted to call your attention to them!
+We'll dive more into how to use these `type:` filters in Sourcegraph 102, but I wanted to call your attention to them!
 
 ### Conclusion
 
@@ -191,7 +191,7 @@ With our query filters, you can narrow things down to find just the content you 
 
 ## Unit 4: Code intelligence
 
-**Learning goals:** Users will know how our code intelligence functionality works and how they can use it.
+**Learning goals:** By the end of this unit, users will know how our code intelligence functionality works and how they can use it.
 
 ### Viewing code intelligence in a file
 
@@ -199,13 +199,13 @@ So, I mentioned earlier that we offer code intelligence functionality, and I wan
 
 *Click in to a file of your choice, and find a symbol to hover on.*
 
-So you can see here that I clicked in to one of my search results, and I can now see the source code. What I'm also seeing here is this over tool tip, which has what we call code intelligence. By default we'll ship with search-based code intelligence; for some languages, we also offer what we call precise code intelligence, which is compiler-accurate. 
+So you can see here that I clicked into one of my search results, and I can now see the source code. What I'm also seeing here is this hover tool tip, which has what we call code intelligence. By default we'll ship with search-based code intelligence; for some languages, we also offer what we call precise code intelligence, which is compiler-accurate. 
 
-*If you know they've set up precise code intel or will, speak to that. If you're not sure, you can use this space to ask what langauges they're working in in order to see if there's any that are a good fit. This section will necessarily require some customization based on what you know about the customer.*
+***Note:** If you know they've set up precise code intel or will, speak to that. If you're not sure, you can use this space to ask what languages they're working in in order to see if there's any that are a good fit. This section will necessarily require some customization based on what you know about the customer.*
 
-Something to call out here is that when I click "find references" to find places where this symbol is used, or "go to definition" to find where it's defined, that works cross-repo. So, you should be able to see that no matter where in the code it's being used, allowing you to really track the downstream impact of changes. 
+Something to call out here is that when I click `find references` to find places where this symbol is used, or `go to definition` to find where it's defined, that functionality works cross-repo. So, you should be able to see those results no matter where in the code the symbol is being used, allowing you to really track the downstream impact of changes. 
 
-*Typically at this point it's worth calling out any limitations of code intelligence for the customer's languages if known—challenging accuracy for Ruby or Python, for example.*
+***Note:** Typically at this point it's worth calling out any limitations of code intelligence for the customer's languages if known—challenging accuracy for Ruby or Python, for example.*
 
 I want to pause here and see if anyone has questions about how the code intel functionality works, or wants to share something that comes to mind about how this could be useful for them!
 
@@ -219,13 +219,13 @@ Code intel allows you determine the downstream impacts of changes across repos, 
 
 ## Unit 5: Notebooks
 
-**Learning goals:** Understand the Notebooks functionality and how to use it to share information with colleagues. 
+**Learning goals:** After this unit, users will understand the functionality of Notebooks and how to use them to share information with colleagues. 
 
 ### What are notebooks?
 
 Our notebooks functionality is inspired by Jupyter notebooks—it's a great way to share code with your colleagues. 
 
-*Open up a notebook. Up to you what you want to use, but https://demo.sourcegraph.com/notebooks/Tm90ZWJvb2s6Nzg= is a nice one if you don't have a go-to. Modify the talk track if you pick a different demo, but hit the same general points.*
+*Open up a notebook. Up to you what you want to use, but this one on [Actor propagation](https://demo.sourcegraph.com/notebooks/Tm90ZWJvb2s6Nzg=) is a nice one if you don't have a go-to. Modify the talk track if you pick a different demo, but hit the same general points.*
 
 ### What do you use notebooks for?
 
@@ -261,27 +261,27 @@ With notebooks, you can share code context and explanations with your teammates.
 
 ## Unit 6: Extensions
 
-**Learning goals:** The user will understand how our extensions platform functions and that IDE extensions exist.
+**Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
 
 ### Intro to the extensions page
 
 The final thing that I want to touch on is our extensions platform. You can access that by clicking the puzzle icon at the top right here.
 
-*Navigate to https://demo.sourcegraph.com/extensions*
+*Navigate to the [Sourcegraph extensions](https://demo.sourcegraph.com/extensions) page*
 
 ### Editor extensions 
 
 We integrate with a variety of services here, but the one I particularly want to draw your attention to is this "code editors" section. If you click into that, you'll see a list of supported editors and a generic "open in editor" extension. 
 
-*Navigate to https://demo.sourcegraph.com/extensions?category=Code+editors*
+*Navigate to `https://demo.sourcegraph.com/extensions?category=Code+editors`*
 
 You'll want to enable the appropriate extension for your editor, and then click on the extension name to view the customization settings you'll need to configure. 
 
-*Go to https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor and highlight the different config options on that page.*
+*Go to `https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor` and highlight the different config options on that page.*
 
 This does rely on having the code locally on your machine—but if you do, you'll have an "open in editor" button in Sourcegraph to open the file locally. And if you want to navigate from your editor back into Sourcegraph, you can do so with the extensions here.
 
-*Open https://docs.sourcegraph.com/integration/editor*
+*Open `https://docs.sourcegraph.com/integration/editor`*
 
 We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at your Sourcegraph instance in your settings. 
 
