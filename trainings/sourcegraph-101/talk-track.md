@@ -201,7 +201,7 @@ So, I mentioned earlier that we offer code intelligence functionality, and I wan
 
 So you can see here that I clicked into one of my search results, and I can now see the source code. What I'm also seeing here is this hover tool tip, which has what we call code intelligence. By default we'll ship with search-based code intelligence; for some languages, we also offer what we call precise code intelligence, which is compiler-accurate. 
 
-***Note:** If you know they've set up precise code intel or will, speak to that. If you're not sure, you can use this space to ask what languages they're working in in order to see if there's any that are a good fit. This section will necessarily require some customization based on what you know about the customer.*
+* **Note:** If you know they've set up precise code intel or will, speak to that. If you're not sure, you can use this space to ask what languages they're working in in order to see if there's any that are a good fit. This section will necessarily require some customization based on what you know about the customer.*
 
 Something to call out here is that when I click `find references` to find places where this symbol is used, or `go to definition` to find where it's defined, that functionality works cross-repo. So, you should be able to see those results no matter where in the code the symbol is being used, allowing you to really track the downstream impact of changes. 
 
