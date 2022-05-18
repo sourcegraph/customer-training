@@ -6,7 +6,7 @@ I wanted to share resources about what we talked about:
 
 - [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
 - [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
-- [Sourcegraph Documentation](https://docs.sourcegraph.com)
+- [Sourcegraph documentation](https://docs.sourcegraph.com)
 - [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
 
 **Integrating with your IDE and other tools:**
