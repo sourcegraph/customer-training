@@ -36,7 +36,7 @@ While we're working together today, think about which of these use cases is most
 
 ### Conclusion
 
-Sourcegraph is a code search tool that allows you to find all of your company’s code in the browser in order to make your work easier and more efficient. Next up, we’ll dive in to the tool to learn how to search in Sourcegraph.
+Sourcegraph is a code search and intelligence platform that allows you to find all of your company’s code in the browser in order to make your work easier and more efficient. Next up, we’ll dive in to the tool to learn how to search in Sourcegraph.
 
 ### Resources
 
