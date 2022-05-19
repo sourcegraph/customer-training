@@ -101,7 +101,7 @@ Awesome! So, let's chat through what you'll see when you run the search. When yo
 
 The main area of the page will show your search results, with the matching text highlighted. By default, you’ll see one line above and below your matching line, in order to provide some context on the search result. The number of lines shown can be customized in your user settings page, if you prefer. Above the search result, you’ll see the repo name and the file path within the repo. If your match is for a file path or repo name, you’ll see just a link to that repo or file, with no preview code.
 
-On the left-hand side of the page, you’ll see options to run different kinds of searches, filter your search results dynamically, or manually filter your searches by repository, language, and other search filters. We'll dive into those in just a second.
+On the left-hand side of the page, you’ll see options to run different kinds of searches, filter your search results dynamically, or manually filter your searches by repository, language, and other search filters. We'll dive into those later in the training.
 
 Clicking on your search results will open the matching code, file, or repo in Sourcegraph. From there, you can view the full file and navigate to other files in the same repo, or run a new search.
 
