@@ -291,7 +291,7 @@ For VSCode users—and soon JetBrains users!—we have a more robust integration
 
 *Share VSCode, open the Sourcegraph extension, run a search*
 
-So as you can see here, I'm able to search all of the same code that's on my Sourcegraph instance, no matter what's local. We really encourage VSCode users to install this extension, since it gives you all of Sourcegraph's search power right in the environment you're already using.
+So as you can see here, I'm able to search all of the same code that's on my Sourcegraph instance, no matter what's cloned locally. Everything you can search for in Sourcegraph, across all your code hosts, can now be searched right in VSCode without needing to clone it. We really encourage VSCode users to install this extension, since it gives you all of Sourcegraph's search power right in the environment you're already using.
 
 ### Browser extension
 
