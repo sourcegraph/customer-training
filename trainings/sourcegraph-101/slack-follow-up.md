@@ -1,4 +1,4 @@
-< DATE >.
+Thanks so much for attending our Sourcegraph 101 training! As we mentioned on the call, we'll be following up with a Sourcegraph 102 training for advanced tips and tricks on `< DATE >`.
 
 I wanted to share resources about what we talked about:
 
