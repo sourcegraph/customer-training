@@ -50,4 +50,4 @@ With your manifest file configured, ensure that you can [access your cluster](ht
 - Once your deployment is completed, you can access Sourcegraph via the [ingress](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#ingress-controller-recommended) you configured in your manifest
 
 ## Next steps
-Congratulations, Sourcegraph is now deployed and you can begin to configure your instance. We recommend you review the [Configurating Sourcegraph](https://docs.sourcegraph.com/admin/config) documentation next to [add a code host](https://docs.sourcegraph.com/admin/external_service), [configure SSO](https://docs.sourcegraph.com/admin/auth), and more.
+Congratulations, Sourcegraph is now deployed and you can begin to configure your instance. We recommend you review the [Configurating Sourcegraph](https://docs.sourcegraph.com/admin/config) documentation next to [add a code host](https://docs.sourcegraph.com/admin/external_service), [configure authentication and authorization](https://docs.sourcegraph.com/admin/config/authorization_and_authentication), [understand other auth settings](https://docs.sourcegraph.com/admin/auth), and more.
