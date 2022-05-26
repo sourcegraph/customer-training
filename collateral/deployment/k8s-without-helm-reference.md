@@ -1,7 +1,7 @@
 # Deploying Sourcegraph to Kubernetes (k8s) without Helm
 
 ## Introduction
-This material is intended to be used as a handout to customers working with the Customer Engineering team. The materials are meant to serve as an overview and resource to aid in deep diving into Sourcegraph's documentation and common deployment tasks.
+This material is intended to be used as a handout to customers working with a Sourcegraph Customer Engineer to deploy their own instance. The materials are meant to serve as an overview and resource to aid in deep diving into Sourcegraph's documentation and common deployment tasks.
 
 **Table of Contents:**
 
