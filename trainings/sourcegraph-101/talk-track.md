@@ -4,7 +4,7 @@
 
 ## Intro
 
-Hi! Today I'm going to be walking you thorugh what we call Sourcegraph 101—it should take you from 0 to being able to use Sourcegraph confidently. We of course don't have time for a dive into all of what Sourcegraph can do today, so we'll be running a Sourcegraph 102 training in our next session to talk about advanced features. That said, throughout today, please ask questions! You can take yourself off mute or drop it into the chat, and my colleague will read them out for us when we come to a pause. Even if I can't answer the question today, I'll connect you to someone who can.
+Hi! Today I'm going to be walking you through what we call Sourcegraph 101—it should take you from 0 to being able to use Sourcegraph confidently. We of course don't have time for a dive into all of what Sourcegraph can do today, so we'll be running a Sourcegraph 102 training in our next session to talk about advanced features. That said, throughout today, please ask questions! You can take yourself off mute or drop it into the chat, and my colleague will read them out for us when we come to a pause. Even if I can't answer the question today, I'll connect you to someone who can.
 
 Today we'll walk through what Sourcegraph is, our search options, our search filters, our code intelligence functionality, and our notebook functionality. By the end, you should be comfortable using all of those features!
 
