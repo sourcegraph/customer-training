@@ -20,7 +20,7 @@ This material is intended to be used as a handout to customers working with a So
 - Access to deploy Kubernetes clusters
   - Minimum Kubernetes version: `v1.19` and `kubectl` `v1.19`
   - Support for Persistent Volumes (SSDs strongly recommended)
-- Determine resource requirements to properly size your instance: [Resource Estimator](https://docs.sourcegraph.com/admin/deploy/resource_estimator)
+- Determine resource requirements to properly size your instance: The [Resource Estimator](https://docs.sourcegraph.com/admin/deploy/resource_estimator) can give you a baseline, however work with your Sourcegraph Customer Engineer to ensure you are sized appropriately
 - Install relevant CLIs for your provider of choice:
   - AWS: [`aws` cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [`ejsctk`](https://eksctl.io/introduction/#installation)
   - Azure: [`az` cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
