@@ -36,7 +36,6 @@ Sourcegraph has a list of configurations available and recommended that need to 
 Get started by following these steps to fork the [`deploy-sourcegraph`](https://github.com/sourcegraph/deploy-sourcegraph) repository: [Getting started](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#getting-started)
 
 - Configurations:
-  - [License Key](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#add-license-key)
   - [Storage Class](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#configure-a-storage-class)
   - [Network Access](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#configure-network-access)
   - [External PostgreSQL Database](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#sourcegraph-databases)
