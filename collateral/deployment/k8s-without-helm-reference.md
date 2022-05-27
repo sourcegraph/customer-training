@@ -16,7 +16,6 @@ This material is intended to be used as a handout to customers working with a So
 ## Sourcegraph Setup and Deployment
 
 ### Prerequisites
-- Ensure you have your Sourcegraph Enterprise License
 - Access to deploy Kubernetes clusters
   - Minimum Kubernetes version: `v1.19` and `kubectl` `v1.19`
   - Support for Persistent Volumes (SSDs strongly recommended)
