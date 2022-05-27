@@ -30,7 +30,11 @@ This material is intended to be used as a handout to customers working with a So
   - Follow the recommendations for `node type`, `disk type`, and `minimum` and `maximum` nodes
 
 ### Configure your manifest file
-Sourcegraph has a list of configurations available and recommended that need to be made to your manifest file to properly install Sourcegraph into your cluster. Please review the full configuration guide prior to proceeding: [Configure Sourcegraph with Kubernetes](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure)
+Sourcegraph has a list of configurations available and recommended that need to be made to your manifest file to properly install Sourcegraph into your cluster. This includes how to customize the deployment using Kustomize—if you prefer to use Helm, please see the [Helm install instructions](https://docs.sourcegraph.com/admin/deploy/kubernetes/helm), instead. 
+
+Please review the full configuration guide prior to proceeding: [Configure Sourcegraph with Kubernetes](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure). Pay particular attention to configuring a storage class for your cloud provider, configuring network access, and configuring external databases if you choose to use them.
+
+Other sections of the configuration page should be reviewed, but are not required (for example, an external Jaeger instance is optional).
 
 Get started by following these steps to fork the [`deploy-sourcegraph`](https://github.com/sourcegraph/deploy-sourcegraph) repository: [Getting started](https://docs.sourcegraph.com/admin/deploy/kubernetes/configure#getting-started)
 
