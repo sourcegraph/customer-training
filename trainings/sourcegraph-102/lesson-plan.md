@@ -143,25 +143,75 @@ Sometimes, it's more useful to look at changes to the code rather than the code 
 
 ## Unit 3: Advanced search topics
 
-**Learning goals:**
+**Learning goals:** After completing this unit, customers will understand how to use several useful, advanced search filters not covered in Sourcegraph 101.
 
 ### Boolean operators (`AND`, `NOT`, `OR`)
 
+Sourcegraph supports combining search phrases into more complete queries using the boolean `AND`, `NOT`, and `OR` operators. They work like they do in other search tools; if you want to group subqueries together, you can use parentheses to do so. 
+
+🔎 The trainer should demonstrate:
+
+- Combining two `repo:` filters using an `OR` query
+- Combining two different strings using an `AND` query
+- Excluding a substring from a query using `NOT`
+
 ### Searching for symbols (`type:symbol`)
+
+So far we've seen three types of search in Sourcegraph: our default code search, our `diff` search, and our `commit` search. Sourcegraph offers a fourth search mode, `type:symbol`. This allows you to specifically search for the names of symbols (such as functions, variables, classes, etc.) in your code, and results will be an easy-to-parse list of the symbols sorted by file.
+
+🔎 The trainer should demonstrate:
+
+- Applying the `type:symbol` filter by typing it as well as by using the sidebar link
+- How to tell what kind of symbol each result is by hovering over the identifier on the left side of the symbol
 
 ### Using the `select:` keyword
 
-### File contains (`file.contains(...)`)
+Our `select:` filter is a very powerful way of grouping results. You saw us use this earlier with `select:diff.commit.added`; this allowed us to only view committed code that added the search term. You can use it to group results on other queries, too. This can be super useful when trying to figure out not just _where_ a particular match is occurring in your code, but which repos, overall, contain the match. This way, you can see a list of which repos rely on an out-of-date dependency, rather than just seeing the raw results. 
+
+🔎 The trainer should demonstrate:
+
+- Applying `select:file` to a search to get a list of files containing matches for a query
+- Applying `select:file.directory` to a search to get a list of directories containing matches for a query
+- Aplying `select:repo` to a search to get a list of impacted repos for a query
+- Applying `select:symbol.function` to a `type:symbol` filter to show only function matches for the search
 
 ### Repo contains file (`repo:contains.file(...)`)
 
-### Repo has file (`repohasfile(...)`)
+Sometimes I only want to search within a repo that has a particular file—say I want to find usages of a particular dependency but only in repos that have a license file, but I don't care about the contents of the file, just its presence. Using the `repo:contains.file(...)` filter allows me to do this.
+
+🔎 The trainer should demonstrate:
+
+- Using the `repo:contains.file(...)` filter to run an appropriate query (e.g. `repo:contains.file(LICENSE) file:package-lock.json bluebird`)
+- Using the `repohasfile(...)` filter to accomplish the same thing. 
+- Using the `-repohasfile:` filter to exclude results from repos containing a file
+
+❗️ `repo:contains.file` and `repohasfile(...)` operate very similarly ([nuances here](https://docs.sourcegraph.com/code_search/reference/queries#keywords-all-searches)), so you may simply wish to explain `repo:contains.file` and not mention `repohasfile(...)`, which is slightly less flexible as a query but may be easier to remember.
 
 ### Excluding stale repos (`repo:contains.commit.after(...)`)
 
+Oftentimes I will want to search only in active repos. The easiest way to do this is to filter by commit date using `repo:contains.commit.after(...)`. 
+
+🔎 The trainer should demonstrate:
+
+- Using the `repo:contains.commit.after(...)` filter to run a search on recently-updated repos (e.g. `repo:contains.commit.after(1 month ago) new auth provder`)
+
+❗️ The filter doesn't support negation. Someone could use `repo.contains.commit.after(...) select:repo` to get a list of repos and then exclude them in a follow-up query if needed.
+
 ### Dependency search (`repo:deps(...)`)
 
+Sometimes, I don't want to search my own code, but the code of the dependencies that are present in my code. This can be helpful for looking at whether we're impacted by a 0-day, or understanding our code graph in general. To set this up, I'll first have to go to the code host page, which only admins will have access to.
+
+🔎 The trainer should demonstrate:
+
+- Adding a dependency code host in the code host section
+- Running a `repo:deps(...)` search on a repo to show the dependencies for that repo, including versions
+- Searching the contents of the dependencies for particular contents
+
+❗️ This feature is in beta and does not support all dependency management tools.
+
 ### Conclusion
+
+Sourcegraph offers a variety of advanced search filters. We covered boolean operators, symbol search, the `select:` keyword, the `repo:contains.file(...)` filter, how to exclude stale repos, and how to saerch your code's dependencies, if configured. Next up, we'll talk about our extensions platform.
 
 ### Resources
 
