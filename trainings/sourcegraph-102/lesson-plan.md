@@ -69,19 +69,70 @@ Sourcegraph's non-default revision search allows customers to search at any bran
 
 ## Unit 2: Searching commits
 
-**Learning goals:**
+**Learning goals:** After completing unit, customers will understand how to search through `type:diff` and `type:commit` queries, and how to apply the `author:` and `before:`/`after:` filters to those queries. They'll also understand how to search for added/removed content, specifically.
 
 ### Searching through commit messages (`type:commit`)
 
+Sometimes, as a developer looking for code, I may not know where in the code the feature I'm working on is defined. One way to find that content is to look for commit message contents which reference the feature in question, and then look at the code which was changed to discover where in the codebase I should be looking. This is possible with Sourcegraph commit search, and I don't need to pull the repos down locally to view that commit history.
+
+🔎 The trainer should demonstrate:
+
+* How to use the `type:commit` filter to search for contents in the commit message
+* How to apply that filter from the sidebar or by typing it manually
+* How to open the contents of a commit to see the changed code
+* How to navigate to the code host from the commit view to view discussion on a PR/MR view (if using an applicable code host)
+* How to toggle between split/unified view on the search result
+* How to use the "view" link in the search result view to open a particular file at that revision
+
+❗️ Make sure to highlight that commit search is limited to 50 repos at a time, and it's best practice to narrow things down with a `repo:` filter first.
+
 ### Searching through diff content (`type:diff`)
+
+We just saw that it's possible to search the contents of your colleagues' commit messages using the `type:commit` filter. With the `type:diff` filter, you can search the actual changes to the code itself. This  can be super powerful if, for example, you're looking at code that has changed locations a few time, which makes the file history not very useful. It's also great to discover exactly when a piece of code was added or removed without needing to navigate through the full file history by hand.
+
+🔎 The trainer should demonstrate:
+
+* How to use the `type:diff` filter to search for contents in the committed code
+* How to apply that filter from the sidebar or by typing it manually
+* Highlight that the results will bring the customer into the same commit view as the `type:commit` search, so they'll have to click twice to view the changed file itself.
+* The searches are unindexed, so more complicated searches may take longer to return results.
+
+❗️ Make sure to highlight that diff search is also limited to 50 repos at a time, and it's best practice to narrow things down with a `repo:` filter first.
+
 
 ### Searching for specific authors (`author:`)
 
+When looking at committed code, I sometimes want to narrow down the results so that I only see code from one particular colleague. This can be great to get up to speed on what someone was working on before they went on long-term leave or vacation, or to remind myself what I've been working on before chatting with my manager. I can do this with the `author:` filter, which is specific to `commit:` and `diff:` searches.
+
+🔎 The trainer should demonstrate:
+
+* How to use the `author:` filter to narrow down the previous `diff:` search to only code changed by a particular contributor.
+* The `author:` filter takes both display names (e.g. `author:emily`) and code host usernames (e.g. `author:emchap`)
+
+❗️ The `author:` filter does take email addresses (e.g. `author:sourcegraph.com` will return all Sourcegraph developers committing under their work email address), but since some users commit code under an auto-generated email address for security (visible by searching `author:github.com`) or their personal addresses (`author:gmail.com`), it's not necessarily useful.
+
 ### Searching in a specific date range (`before:` and `after:`)
+
+As we've seen so far, the `diff:` and `commit:` searches will return results in reverse chronological order. Sometimes, however, you'll want to timebox results. This can be helpful if you're trying to see what changed while you were out on vacation, or if you know that a bug was introduced between two points in time and want to look at what changed only in that interval. 
+
+🔎 The trainer should demonstrate:
+
+* Using the `before:` and `after:` filters with natural language dates (e.g. `before:"1 day ago"` and `after:"1 year ago"`
+* Using the `before:` and `after:` filters with typed dates (e.g. `before:"july 1 2020"`). 
 
 ### Searching for added/removed text (`select:commit.diff.added` and `select:commit.diff.removed`)
 
+Finally, sometimes I want to look at changes to code that are specifically related to adding or removing content. Say that I know something _used_ to be in our docs, and I want to find out when we took it out. We can do that using the `select:` filter, which we'll talk about a little bit more in our next unit.
+
+🔎 The trainer should demonstrate:
+
+* How to use the `select:commit.diff.added` filter to find added content
+* How to use the `select:commit.diff.removed` filter to find removed content
+* How to use the auto-complete menus and the `tab` key to navigate to those filters if the customer forgets the syntax 
+
 ### Conclusion
+
+Sometimes, it's more useful to look at changes to the code rather than the code in its present state. With the `commit` and `diff` searches and their `author`, `before`, `after`, and `select:commit.diff` filters, it's possible to find useful changes to the code over time and discover the origin of content I'm interested in. Next, we'll discuss more advanced search filters outside of the `diff:` and `commit:` search types.
 
 ### Resources
 
