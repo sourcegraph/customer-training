@@ -1,6 +1,8 @@
+This training is a talk track covering our Sourcegraph 101 material. More senior CEs may prefer the [less plan format](lesson-plan.md), instead.
+
 # Sourcegraph 101
 
-**Topic:** This training is focused on end users, and serves as a start-from-zero training for new end users. Admin tasks and more advanced search functionality are covered in other trainings. The training is broken into 5 units, but you don't need to call the units out to the customer—they serve more as a way to structure the training for yourself.
+**Topic:** This training is focused on end users, and serves as a start-from-zero training for new end users. Admin tasks and more advanced search functionality are covered in other trainings. The training is broken into 5 units, but you don't need to call the units out to the customer—they serve more as a way to structure the training for yourself. 
 
 ## Intro
 
