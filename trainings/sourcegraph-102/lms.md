@@ -2,7 +2,7 @@
 
 ## Unit 1: Searching branches and revisions
 
-After completing this unit, you'll be able to: search non-default branches and tags of your repos.
+After completing this unit, customers will be able to: search non-default branches and tags of your repos.
 
 ### Intro
 
