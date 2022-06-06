@@ -57,7 +57,7 @@ Sometimes, you will want results from multiple branches _except for_ one or a fe
 
 ### Conclusion
 
-Sourcegraph's non-default revision search allows customers to search at any branch, tag, or commit hash in the codebase. Using the glob syntax, customers can run searches across a wide variety of revisions even without explicitly identifying them; they can also exclude results if needed. Combined wiht the commit search, covered next, this can be very powerful.
+Sourcegraph's non-default revision search allows customers to search at any branch, tag, or commit hash in the codebase. Using the glob syntax, customers can run searches across a wide variety of revisions even without explicitly identifying them; they can also exclude results if needed. Combined with the commit search, covered next, this can be very powerful.
 
 ### Resources
 
