@@ -29,7 +29,7 @@ In Sourcegraph, you have a few ways to search in these non-default branches.
 * Applying the `repo:` filter and then using the dynamic filters to pick a new branch
 * Applying the `repo:` filter and then using the dynamic filters to pick a new tag
 * Applying the `repo:` filter and then using the `rev:` and `@` filter syntax to filter manually
-* Running a `type:commit` search, opening the reults, and then using the `navigate at commit xyz` link to search at a particular commit hash
+* Running a `type:commit` search, opening the results, and then using the `navigate at commit xyz` link to search at a particular commit hash
 
 ❗️ Make sure to highlight that the `repo:` filter needs to be applied and pointed at a single repo (not partial-matching multiple) for the additional revision searches to work.
 
