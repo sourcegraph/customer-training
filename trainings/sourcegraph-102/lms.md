@@ -143,3 +143,76 @@ Sometimes, it's more useful to look at changes to the code rather than the code 
 - [Sourcegraph Search Documentation](https://docs.sourcegraph.com/code_search/reference/queries#search-pattern-syntax)
 - [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
+
+## Unit 3: Advanced search topics
+
+After completing this unit, customers will understand how to use several useful, advanced search filters not covered in Sourcegraph 101.
+
+### Boolean operators (`AND`, `NOT`, `OR`)
+
+Sometimes, when searching for code, developers may need to combine multiple queries together. Sourcegraph supports combining search phrases into more complete queries using the boolean `AND`, `NOT`, and `OR` operators. They work like they do in other search tools; if you want to group subqueries together, you can use parentheses to do so.
+
+A common use case for using Boolean filters is searching within multiple repos. As a developer, I may want to search in both my main production repo and a repo used internally for tests. To do so, I would use the `OR` operator, like so: `(repo:github.com/sourcegraph/sourcegraph$ OR repo:github.com/sourcegraph/customer-training$) (lang:Go OR lang:javascript)`. As you can see here, I'm searching for code in either of the two repos, and looking for code in either Golang or JavaScript. I can use parentheses to group those queries.
+
+The most frequent use case for the `AND` filter is searching for a file that contains two pieces of content, without requiring them to be in the same line. Searching `context:global repo:github.com/sourcegraph/sourcegraph$ new auth provider patternType:regexp` will show me files where `new`, `auth`, and `provider` appear in sequence together; however, if I simply want places where all three strings are present without caring about the order or proximity, I can search for `context:global repo:github.com/sourcegraph/sourcegraph$ new AND auth AND provider patternType:regexp` instead. 
+
+Finally, you may want to use the `NOT` filter to exclude a string from your search. Say you want to look for `auth` matches but want to ignore `author` matches—to do that, you'd search for `context:global auth NOT author patternType:regexp`. 
+
+One final note: sometimes, you will want to search for `AND`, `OR`, and `NOT` literally—say you're looking for a comment that contains them. To do so, you'll use the `content:` filter, such as: `context:global content:"// set and get" lang:go patternType:regexp`. Without the `content:` filter, those strings will be interpreted as Boolean operators, so make sure to use the `content:` filter when appropriate!
+
+### Searching for symbols (`type:symbol`)
+
+So far we've seen three types of search in Sourcegraph: our default code search, our `diff` search, and our `commit` search. Sourcegraph offers a fourth search mode, `type:symbol`. This allows you to specifically search for the names of symbols (such as functions, variables, classes, etc.) in your code, and results will be an easy-to-parse list of the symbols sorted by file.
+
+Like the other search types, the symbol type search can be applyed using `type:symbol` in your query, or by clicking `find a symbol` on the left side search bar. 
+
+![]()
+[Alt text: a screenshot showing the left sidebar's "find a symbol" link.] 
+
+When the `type:symbol` filter is appended to the query, the search will run against symbol names. So, `context:global new user type:symbol repo:sourcegraph patternType:regexp` would look for any function, structure, variable, etc. that contains the `new.*user` string in its name. Next to each search result will be an icon indicating the kind of symbol that it is; hovering over the icon will show the symbol type in a tool tip.
+
+### Using the `select:` keyword
+
+The `select:` filter is a very powerful way of grouping results. You saw us use this earlier with `select:diff.commit.added`; this allowed us to only view committed code that added the search term. You can use it to group results on other queries, too. This can be super useful when trying to figure out not just _where_ a particular match is occurring in your code, but which repos, overall, contain the match. For example, this way you can see a list of which repos rely on an out-of-date dependency, rather than just seeing the raw code containing the out-of-date dependency. 
+
+To find the files containing search results, add `select:file` to your query. So, for example, if I search `context:global bluebird@^3.0.5 patternType:literal`, I'll see a variety of results that contain the `bluebird@^3.0.5` string. If I search for `context:global bluebird@^3.0.5 select:file patternType:literal`, I'll see instead a list of the files that contain the reference to that version of Bluebird.
+
+Similarly, if I instead append `select:file.directory`, I'll see only the directories that contain the matching code, not the code itself. This can be helpful if your code always contains test files in a particular directory, for example.
+
+Adding `select:repo` to a query will show you all the repositories that contain results. This can be very helpful for finding out which projects are impacted by an out-of-date dependency that needs to be upgraded. For example, `context:global org\.apache\.logging\.log4j 2\.(0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15)(\.[0-9]+) patternType:regexp` shows me all references to out-of-date versions of Log4J in my code, but `context:global org\.apache\.logging\.log4j 2\.(0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15)(\.[0-9]+) select:repo patternType:regexp` will show me a list of the repos containing that code, instead. If you have individuals in charge of different repositories, that information is often most useful for figuring out who needs to be involved in remediation, rather than seeing the individual code matches.
+
+Finally, we offer the `select:symbol.symbolType` filter. This allows you to filter `type:symbol` searches to just a certain kind of symbol. For example, if I run a search for `context:global oauth repo:sourcegraph type:symbol  patternType:regexp`, I'll see variables, functions, packages, etc. that match the `oauth` search in any applicable repo. If I instead search for `context:global oauth repo:sourcegraph type:symbol select:symbol.function  patternType:regexp`, I will only see functions that match my query.
+
+### Repo contains file (`repo:contains.file(...)` and `repohasfile:`)
+
+Sometimes, as a developer I only want to search within a repo that has a particular file—say I want to find usages of a particular dependency but only in repos that have a license file, but I don't care about the contents of the file, just its presence. Using the `repo:contains.file(...)` filter allows me to do this.
+
+Say that legal wants to know which repos use a particular dependency and have a license file, because they're ensuring legal compliance. By searching for `context:global repo:contains.file(LICENSE) file:package-lock.json debug patternType:regexp`, I can see which `package-lock.json` files contain a reference to `debug` only in repos that have `license` files. If I want, I can even append the `select:repo` filter to search `context:global repo:contains.file(LICENSE) file:package-lock.json debug select:repo patternType:regexp`, and that will give me an easy list of repos to provide to the legal team. 
+
+If I want to exclude repos that contain a particular file, I can do so with a similar filter named `repohasfile:`. This filter, unlike `repo:contains.file(...)`, supports negation. So, if I want to only find repos that _don't_ contain a license file, I could quickly search `context:global -repohasfile:license select:repo patternType:regexp` to find that information.
+
+### Excluding stale repos (`repo:contains.commit.after(...)`)
+
+Oftentimes, as a developer I will want to search only in active repos. The easiest way to do this is to filter by commit date using `repo:contains.commit.after(...)`. This ensures that any repos without recent commits are excluded. The syntax is the same as the `before:` and `after:` filters covered previously. So, for example, `context:global repo:contains.commit.after(1 month ago) new auth provider patternType:regexp` will find any code matching the `new.*auth.*provider` search stored in repos that were updated in the last month.
+
+As a note, the filter doesn't support negation. A user can instead use `repo.contains.commit.after(...) select:repo` to get a list of repos and then exclude them in a follow-up query if needed.
+
+### Dependency search (`repo:deps(...)`)
+
+Sometimes, as a developer I don't want to search my own code, but the code of the dependencies that are present in my code. This can be helpful for looking at whether we're impacted by a 0-day, or understanding our code graph in general. To set this up, I'll first have to go to the code host page, which only admins will have access to. From there, I can follow these instructions to [configure dependency search](https://docs.sourcegraph.com/code_search/how-to/dependencies_search).
+
+If my instance admin has added dependency search, I can use the `repo:deps(...)` filter to search them. To do so, I'll replace `...` with my repo name. So, for example, `context:global repo:deps(github.com/sourcegraph/sourcegraph$) patternType:regexp` would return a list of all of the depdencies tracked in supported dependency management tools in the Sourcegraph monorepo. If I then add search terms, such as `log4j`, to build a query like `context:global repo:deps(github.com/sourcegraph/sourcegraph$) log4j patternType:regexp`. In doing so,  I can search those dependencies themselves for that string and find places where my depdencies might be intruding a vulnerability. 
+
+**Note:** This feature is in beta and does not support all dependency management tools. See linked documentation in the Resources section for more information.
+
+### Conclusion
+
+Sourcegraph offers a variety of advanced search filters. We covered boolean operators, symbol search, the `select:` keyword, the `repo:contains.file(...)` filter, how to exclude stale repos, and how to search your code's dependencies, if configured. Next up, we'll talk about our extensions platform.
+
+### Resources
+
+- [Sourcegraph](https://sourcegraph.com)
+- [Sourcegraph Search Documentation](https://docs.sourcegraph.com/code_search/reference/queries#search-pattern-syntax)
+- [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
+- [Sourcegraph Documentation](https://docs.sourcegraph.com)
+- [Dependencies Search](https://docs.sourcegraph.com/code_search/how-to/dependencies_search)
