@@ -216,3 +216,59 @@ Sourcegraph offers a variety of advanced search filters. We covered boolean oper
 - [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
 - [Dependencies Search](https://docs.sourcegraph.com/code_search/how-to/dependencies_search)
+
+## Unit 4: Sourcegraph extensions
+
+After completing this unit, customers will understand what Sourcegraph extensions are available and how to access them and the CLI.
+
+### What are Sourcegraph extensions?
+
+Sourcegraph has a fully-featured extensions platform. Because our extensions API is available to users, you can develop against it as well, and build your own extensions. This can be particularly useful if you have a custom-built tool that you use internally which you would like to connect to Sourcegraph. Our most popular extensions include our search export extension and our code editor integrations.
+
+### How to find and enable extensions
+
+Extensions are found and enabled on the Extensions page, represented by a puzzle icon on the top of the page.
+
+![]()
+[Alt text: A screenshot showing the location of the Extensions page icon.]
+
+To enable an extension, click on its name on the extensions page. From there, you will see a slider to enable it for all users of your instance (if you're an instance admin) and a slider to enable it for just yourself. Clicking that toggle will turn it blue, at which point you should have access to the extension.
+
+As an example, you can search for the `open-in-editor` extension. From there, you can enable the extension via the toggle.
+
+![]()
+[Alt text: A screenshot showing the enabled `open-in-editor` extension.]
+
+Some extensions require configuration. To confirm if the extension you're using requires configuration, click on its name. The page it brings you to will show you what, if any, customization is needed. You can add any listed customization in your settings page, accessible by clicking on your user icon on the top right of the page and selecting `Settings`.
+
+### Introduction to IDE plugins
+
+The `open-in-editor` extension discussed previously will allow you to open local copies of files from Sourcegraph on your computer. But you can also navigate from your editor to Sourcegraph, using our editor extensions. And if you use a supported editor, you can use Sourcegraph directly in your editor.
+
+To confirm if you can install Sourcegraph in your editor, please view our [supported editor extensions](https://docs.sourcegraph.com/integration/editor). These extensions are typically installed via the marketplace for the IDE in question.
+
+Users of the VSCode extension will have a more integrated experience than users of other IDEs. You will need to configure your extension as outlined on its install page; once installed, you can use Sourcegraph directly from VSCode, without a need to navigate to the browser.
+
+### The Sourcegraph CLI
+
+As a developer, I may want to use Sourcegraph from the command line. This is possible, using our CLI!
+
+The Sourcegraph CLI is documented on [GitHub](https://github.com/sourcegraph/src-cli), including the install process.
+
+Configuation is documented in that repo's `README`. You will need to generate a Sourcegraph PAT to use the CLI, and store it as an environment variable. 
+
+Once installed, you can view the CLI's functionality by typing `src` into your command line. To run a search, format your query as `src search 'query'`, with your query included in the quotes. For more information, type `src search -h`. 
+
+### Conclusions
+
+Sourcegraph extensions can be very powerful additions to give Sourcegraph "single pane of glass" access to your code. You can build your own extensions, and our CLI allows you to build your own queries without using the browser app. Users using some IDEs can even use Sourcegraph entirely in the IDE. During this course, we've covered advanced Sourcegraph functionality, such as searching non-default revisions, searching `diff` and `commit` content, and the `select:` filter. We also covered our extensions platform. With this knowledge, you're now empowered to run nuanced, expansive queries in Sourcegraph across all of your company's code.
+
+### Resources
+
+- [Sourcegraph](https://sourcegraph.com)
+- [Sourcegraph Search Documentation](https://docs.sourcegraph.com/code_search/reference/queries#search-pattern-syntax)
+- [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
+- [Sourcegraph Documentation](https://docs.sourcegraph.com)
+- [Sourcegraph Extensions Documentation](https://docs.sourcegraph.com/extensions)
+- [Sourcegraph CLI](https://docs.sourcegraph.com/cli)
+- [Sourcegraph Editor Integrations](https://docs.sourcegraph.com/integration/editor)
