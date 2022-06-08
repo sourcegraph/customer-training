@@ -12,7 +12,8 @@ Today's training builds on the search skills taught in Sourcegraph 101, focusing
 
 As covered in Sourcegraph 101, when searching code in Sourcegraph, the default behavior for the `repo:` filter is to return results from the `main`, `master`, or other default branch for a repo. 
 
-![]()
+![A screenshot of a default `repo:` filter search, showing only results from the main branch of the repository.](https://user-images.githubusercontent.com/9934079/172725861-cd796ca4-d10e-4700-8897-e824af3bd2d5.png)
+
 [Alt text: a screenshot of a default `repo:` filter search, showing only results from the main branch of the repository.]
 
 However, it's often useful to search for content on other branches, tags, or revisions. Common use cases for this include searching on a feature development or staging branch, rather than in production code. Take a moment to consider times when it's useful for you to see content on non-default branches that you may not have checked out locally.
@@ -21,19 +22,22 @@ In Sourcegraph, you have a few ways to search in these non-default branches.
 
 The first would be to run a search with a fully-qualified `repo:` filter, and then use the left side menu to narrow down to a recent branch or tag. If you primarily search with dynamic filters, this may be your primary way of searching for non-default branches and tags. 
 
-![]()
+![A screenshot of a default `repo:` filter search, showing the `repositories` selection now lists branches instead of repositories.](https://user-images.githubusercontent.com/9934079/172725944-6a473493-d8e7-4603-898f-68f9207817f6.png)
+
 [Alt text: a screenshot of a default `repo:` filter search, showing the `repositories` selection now lists branches instead of repositories.]
 
 The process is the same for both branches and tags; you'll want to toggle between the two on the side menu.
 
-![]()
+![A screenshot of a default `repo:` filter search, showing the `repositories` selection now lists tags instead of branches or repositories.](https://user-images.githubusercontent.com/9934079/172726018-78722b5d-13a2-46e8-90cb-60a025eed96c.png)
+
 [Alt text: a screenshot of a default `repo:` filter search, showing the `repositories` selection now lists tags instead of branches or repositories.]
 
 You can also manually filter to a branch using an `@` sign appended to the repo path, such as `repo:github.com/sourcegraph/sourcegraph$@3.18 ` to look for branches and tags named `3.18`. If you prefer to use a separate filter, you can—our `rev` filter works the same way. So, you could also run the search `repo:github.com/sourcegraph/sourcegraph$ rev:3.18` to return the same results. These do require the branch or tag name to be an exact match—to use fuzzy matching, you'll use glob syntax, which we'll discuss shortly.
 
 Finally, if you want to navigate code at a particular point in time, you can use the `type:commit` or `type:diff` search options, then open the search results and click `Browse files at @commitHash` to view files at that specific commit.
 
-![]()
+![A screenshot of a commit search result view highlighting the `Browse files at @commitHash` button](https://user-images.githubusercontent.com/9934079/172726114-b2b6c89c-b8d2-4e89-8352-85e65f5c5a3d.png)
+
 [Alt text: a screenshot of a commit search result view highlighting the `Browse files at @commitHash` button]
 
 These filters all rely on a repository being specified. If you don't have a `repo:` filter applied, or are trying to look for a branch or tag that doesn't exist in your specified repository or repositories, you'll see an error.
@@ -75,20 +79,19 @@ Sometimes, as a developer looking for code, I may not know where in the code the
 
 To run a commit message search, you can either add `type:commit` to your query manually (e.g. `repo:^github\.com/sourcegraph/sourcegraph$ type:commit gitserver`) or click the `Search commit messages` link on the left side of the search result page.
 
-![]()
+![A screenshot showing the location of the `Search commit messages` link on the left side of the page.](https://user-images.githubusercontent.com/9934079/172726198-da40a132-5ed0-4bfc-8324-058480ebda28.png)
+
 [Alt text: A screenshot showing the location of the `Search commit messages` link on the left side of the page.]
 
 When running a search of commit messages, the search will run on the commit message contents, not the changed code. (We'll cover how to do that in the next section.)
 
 Once you run a commit message search, you'll be presented with search results showing the matching commit messages, similar to how you would typically see matching code. Clicking on the commit message will bring you to a page showing all of the changes that happened in that commit, and the paths to each changed file. 
 
-![]()
+![A screenshot showing where the file path is displayed in a commit message result page, in order to navigate to that file at the specific commit.](https://user-images.githubusercontent.com/9934079/172726307-07af6c02-889c-46c3-a7af-fbb7cff6b03a.png)
+
 [Alt text: A screenshot showing where the file path is displayed in a commit message result page, in order to navigate to that file at the specific commit.]
 
 You can open a particular file at the commit you're looking at by clicking on its linked file path in the search result. You can also toggle between a `unified` view of the changes and a `split` view of the changes, depending on your preference.
-
-![]()
-[Alt text: A screenshot showing where the unified/split toggle is located on the search result page.]
 
 From this screen, you can also click on your code host icon in the top right of the page, and you'll be brought to the commit view in your code host. This can be useful if you use your code host for code review, as you'll be able to view additional comments on the merge request or pull request discussion page. 
 
@@ -98,12 +101,13 @@ We just saw that it's possible to search the contents of your colleagues' commit
 
 Similar to the commit message search, you can run a search over code changes by applying `type:diff` manually to your search, or clicking `Search diffs` on the left side navigation bar. 
 
-![]()
-[Alt text: A screenshot showing the location of the `Search diffs` link on the left side of the page.]
+![A screenshot showing the location of the `Search diffs` link on the left side of the page.]
+(https://user-images.githubusercontent.com/9934079/172726343-6482a82c-592b-4c46-8b9f-d54902f8b2c9.png)
 
 After you run the search, you'll see search results that highlight the changed code which triggered the match. 
 
-![]()
+![A screenshot showing a matching diff search result, highlighted with green for added code and red for removed code.](https://user-images.githubusercontent.com/9934079/172726402-bc572285-081b-4d31-a461-e0515c7f0ac1.png)
+
 [Alt text: A screenshot showing a matching diff search result, highlighted with green for added code and red for removed code.]
 
 Clicking into the result will bring you to the same view of the commit message and changed files as when viewing a commit message search result, and all of the same navigation options (clicking into individual files, opening a link to the code host) are available to you.
@@ -128,9 +132,11 @@ Finally, sometimes I want to look at changes to code that are specifically relat
 
 To do that, you'll want to add `select:commit.diff.added` or `select:commit.diff.removed` to your `type:diff` or `type:commit` searches. So, for example, `context:global repo:^github\.com/sourcegraph/sourcegraph$ type:diff new auth provider patternType:regexp` would show me all instances where the regular expression `new.*auth.*provider` was added to or removed from the `sourcegraph/sourcegraph` repo. If I narrow it down to just `context:global repo:^github\.com/sourcegraph/sourcegraph$ type:diff new auth provider select:commit.diff.added  patternType:regexp`, I'll see only places where that code was *added* to the codebase.
 
-If you don't remember the syntax, the Sourcegraph autocomplete filter will help you. Typing `select:` will display the options you can select; selecting the `diff` option will show the `.added` and `.removed` syntax.
+If you don't remember the syntax, the Sourcegraph autocomplete filter will help you. Typing `select:` will display 
+the options you can select; selecting the `diff` option will show the `.added` and `.removed` syntax.
 
-![]()
+![A screenshot showing the autocomplete menus associated with the `select:` filter.](https://user-images.githubusercontent.com/9934079/172726502-ec74d877-a03d-473b-9a94-390d2f252169.png)
+
 [Alt text: A screenshot showing the autocomplete menus associated with the `select:` filter.]
 
 ### Conclusion
@@ -166,7 +172,8 @@ So far we've seen three types of search in Sourcegraph: our default code search,
 
 Like the other search types, the symbol type search can be applyed using `type:symbol` in your query, or by clicking `find a symbol` on the left side search bar. 
 
-![]()
+![A screenshot showing the left sidebar's "find a symbol" link.](https://user-images.githubusercontent.com/9934079/172726552-66527cc4-a4aa-410f-9c52-0b226b3b277a.png)
+
 [Alt text: a screenshot showing the left sidebar's "find a symbol" link.] 
 
 When the `type:symbol` filter is appended to the query, the search will run against symbol names. So, `context:global new user type:symbol repo:sourcegraph patternType:regexp` would look for any function, structure, variable, etc. that contains the `new.*user` string in its name. Next to each search result will be an icon indicating the kind of symbol that it is; hovering over the icon will show the symbol type in a tool tip.
@@ -229,14 +236,16 @@ Sourcegraph has a fully-featured extensions platform. Because our extensions API
 
 Extensions are found and enabled on the Extensions page, represented by a puzzle icon on the top of the page.
 
-![]()
+![A screenshot showing the location of the Extensions page icon.](https://user-images.githubusercontent.com/9934079/172726617-ae8681ef-a2c3-4d6c-9095-409c58ef1072.png)
+
 [Alt text: A screenshot showing the location of the Extensions page icon.]
 
 To enable an extension, click on its name on the extensions page. From there, you will see a slider to enable it for all users of your instance (if you're an instance admin) and a slider to enable it for just yourself. Clicking that toggle will turn it blue, at which point you should have access to the extension.
 
 As an example, you can search for the `open-in-editor` extension. From there, you can enable the extension via the toggle.
 
-![]()
+![A screenshot showing the enabled `open-in-editor` extension.](https://user-images.githubusercontent.com/9934079/172726675-91075279-e2a9-4232-8ad7-fe5adc76038d.png)
+
 [Alt text: A screenshot showing the enabled `open-in-editor` extension.]
 
 Some extensions require configuration. To confirm if the extension you're using requires configuration, click on its name. The page it brings you to will show you what, if any, customization is needed. You can add any listed customization in your settings page, accessible by clicking on your user icon on the top right of the page and selecting `Settings`.
