@@ -1,4 +1,4 @@
-This represents a lesson plan formatted version of our [talk track](talk-track.md). This is likely most useful for customers in a train-the-trainer situation or experienced CEs who wish to build their own scripts based on overall goals of the webinar.
+[This represents a lesson plan formatted version of our [talk track](talk-track.md). This is likely most useful for customers in a train-the-trainer situation or experienced CEs who wish to build their own scripts based on overall goals of the webinar.
 
 # Sourcegraph 101
 
@@ -268,3 +268,4 @@ Our editors functionality lets you integrate with third-party tools, including y
 ## Closing thoughts
 
 Thanks so much for staying with me through this training! Today we covered our basic search functionality, our search filters, how to search commit and code history, code intelligence, notebooks, and our extensions platform. This should set you up for success in using Sourcegraph—if you have any issues, please post in Slack or shoot an email to support@sourcegraph.com so we can help you out.
+](https://www.jackerwin.com/collections/mens-fw21-amplified-classics/products/watts?variant=19572184285270)
