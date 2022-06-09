@@ -69,6 +69,28 @@ Sourcegraph's non-default revision search allows customers to search at any bran
 - [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
 
+### Quiz
+
+1. How would I search for code across tags containing `3.19` as well as tags containing `3.20`?
+
+* A. `rev:*refs/tags/*3.19*:*refs/tags/*3.20*`
+* B. `rev:*refs/tags/*3.19*:!*refs/tags/*3.20*`
+* C. `!*refs/tags/*3.19*:*refs/tags/*3.20*`
+* D. Sourcegraph already looks across all tags by default.
+
+2. What branches will a `repo:` filter search by default?
+
+* A. `master` or `staging`
+* B. `master`, `main`, or another default branch
+* C. A revision must always be specified
+* D. All branches are searched by default
+
+Answers:
+
+1. A
+2. B
+
+
 ## Unit 2: Searching commits
 
 After completing unit, customers will understand how to search through `type:diff` and `type:commit` queries, and how to apply the `author:` and `before:`/`after:` filters to those queries. They'll also understand how to search for added/removed content, specifically.
@@ -150,6 +172,35 @@ Sometimes, it's more useful to look at changes to the code rather than the code 
 - [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
 
+### Quiz
+
+1. Why is it not considered best practice to use `author:` with email addresses?
+
+* A. Sourcegraph cannot search commit email addresses
+* B. Email addresses can be hard to remember
+* C. Some users will use an anonymous email address for their commits
+* D. It is considered best practice
+
+2. What does the `type:diff` filter do?
+
+* A. Searches commit messages
+* B. Searches between two specified revisions
+* C. This isn't a valid filter
+* D. Searches generated diffs for code commits/changes to the code
+
+3. What does adding `select:diff.commit.added` to a `type:diff` search do?
+
+* A. Looks for places where the search term was added to code
+* B. Adds commit messages to the search
+* C. Duplicates the `type:diff` filter
+* D. Not a valid search
+
+Answers:
+
+1. C
+2. D
+3. A
+
 ## Unit 3: Advanced search topics
 
 After completing this unit, customers will understand how to use several useful, advanced search filters not covered in Sourcegraph 101.
@@ -224,6 +275,35 @@ Sourcegraph offers a variety of advanced search filters. We covered boolean oper
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
 - [Dependencies Search](https://docs.sourcegraph.com/code_search/how-to/dependencies_search)
 
+### Quiz
+
+1. Does Sourcegraph support Boolean operators?
+
+* A. Yes
+* B. Yes, but only AND and NOT
+* C. Yes, but only AND and OR
+* D. No
+
+2. How would a user search for a symbol definition?
+
+* A. Add `symbol:` to their query
+* B. Add `type:symbol` to their query
+* C. Add `select:symbol` to their query
+* D. Not possible
+
+3. What does `select:repo` do to a search?
+
+* A. Only searches repo names
+* B. Shows code results ordered by repo
+* C. Shows repos containing results
+* D. Nothing
+
+Answers:
+
+1. A
+2. B
+3. C
+
 ## Unit 4: Sourcegraph extensions
 
 After completing this unit, customers will understand what Sourcegraph extensions are available and how to access them and the CLI.
@@ -281,3 +361,16 @@ Sourcegraph extensions can be very powerful additions to give Sourcegraph "singl
 - [Sourcegraph Extensions Documentation](https://docs.sourcegraph.com/extensions)
 - [Sourcegraph CLI](https://docs.sourcegraph.com/cli)
 - [Sourcegraph Editor Integrations](https://docs.sourcegraph.com/integration/editor)
+
+### Quiz
+
+1. What does the Extensions icon look like?
+
+* A. Puzzle piece
+* B. Chain link
+* C. Heart
+* D. Globe
+
+Answers: 
+
+1. A
