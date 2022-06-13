@@ -81,20 +81,12 @@ The main focus of the home page is the search bar. By default, you’ll see cont
 
 ### The search mode buttons
 
-In addition to our default literal, or exact match, search mode, Sourcegraph offers two other search modes: regular expression, and structural search. To run a search in either of these modes, you’ll use the appropriate icons in the search bar, on the right-hand side of the bar, next to the search button. 
-
-🔎 The trainer should demonstrate:
-
-* How to run a regex search
-* How fuzzy matching works in regex search
-
+In addition to our default literal, or exact match, search mode, Sourcegraph offers two other search modes: regular expression, and structural search. To run a search in either of these modes, you’ll use the appropriate icons in the search bar, on the right-hand side of the bar, next to the search button.
 Sourcegraph also offers a structural search, useful for multiline, syntax-aware searching. 
 
 🔎 The trainer should demonstrate:
 
-* How to run a structural search
-* How the search is multiline
-* How the search is syntax-aware around things like nested parens
+* Where the buttons are located.
 
 ### The search results page
 
@@ -118,152 +110,150 @@ Sourcegraph offers three search modes (literal, regex, and structural) controlle
 - [Sourcegraph](https://sourcegraph.com)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
 
-## Unit 3: Introduction to filters
+## Unit 3: Introduction to searching
 
-**Learning goall:** By the end of this unit, users should understand how to use our filter functionality.
+**Learning goall:** By the end of this unit, users should understand how to use three search types.
 
-### Dynamic filters
+### Literal search
 
-Sourcegraph provides filters to narrow down your search result. You'll see on the top left here that it's suggesting filters based on the results that were returned.
+As we discussed in the last unit, literal search is Sourcegraph's default search option. Performing a literal search is useful when you know the exact string that you're looking for in a code base, like a particular function or variable name. You can find all occurrences of the name across multiple repositories by using your query as a literal pattern. It's also useful for finding textual content—like error messages or comments—in the code.
 
-The trainer should show:
+🔎 The trainer should demonstrate:
 
-* Where dynamic filters are located
-* How to apply a `lang:` filter from the dynamic filters, and what it does
-* How to apply a `file` or `-file:` filter from the dynamic filters, and what it does
-* The repositories listed under the dynamic filters, how they are listed (greatest to least number of results), and what happens when they're clicked on
-* How to search a non-default branch once the `repo:` filter is applied
+* Running a literal search, such as finding an error message
 
-### Type filters
 
-You can see here on the left of the scren, we have `find a symbol`, `search commit messages`, and `search diffs`. 
+### Regular expression search
 
-🔎 The trainer should show:
+Start searching with regular expression patterns by toggling the dot asterisk (.*) button towards the right-hand side of the search box. When you mouse over it you'll receive a tooltip that reads Enable regular expression. Once it is highlighted, you're ready to search with regular expressions. Sourcegraph uses RE2 regex syntax, and if you ever want to check your regex you can do so at a site like Regex 101.
 
-* What each of these searches does
-* How to search for a specific symbol
-* How to search for a specific term in a commit message
-* How to search for changes to code, and why that's beneficial versus file history
+🔎 The trainer should demonstrate:
 
-### Conclusion
+* Running a regular expression search, such as `\b(read|write)File\b`
+* Using a space for fuzzy matching
 
-With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
+### Structural search
+
+Structural search helps you search code for syntactical code patterns like function calls, arguments, `if...else statements`, and `try...catch statements`. It's useful for finding nested and recursive patterns as well as multi-line blocks of code. They're different from regular expressions because they take into account the syntax of code, like balanced brackets, quoted strings, and delimiters.
+
+To run a structural search, click the `[]` button in the search toolbar. Structural searches are limited to 30 lines of results by default. To return more results, add `count:all` or `count:100` (or any number) to your search.
+
+🔎 The trainer should demonstrate:
+
+* Running a structural search such as `context:global fprintf(stderr, ...) lang:c repo:^github\.com/torvalds/linux$ patternType:structural`
+* Finding `try..catch...finally` statements: `context:global try {...} catch (...) { } finally {...} lang:java patternType:structural`
+
+### Conclusion 
+
+Sourcegraph allows you to search using literal search, regular expression search, and structural search. In our next unit, we'll discuss how to use those search results, save searches, export search results, and share them with your team. We'll also discuss dynamic search filters and how to change how the search results are grouped and displayed.
 
 ### Resources
 
 - [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
 - [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 
-## Unit 4: Code intelligence
+## Unit 4: Search results
 
-**Learning goals:** By the end of this unit, users will know how our code intelligence functionality works and how they can use it.
+**Learning goals:** After completing this unit, you'll understand the search results page and how to export, save, and link to search results.
 
-### Viewing code intelligence in a file
+### Saving your search to run again
 
-So, I mentioned earlier that we offer code intelligence functionality, and I want to show that to you now.
+If your search is one which you run frequently, you can save it so that you can quickly use the search again. You have two ways to do this: search contexts and search snippets.
 
-🔎 The trainer should select a search result to demonstrate code intelligence in. Preference should be given to a file with precise code intelligence, if enabled. They should show:
+#### Search contexts
 
-* How to find references to a symbol
-* How to go to definition of a symbol
+Search contexts are a way to quickly search within a particular set of repos or files. If you're regularly searching within only your own team's repos, or only frontend or backend repos, search contexts are the way to do that!
 
-This code intelligence functionality is multi-repo, unlike in an IDE. If you have precise code intelligence enabled, that will provide you compiler-accurate `find references`/`go to definition` functionality.
+🔎 The trainer should demonstrate:
 
-### Conclusion 
+* How to save a search context
 
-Code intel allows you determine the downstream impacts of changes across repos, and for some languages you can have access to compiler-accurate code intelligence if enabled.
+#### Search snippets
 
-### Resources
+Setting up a search snippet will create a one-click link on the bottom left of the search filter menu. This allows you to add query contents with one click. This is super useful if you're regularly wanting to add a combo of filters or text to other queries.
 
-- [Code intelligence docs](https://docs.sourcegraph.com/code_intelligence)
+🔎 The trainer should demonstrate:
 
-## Unit 5: Notebooks
+* Creating a search snippet
+* Using a search snippet once created
 
-**Learning goals:** After this unit, users will understand the functionality of Notebooks and how to use them to share information with colleagues. 
+### Exporting search results 
 
-### What are notebooks?
+To export your search results, you will need to enable the `search-export` extension if it's not already enabled for your instance. To do that, click on the extensions icon (a puzzle piece on the top of the page) to open the extensions page. Search for `search-export`, and click the `enabled for me` slider until it turns blue.
 
-Our notebooks functionality is inspired by Jupyter notebooks—it's a great way to share code with your colleagues. 
+🔎 The trainer should demonstrate:
 
-🔎 The trainer should open a notebook of their choice, and discuss:
+* Enabling the search export extension
+* Using it to generate a CSV
 
-* How to use notebooks in lieu of wiki documentation for  new developers
-* Why having up-to-date searches embedded in that documentation is an improvmeent over current state
-* Their favorite notebook use cases
-* How to share a notebook with a colleague
+### Linking to search results
 
-### Creating notebooks
+Sourcegraph search results are meant to be shared! Whether sharing a link with a colleague to ask for more information on code they wrote, or using a link to facilitate pair programming, Sourcegraph is better when used together. To link to content in Sourcegraph, you can simply copy the URL in the browser bar and share it—that will link to the same page for anyone who has access to your Sourcegraph instance.
 
-To create a notebook, go to the notebooks tab and click "create notebook."
+If you're looking at the main/master branch of a repo and want to ensure that you're linking to the exact commit SHA when sharing the file, you'll want to click the link icon in the top right of the screen, below the search bar. That will update the page URL to be a permalink, and you can copy that URL and share it with teammates.
+
+🔎 The trainer should demonstrate:
+
+* How to link to a result from the browser bar
+* How to generate a permalink
+
+### Dynamic filters
+
+Sourcegraph provides filters to narrow down your search result. You'll see on the top left that it's suggesting filters based on the results that were returned. We'll dive into these in more detail in the next unit.
 
 🔎 The trainer should show:
 
-* How to create a notebook
-* What the individual blocks (markdown, code search, code reference, symbols) do
-* How to upload a `.snb.md` file to create a notebook
-* How to enable the Notepad feature, and what it does
+* Where dynamic filters are located
+
+### Changing how the search results are grouped and displayed
+
+Sourcegraph offers an important filter to group your results. If you search for `fizz buzz`, for example, you'll see all of the files, file names, and repos where `fizz buzz` appears. If you instead want to see all of the repos that contain the code that includes the string `fizz buzz`, you can do that with our `select:` filter. Adding `select:repo` will group the results by repo, and `select:file` will group them by file. This is super useful if you want to find all repos which contain a particular dependency, for example.
+
+🔎 The trainer should show:
+
+* Applying the `select:repo` filter
 
 ### Conclusion
 
-With notebooks, you can share code context and explanations with your teammates. The Notepad feature lets you build notebooks on the go.
+With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
 
-### Resources 
+## Unit 5: Basic search filters
 
-* [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
+**Learning goals:** After completing this unit, you'll be able to use Sourcegraph's most common search filters to structure a search query.
 
-## Unit 6: Extensions
+### Language (`lang:`)
 
-**Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
+The `lang:` filter allows you to narrow your search so that you only see results in a particular language. This can be particularly useful for filtering your results to a particular frontend or backend language, rather than the entire language stack available to you.
 
-### Intro to the extensions page
+### Repository (`repo:` filter)
 
-The final thing we'll look at today is our Extensions platform. You can access that by clicking the puzzle icon at the top right here.
+With the `repo:` filter, you can narrow search results to code in a particular repository or repositories of code. The `repo:` filter allows you to specify the repo path and allows for you to use a regex in the path, regardless of the search mode you're using. So, for example, `repo:.*/sourcegraph$` would find any repo named `sourcegraph`, no matter the code host it's stored on. The filter will handle substring matching by default, so searching `repo:sourcegraph` will find any repo with `sourcegraph` anywhere in its name.
+
+To use the `repo:` filter, you can either type it directly into your query, or use the list of repositories that are dynamically populated on the left side of the page after running an initial search.
+
+### File and directory path (`file:`) filter:
+
+Oftentimes, it's useful to limit your search results to a particular file—say you only want results from a particular directory because that's where test files are stored, or only need to see a dependency in Dockerfiles, not elsewhere in the code. To narrow those results down, add `file:` to your query.
+
+### The content (`content:`) filter
+
+Sometimes, you'll want to look for content that interacts with Sourcegraph's search query language—for example, you're looking for the literal string `lang:` in your code! To handle that, use our `content: filter`, and wrap your query in quotes. So, for example, `content:"lang:"` will let you search for that string without issue.
+
+### Negating filters
+
+By default, our filters are inclusive—you're searching for code that is in a particular repo, file, language, etc. However, those filters support exclusive searches, too—you can search for code that's not in a particular repo, file, or language. To do that, add a minus sign or hyphen (`-`) in front of a query, such as `new auth provider -lang:go` to find the new auth provider string everywhere except in Golang files.
+
+How to apply a `lang:` filter from the dynamic filters, and what it does
+* How to apply a `file` or `-file:` filter from the dynamic filters, and what it does
+* The repositories listed under the dynamic filters, how they are listed (greatest to least number of results), and what happens when they're clicked on
+* How to search a non-default branch once the `repo:` filter is applied
 
 🔎 The trainer should show:
 
-* How to access the Extensions page.
-
-### Editor extensions 
-
-We integrate with a variety of services here, a particularly important one is our Editors extensions.
-
-🔎 The trainer should show:
-
-* How to filter to just Editors extensions
-* How to enable the appropriate extension for the IDE the customer is using
-* Where the customer can see the appropriate config options for the extension (on the extension's own landing page)
-* How the `open in editor` button works, and its limitations (requiring the code to be stored locally)
-
-### VSCode extension
-
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everythign we've seen so far directly in VSCode.
-
-🔎 The trainer should show their VSCode window and share:
-
-* How to run a search in VSCode
-* The fact that this does not require the code to be stored locally
-
-### Browser extension
-
-The final thing I want to touch on is our browser extension, which you can see I have installed here.
-
-🔎 The trainer should move back to the browser, and show:
-
-* What the extension looks like when clicked
-* How to point it to the customer's own Sourcegraph instance
-* How to use the extension during code reivew
-* How to install the extension ([Install page](https://docs.sourcegraph.com/integration/browser_extension)
-
-### Conclusion
-
-Our editors functionality lets you integrate with third-party tools, including your editor, for a seamless experience.
-
-### Resources
-
-* [VSCode extension](https://marketplace.visualstudio.com/items?itemName=sourcegraph.sourcegraph)
-* [Editor plugins](https://docs.sourcegraph.com/integration/editor)
-* [Integrations](https://docs.sourcegraph.com/integration)
-* [Browser extension](https://docs.sourcegraph.com/integration/browser_extension)
+* Applying the `lang:` filter
+* Applying the `file:` filter and negating it
+* Applying the `repo:` filter from the sidebar and using that to navigate to a non-default branch
+* Applying the `content:` filter
 
 ## Closing thoughts
 
