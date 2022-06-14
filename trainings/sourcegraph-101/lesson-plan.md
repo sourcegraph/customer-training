@@ -252,7 +252,7 @@ The final thing I want to touch on is our browser extension, which you can see I
 * What the extension looks like when clicked
 * How to point it to the customer's own Sourcegraph instance
 * How to use the extension during code review
-* How to install the extension ([Install page](https://docs.sourcegraph.com/integration/browser_extension)
+* How to install the extension ([Install page](https://docs.sourcegraph.com/integration/browser_extension))
 
 ### Conclusion
 
