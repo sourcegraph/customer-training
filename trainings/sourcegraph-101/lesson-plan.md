@@ -193,7 +193,7 @@ Previously, you saw me run a `type:diff` search, in order to see changes to the 
 * Creating a new code monitor using "create copy of monitor" and applying a `repo:` filter
 * The fact that monitors can be connected to email, Slack, or webhooks
 
-❗️Typically, actually going through the entire Slack flow isn't necessary; instead, you can simply speak to it and share a recording afterwards if folks want more info. Additionally, appending `repo:.*` to the query will allow it to run over all repos.
+❗️Typically, actually going through the entire Slack flow isn't necessary; instead, you can simply speak to it and share a recording afterwards if folks want more info. 
 
 ❗️If the customer is interested in email monitors, identify a point person to configure the SMTP connection on the instance; without that, it won't be possible to use them.
 
