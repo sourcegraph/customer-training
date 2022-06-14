@@ -47,7 +47,7 @@ Typically, developers use Sourcegraph for [five key use cases](https://about.sou
 2. Accelerating developer onboarding for new team members - Allow new developers to answer their own questions by being able to search *all* code, rather than having to guess-and-check where the code they need is located.
 3. Resolving incidents faster - Easily search recent changes to the code to find what might have caused the issue.
 4. Streamlining code reuse - Surfacing code via search means it’s easier to avoid reinventing existing code, leading to more consistent, efficient coding practices.
-5. Improving code health - If you’re trying to change from an antipattern to a best practice, use Sourcegraph to see how much work there is to do across the entire codebase.
+5. Improving code health - If you’re trying to change from an anti-pattern to a best practice, use Sourcegraph to see how much work there is to do across the entire codebase.
 
 While working through the training, think about which of these use cases is most relevant to your day to day work. That will help you conceive of how Sourcegraph might be most relevant to your particular needs, so that you can get the most out of the tool.
 
@@ -120,13 +120,13 @@ Sourcegraph offers three search modes (literal, regex, and structural) controlle
 
 ## Unit 3: Introduction to filters
 
-**Learning goall:** By the end of this unit, users should understand how to use our filter functionality.
+**Learning goal:** By the end of this unit, users should understand how to use our filter functionality.
 
 ### Dynamic filters
 
 Sourcegraph provides filters to narrow down your search result. You'll see on the top left here that it's suggesting filters based on the results that were returned.
 
-The trainer should show:
+🔎 The trainer should show:
 
 * Where dynamic filters are located
 * How to apply a `lang:` filter from the dynamic filters, and what it does
@@ -136,7 +136,7 @@ The trainer should show:
 
 ### Type filters
 
-You can see here on the left of the scren, we have `find a symbol`, `search commit messages`, and `search diffs`. 
+You can see here on the left of the screen, we have `find a symbol`, `search commit messages`, and `search diffs`. 
 
 🔎 The trainer should show:
 
@@ -188,7 +188,7 @@ Our notebooks functionality is inspired by Jupyter notebooks—it's a great way 
 🔎 The trainer should open a notebook of their choice, and discuss:
 
 * How to use notebooks in lieu of wiki documentation for  new developers
-* Why having up-to-date searches embedded in that documentation is an improvmeent over current state
+* Why having up-to-date searches embedded in that documentation is an improvement over current state
 * Their favorite notebook use cases
 * How to share a notebook with a colleague
 
@@ -236,7 +236,7 @@ We integrate with a variety of services here, a particularly important one is ou
 
 ### VSCode extension
 
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everythign we've seen so far directly in VSCode.
+For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
 
 🔎 The trainer should show their VSCode window and share:
 
@@ -251,7 +251,7 @@ The final thing I want to touch on is our browser extension, which you can see I
 
 * What the extension looks like when clicked
 * How to point it to the customer's own Sourcegraph instance
-* How to use the extension during code reivew
+* How to use the extension during code review
 * How to install the extension ([Install page](https://docs.sourcegraph.com/integration/browser_extension)
 
 ### Conclusion
