@@ -32,7 +32,7 @@ Typically, developers use Sourcegraph for [five key use cases](https://about.sou
 2. Accelerating developer onboarding for new team members - Allow new developers to answer their own questions by being able to search *all* code, rather than having to guess-and-check where the code they need is located.
 3. Resolving incidents faster - Easily search recent changes to the code to find what might have caused the issue.
 4. Streamlining code reuse - Surfacing code via search means it’s easier to avoid reinventing existing code, leading to more consistent, efficient coding practices.
-5. Improving code health - If you’re trying to change from an antipattern to a best practice, use Sourcegraph to see how much work there is to do across the entire codebase.
+5. Improving code health - If you’re trying to change from an anti-pattern to a best practice, use Sourcegraph to see how much work there is to do across the entire codebase.
 
 While we're working together today, think about which of these use cases is most relevant to your day to day work. That will help you conceive of how Sourcegraph might be most relevant to your particular needs, so that you can get the most out of the tool.
 
@@ -118,7 +118,7 @@ Sourcegraph offers three search modes (literal, regex, and structural) controlle
 
 ## Unit 3: Introduction to filters
 
-**Learning goall:** By the end of this unit, users should understand how to use our filter functionality.
+**Learning goal:** By the end of this unit, users should understand how to use our filter functionality.
 
 ### Dynamic filters
 
@@ -182,6 +182,62 @@ Finally, I want to highlight how you can search commit messages. Say that I'm a 
 
 We'll dive more into how to use these `type:` filters in Sourcegraph 102, but I wanted to call your attention to them!
 
+### Saving searches
+
+Finally, I wanted to talk about how to save your searches so you can refer to them again. You have two ways to do this: search contexts and search snippets.
+
+#### Search contexts
+
+Search contexts are a way to quickly search within a particular set of repos or files. If you're regularly searching within only your own team's repos, or only frontend or backend repos, search contexts are the way to do that!
+
+To do this, I'm going to click on `context:global` in my query, and click on `Manage contexts`.
+
+*Click on `Manage contexts`*
+
+From there, I can click `Create search context` on the top right of the screen. 
+
+*Click on `Create search context`*
+
+From here, I can scope the context to either just my username—in which case it will be private to just me—or set a Global owner. That will mean everyone has access to that context. In this case, I'm going to make this a private context. 
+
+You can see here that I have the option to configure this via JSON or via a search query. I'm going to set this up via a search query. Say that I want a search query that only look at Sourcegraph repos, which are all in the `sourcegraph` org in Github. So, what I can do here is set a query for `repo:github.com/sourcegraph`. That will catch all those repos! 
+
+*Set `repo:github.com/sourcegraph` in the search context menu and save it*
+
+You'll see now that if I just want to look at the Sourcegraph org code, it's as easy as selecting that from the drop-down menu here.
+
+*Run a search in that new search context*
+
+#### Search snippets
+
+Alternatively, I can set up a search snippet. Setting up a search snippet will create a one-click link on the bottom left of the search filter menu. This allows you to add query contents with one click. This is super useful if you're regularly wanting to add a combo of filters or text to other queries.
+
+To set up a snippet, click on your user icon on the top right of the page, and click `Settings` to bring you to your settings page. Then, you'll add `search.scopes` to your settings, like so:
+
+*Set up a new search scope. Something such as:*
+
+```
+{
+ // ...
+ "search.scopes": [
+  {
+   "name": "fizz buzz",
+   "value": "context:global fizz buzz patternType:literal"
+  }
+ ]
+ // ...
+}
+
+```
+
+*should work*
+
+If I set this up in my own settings, it will just be a snippet for me. If I'm an admin and set this up in global settings, it will be a snippet for everyone on the instance. 
+
+*Navigate to the search screen*
+
+You can see here now that I can click on `fizz buzz` on the left of the screen, and it will append that snippet right to the query I'm running. 
+
 ### Conclusion
 
 With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
@@ -191,7 +247,39 @@ With our query filters, you can narrow things down to find just the content you 
 - [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
 - [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 
-## Unit 4: Code intelligence
+## Unit 4: Code Monitoring
+
+**Learning goals:** By the end of this unit, users will now how to configure a code monitor.
+
+### Configuring a code monitor
+
+Previously, you saw me run a `type:diff` search, in order to see changes to the code. If I want to be proactively informed about that search via email, Slack, or webhooks, that's possible too! To do so, I'll want to set up a code monitor. 
+
+To start, I'll go to our code monitor page.
+
+*Navigate to the code monitor page and navigate to the Getting Started tab if not already there.*
+
+I wanted to highlight the content on this Getting Started tab here. We've got several example code monitors here that you can auto-copy, if you want to use those as a jumping-off point. So, if I click `Create copy of monitor` on this `Bad coding patterns` example, you can see that it's auto-populated that query.
+
+*Click the `Create copy of monitor` link*
+
+I'll want to add the appropriate `repo:` filter here if I don't want to look over all repos, or if I leave it as-is, it will look over all repos on the instance. 
+
+From here, I can pick what I want it to do: I can have it send me an email every time there's a new hit, send me a Slack message, or post to an arbitrary webhook that I specify. 
+
+❗️Typically, actually going through the entire Slack flow isn't necessary; instead, you can simply speak to it and share a recording afterwards if folks want more info. 
+
+❗️If the customer is interested in email monitors, identify a point person to configure the SMTP connection on the instance; without that, it won't be possible to use them.
+
+### Conclusion
+
+Code monitors allow you to not only discover newly-committed code that matches a pattern or anti-pattern that you want to keep an eye on, but will proactively alert you to that code as it's added.
+
+### Resources
+
+* [Sourcegraph Code Monitoring documentation](https://docs.sourcegraph.com/code_monitoring)
+
+## Unit 5: Code intelligence
 
 **Learning goals:** By the end of this unit, users will know how our code intelligence functionality works and how they can use it.
 
@@ -219,7 +307,7 @@ Code intel allows you determine the downstream impacts of changes across repos, 
 
 - [Code intelligence docs](https://docs.sourcegraph.com/code_intelligence)
 
-## Unit 5: Notebooks
+## Unit 6: Notebooks
 
 **Learning goals:** After this unit, users will understand the functionality of Notebooks and how to use them to share information with colleagues. 
 
@@ -235,7 +323,7 @@ So you can see here that we're sharing information about the code—in this case
 
 For a lot of our customers, this replaces typed-out documentation that lives in a wiki tool like Confluence. Since the examples run live, you're not going to have out-of-date references here—devs can always see where you're using a particular pattern in the codebase today. 
 
-As I scroll down here, you can see that we're actually highlighting some parts of the code as it existed at a specific time in the codebase (in this case, symbol definitions). Our devs have written out info about why they're structured this way, and gotchas about using them. Now if a teammate has a question, they can send this along as a first step in allowing fokls to answer their own questions.
+As I scroll down here, you can see that we're actually highlighting some parts of the code as it existed at a specific time in the codebase (in this case, symbol definitions). Our devs have written out info about why they're structured this way, and gotchas about using them. Now if a teammate has a question, they can send this along as a first step in allowing folks to answer their own questions.
 
 ### Creating notebooks
 
@@ -261,7 +349,7 @@ With notebooks, you can share code context and explanations with your teammates.
 
 * [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
 
-## Unit 6: Extensions
+## Unit 7: Extensions
 
 **Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
 
@@ -289,7 +377,7 @@ We'll share this link with you after the presentation so you can install the rig
 
 ### VSCode extension
 
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everythign we've seen so far directly in VSCode.
+For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
 
 *Share VSCode, open the Sourcegraph extension, run a search*
 
