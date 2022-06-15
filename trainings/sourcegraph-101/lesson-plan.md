@@ -145,6 +145,31 @@ You can see here on the left of the screen, we have `find a symbol`, `search com
 * How to search for a specific term in a commit message
 * How to search for changes to code, and why that's beneficial versus file history
 
+### Saving searches
+
+If your search is one which you run frequently, you can save it so that you can quickly use the search again. You have two ways to do this: search contexts and search snippets.
+
+#### Search contexts
+
+Search contexts are a way to quickly search within a particular set of repos or files. If you're regularly searching within only your own team's repos, or only frontend or backend repos, search contexts are the way to do that!
+
+🔎 The trainer should show:
+
+* How to configure a search context based on a query
+* How to make the context private
+* How to make the context shared to the entire instance
+
+#### Search snippets
+
+Setting up a search snippet will create a one-click link on the bottom left of the search filter menu. This allows you to add query contents with one click. This is super useful if you're regularly wanting to add a combo of filters or text to other queries.
+
+🔎 The trainer should show:
+
+* Using a search snippet that they have saved
+* How to add a new search snippet for an individual user
+* How to add a new search snippet for the entire instance
+
+
 ### Conclusion
 
 With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
@@ -154,7 +179,33 @@ With our query filters, you can narrow things down to find just the content you 
 - [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
 - [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 
-## Unit 4: Code intelligence
+## Unit 4: Code Monitoring
+
+**Learning goals:** By the end of this unit, users will now how to configure a code monitor.
+
+### Configuring a code monitor
+
+Previously, you saw me run a `type:diff` search, in order to see changes to the code. If I want to be proactively informed about that search via email, Slack, or webhooks, that's possible too! To do so, I'll want to set up a code monitor.
+
+🔎 The trainer should show:
+
+* The example use cases on the "getting started" code monitor page
+* Creating a new code monitor using "create copy of monitor" and applying a `repo:` filter
+* The fact that monitors can be connected to email, Slack, or webhooks
+
+❗️Typically, actually going through the entire Slack flow isn't necessary; instead, you can simply speak to it and share a recording afterwards if folks want more info. 
+
+❗️If the customer is interested in email monitors, identify a point person to configure the SMTP connection on the instance; without that, it won't be possible to use them.
+
+### Conclusion
+
+Code monitors allow you to not only discover newly-committed code that matches a pattern or anti-pattern that you want to keep an eye on, but will proactively alert you to that code as it's added.
+
+### Resources
+
+* [Sourcegraph Code Monitoring documentation](https://docs.sourcegraph.com/code_monitoring)
+
+## Unit 5: Code intelligence
 
 **Learning goals:** By the end of this unit, users will know how our code intelligence functionality works and how they can use it.
 
@@ -177,7 +228,7 @@ Code intel allows you determine the downstream impacts of changes across repos, 
 
 - [Code intelligence docs](https://docs.sourcegraph.com/code_intelligence)
 
-## Unit 5: Notebooks
+## Unit 6: Notebooks
 
 **Learning goals:** After this unit, users will understand the functionality of Notebooks and how to use them to share information with colleagues. 
 
@@ -211,7 +262,7 @@ With notebooks, you can share code context and explanations with your teammates.
 
 * [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
 
-## Unit 6: Extensions
+## Unit 7: Extensions
 
 **Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
 

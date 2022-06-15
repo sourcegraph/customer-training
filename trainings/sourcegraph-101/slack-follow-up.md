@@ -8,6 +8,7 @@ I wanted to share resources about what we talked about:
 - [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 - [Sourcegraph documentation](https://docs.sourcegraph.com)
 - [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
+- [Code Monitoring documentation](https://docs.sourcegraph.com/code_monitoring)
 
 **Integrating with your IDE and other tools:**
 
