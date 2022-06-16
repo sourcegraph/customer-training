@@ -1,5 +1,7 @@
 This represents a lesson plan formatted version of our [talk track](talk-track.md). This is likely most useful for customers in a train-the-trainer situation or experienced CEs who wish to build their own scripts based on overall goals of the webinar.
 
+CEs who wish to see a walkthrough of the training can [view a recording in GDrive](https://drive.google.com/file/d/1emSuz6Q871OC2YOadcfkrUXfuopn6JCB/view?usp=sharing).
+
 # Sourcegraph 101
 
 **Topic:** This training is focused on learning to use Sourcegraph, starting from zero. More advanced topics are covered in other trainings, as are admin tasks. This document covers the training in lesson plan format. If you'd prefer a talk track, please see [this document](talk-track.md), instead.
