@@ -84,16 +84,16 @@ The maintenance section is your go-to for information on the instance.
 
 #### Updates 
 
-The updates section will show if there are updates for your instance! We update once a month, with optional addional patch releases throughout the month. You can click to view the changelog on this page, as well. 
+The updates section will show if there are updates for your instance! We update once a month, with optional additional patch releases throughout the month. You can click to view the change-log on this page, as well. 
 
 🔎 The trainer should demonstrate:
 
 * How to see if there's an available update
-* How to view the changelog
+* How to view the change-log
 
 #### Documentation
 
-Sourcegraph instances ship with their own copy of the docs site, also accessible at https://docs.sourcegraph.com. This is helpful if your site is airgapped, as you'll still be able to view the content on the docs site, and is helpful generally because you'll view the docs at the version your instance is currently on. 
+Sourcegraph instances ship with their own copy of the docs site, also accessible at https://docs.sourcegraph.com. This is helpful if your site is air-gapped, as you'll still be able to view the content on the docs site, and is helpful generally because you'll view the docs at the version your instance is currently on. 
 
 🔎 The trainer should demonstrate:
 
@@ -141,11 +141,11 @@ Clicking Tracing will bring you to the in-app Jaeger install. This is mostly use
 
 #### Instrumentation (Kubernetes-only)
 
-If you're running a Kuberentes install, you'll also have access to the Instrumentation link in the Maintenance panel. Clicking this will bring you to a panel showing metrics for individual kubernetes pods. You should not need to access the Instrumentation panel unless working with our support team.
+If you're running a Kubernetes install, you'll also have access to the Instrumentation link in the Maintenance panel. Clicking this will bring you to a panel showing metrics for individual Kubernetes pods. You should not need to access the Instrumentation panel unless working with our support team.
 
 🔎 The trainer should demonstrate:
 
-* How to acecss the Instrumentation panel on a Kubernetes install (sourcegraph.com will work)
+* How to access the Instrumentation panel on a Kubernetes install (sourcegraph.com will work)
 
 ❗️ If the customer isn't a Kubernetes customer, skip this section.
 
@@ -185,7 +185,7 @@ Sourcegraph shows admins individual user activity in-app. To see that, go to the
 
 🔎 The trainer should show:
 
-* How to access teh list of user data
+* How to access the list of user data
 * How to read the user data for a particular user
 
 ### Exporting user activity via CSV
@@ -281,7 +281,7 @@ User activity can be tracked in-app and via the API. This is the basis for user 
 
 ### Managing users in Sourcegraph
 
-Sourcegraph bills per seat, rather than per active user. As a result, you may want to remove inactive accounts over time, or as part of your employee offboarding process. This can be done in-app (best for one-off user removal) or via our API (best for ongoing or automated user management). User creation typically is less resource-intensive: unless configured otherwise, Sourcegraph will allow for Just In Time (JIT) user creation during signup, so that new users can log in as needed using the login method configured during instance standup.
+Sourcegraph bills per seat, rather than per active user. As a result, you may want to remove inactive accounts over time, or as part of your employee off-boarding process. This can be done in-app (best for one-off user removal) or via our API (best for ongoing or automated user management). User creation typically is less resource-intensive: unless configured otherwise, Sourcegraph will allow for Just In Time (JIT) user creation during signup, so that new users can log in as needed using the login method configured during instance standup.
 
 ❗️ This section is necessarily a little generic because the details will vary per customer. Typically at this point you will want to speak specifically to what the customer has configured for account creation.
 
@@ -300,13 +300,13 @@ If I want to remove a user or promote them to a site admin, I can do so in the U
 More commonly, our customers manage users via the API. This is an easy way to remove inactive users; we recommend removing inactive users once a quarter. (Because user activity data is stored for 90 days, we do not recommend waiting longer than 3 months.)
 
 
-To do that, your CE willl provide a script to you, or you can write your own using our graphQL API. In the script that the CE will provide, you'll follow the following format to remove users:
+To do that, your CE will provide a script to you, or you can write your own using our graphQL API. In the script that the CE will provide, you'll follow the following format to remove users:
 
 ```
 python3 cleanup_users.py -e http://sourcegraph.example.com -a YOUR_sudo_ACCESS_TOKEN -u YOUR_USERNAME -d 90
 ```
 
-You'll need to change your Sourcegraph external URL, provide your token, and provide your username. The `-d 90` is set to remove users inactive in the last 90 days; you can of course change that number depending on how you wish to run the script. It's worth noting that if a user is deleted and attempts to log in again, they will not have access to their saved search info or account customization—a brand new account will be creatd. As a result, we recommend only running this script once a quarter. 
+You'll need to change your Sourcegraph external URL, provide your token, and provide your username. The `-d 90` is set to remove users inactive in the last 90 days; you can of course change that number depending on how you wish to run the script. It's worth noting that if a user is deleted and attempts to log in again, they will not have access to their saved search info or account customization—a brand new account will be created. As a result, we recommend only running this script once a quarter. 
 
 Alternatively, you can remove an individual user using the CLI. To do that, run `src users delete -id=$(src users get -f='{{.ID}}' -username=alice)`, swapping the `alice` for your user's username.
 
@@ -346,7 +346,7 @@ If you click `edit` on the code host record, you can see a list of what repos ar
 
 If a user reports a repo isn't syncing, you'll want to go to the Repository status page. From there, you can search for the repo name. If it doesn't show up at all, add it to the code host connection, and make sure the PAT in place has access to the repo. But if the repo shows up, you can click into the Settings button to see more info about sync status.
 
-The Indexing tab will show the commit that was last indexed. The Mirroring and Permissions tabs will typically be most helpful to troubleshooting. Going to the Mirroring tab will let you see when teh repo was last refreshed, and show you whether or not the remote URL for the repo is reachable. You can click `Refresh now` to force a sync or `Check connection` to check the current status of the connection to the remote. If there's an error beint returned, you'll see it here, and can troubleshoot appropriately.
+The Indexing tab will show the commit that was last indexed. The Mirroring and Permissions tabs will typically be most helpful to troubleshooting. Going to the Mirroring tab will let you see when the repo was last refreshed, and show you whether or not the remote URL for the repo is reachable. You can click `Refresh now` to force a sync or `Check connection` to check the current status of the connection to the remote. If there's an error being returned, you'll see it here, and can troubleshoot appropriately.
 
 The Permissions tab will show the last time the permissions were synced for the repo, if enabled. If the repo is on the instance but a user cannot access the repo like you'd expect, you can force a resync of permissions here. You can also go to the Users section, click on the username, and go to the Permissions tab for the user, and resync permissions for just that user. Which you pick will depend on whether you're seeing issues for the repo with multiple people, or for just that user. 
 
@@ -367,3 +367,24 @@ Being able to find repo status on your own will allow you to troubleshoot repo i
 * [Code host connections](https://docs.sourcegraph.com/admin/external_service)
 
 ## Unit 5: Adding Global Search Contexts
+
+**Learning goals:** After completing this unit, an admin should understand how to add a global search context to the instance.
+
+### Adding search contexts
+
+As part of your work administering the instance, you may be asked to set up global search contexts. Search contexts are used to filter search results to a particular portion of the codebase—for example, if your company builds a new product, they may want a search context that will just show code related to that particular product. As an admin, you'll be able to add global search contexts, visible to all users on the instance.
+
+🔎 The trainer should demonstrate:
+
+* How to navigate to the search context creation menu
+* How to add a new query-based search context
+* How to ensure it's globally visible
+* How to edit or remove an existing search context
+
+### Conclusion 
+
+Adding search contexts will ensure that Sourcegraph search is maximally useful to your team, and as an admin you'll be able to create global contexts to share. This, combined with user management and other key site admin functionality, will ensure that you have the best overall experience managing the Sourcegraph instance.
+
+### Resources
+
+* [Search contexts](https://docs.sourcegraph.com/code_search/how-to/search_contexts)
