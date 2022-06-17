@@ -326,12 +326,44 @@ User management is important, and with tools provided by your CE, should take up
 
 ## Unit 4: Adding New Repos and Troubleshooting Repo Sync
 
-**Learning goals:** 
+**Learning goals:** After completing this unit, the customer should feel comfortable adding a repository and troubleshooting repo sync issues.
 
-### What is Sourcegraph?
+### Adding a repository
+
+One of the most important tasks an instance admin may find themselves taking on is adding new repos to the instance. Repos are pulled in via code host connections, visible on the Manage code hosts page. A code host connection consists of an access token for a specific code host and a list of repos that should sync using the connection. You can have multiple code hosts for an instance (connecting to multiple GitHub instances, or a GitHub and a GitLab instance), or can connect to the same code host multiple times in different code host objects (connecting to the same GitHub instance using two different access tokens). Where possible, we recommend using a minimum number of code host connections—ideally one per instance.
+
+You'll also set permissions syncing on the code host record. This shouldn't require modification over the life of the code host, but if you see an `authorization` value in the JSON, that's what it's controlling. Because code hosts use a PAT or machine user token, the token in question will need to have access to all the repos you need to sync; if you try to add a repo that isn't available to that token, sync will fail. 
+
+If you click `edit` on the code host record, you can see a list of what repos are being synced over. Usually, this will be a list of orgs or groups, where all the repos in the org/group are synced—this is more efficient than listing each repo individually. But, if you need to add an org or group or an individual repo, this is where you do that.
+
+🔎 The trainer should show:
+
+* The Manage code hosts page
+* How to add a new repo/project/group/org to an existing code host record
+* How to toggle permission enforcement using the `Enforce permissions` button
+
+### Checking repository status
+
+If a user reports a repo isn't syncing, you'll want to go to the Repository status page. From there, you can search for the repo name. If it doesn't show up at all, add it to the code host connection, and make sure the PAT in place has access to the repo. But if the repo shows up, you can click into the Settings button to see more info about sync status.
+
+The Indexing tab will show the commit that was last indexed. The Mirroring and Permissions tabs will typically be most helpful to troubleshooting. Going to the Mirroring tab will let you see when teh repo was last refreshed, and show you whether or not the remote URL for the repo is reachable. You can click `Refresh now` to force a sync or `Check connection` to check the current status of the connection to the remote. If there's an error beint returned, you'll see it here, and can troubleshoot appropriately.
+
+The Permissions tab will show the last time the permissions were synced for the repo, if enabled. If the repo is on the instance but a user cannot access the repo like you'd expect, you can force a resync of permissions here. You can also go to the Users section, click on the username, and go to the Permissions tab for the user, and resync permissions for just that user. Which you pick will depend on whether you're seeing issues for the repo with multiple people, or for just that user. 
+
+🔎 The trainer should demonstrate:
+
+* How to find a repo on the Repository status page
+* How to open settings for a repo
+* How to force a repo sync and check remote connection status
+* How to force a perms resync for a repo
+* How to force a perms resync for a user
 
 ### Conclusion
 
+Being able to find repo status on your own will allow you to troubleshoot repo issues without needing to wait on Sourcegraph support, and will allow you to provide an error message directly to the support team if you need to loop them in. The final aspect we'll touch on is how to configure global search contexts for your users.
+
 ### Resources
+
+* [Code host connections](https://docs.sourcegraph.com/admin/external_service)
 
 ## Unit 5: Adding Global Search Contexts
