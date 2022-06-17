@@ -277,13 +277,52 @@ User activity can be tracked in-app and via the API. This is the basis for user 
 
 ## Unit 3: User Management (In-App and Programatic)
 
-**Learning goals:** 
+**Learning goals:** After completing this unit, the customer will understand how to add and remove users in the app as well as via the API.
 
-### What is Sourcegraph?
+### Managing users in Sourcegraph
+
+Sourcegraph bills per seat, rather than per active user. As a result, you may want to remove inactive accounts over time, or as part of your employee offboarding process. This can be done in-app (best for one-off user removal) or via our API (best for ongoing or automated user management). User creation typically is less resource-intensive: unless configured otherwise, Sourcegraph will allow for Just In Time (JIT) user creation during signup, so that new users can log in as needed using the login method configured during instance standup.
+
+❗️ This section is necessarily a little generic because the details will vary per customer. Typically at this point you will want to speak specifically to what the customer has configured for account creation.
+
+If I want to remove a user or promote them to a site admin, I can do so in the Users page. To remove a user, I will click the trashcan icon. To promote them to a site admin, I'll click `Promote site admin`. I can also force sign out, if needed. This is very manual, but can be useful if you need to alter a specific user, quickly.
+
+❗️ When a user is removed from the customer's identity provider, they will not automatically be logged out of Sourcegraph and their account will not automatically be deleted. The customer will need to manually force a sign-out, or delete the account. The urgency can be minimized by configuring a short `auth.sessionExpiry` interval: https://docs.sourcegraph.com/admin/config/site_config#auth-sessionExpiry. Permissions will sync, however, so even if the account remains in place without ending the current session, scope of access is likely minimal. 
+
+🔎 The trainer should demonstrate:
+
+* How to promote a user to site admin in-app
+* How to delete a user in-app
+* How to reset a user password in-app *if* the customer is using username/password (uncommon)
+
+### Managing users via the API
+
+More commonly, our customers manage users via the API. This is an easy way to remove inactive users; we recommend removing inactive users once a quarter. (Because user activity data is stored for 90 days, we do not recommend waiting longer than 3 months.)
+
+
+To do that, your CE willl provide a script to you, or you can write your own using our graphQL API. In the script that the CE will provide, you'll follow the following format to remove users:
+
+```
+python3 cleanup_users.py -e http://sourcegraph.example.com -a YOUR_sudo_ACCESS_TOKEN -u YOUR_USERNAME -d 90
+```
+
+You'll need to change your Sourcegraph external URL, provide your token, and provide your username. The `-d 90` is set to remove users inactive in the last 90 days; you can of course change that number depending on how you wish to run the script. It's worth noting that if a user is deleted and attempts to log in again, they will not have access to their saved search info or account customization—a brand new account will be creatd. As a result, we recommend only running this script once a quarter. 
+
+Alternatively, you can remove an individual user using the CLI. To do that, run `src users delete -id=$(src users get -f='{{.ID}}' -username=alice)`, swapping the `alice` for your user's username.
+
+🔎 The trainer should demonstrate:
+
+* The user management script stored at https://github.com/sourcegraph/customer-assets (this is not a public repo, so the CE can share the information but the user cannot access the repo; you'll need to send the script as a zip file instead)
+* The results of running `src user delete -h` in the CLI, which walks through the various deletion options
 
 ### Conclusion
 
+User management is important, and with tools provided by your CE, should take up relatively little of your time. It is the most common task taken on by our instance admins after repo management, which we'll cover next.
+
 ### Resources
+
+* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets)
+* [CLI documentation](https://docs.sourcegraph.com/cli)
 
 ## Unit 4: Adding New Repos and Troubleshooting Repo Sync
 
