@@ -173,13 +173,107 @@ The admin section of the Sourcegraph site offers a variety of subsections that c
 
 ## Unit 2: Viewing and Exporting User Activity
 
-**Learning goals:** 
+**Learning goals:** After completing this unit, the customer will be able to export user activity and understand how to view a list of users.
 
-### What is Sourcegraph?
+### Viewing user activity
+
+Sourcegraph shows admins individual user activity in-app. To see that, go to the Usage Stats page. From there, you can see a list of users and their page views, search queries, code intelligence actions, and last active information for the last 90 days. 
+
+❗️ Rotating hosts can impact these numbers if Redis data is lost, so if the numbers don't seem to make sense, make sure that that hasn't happened. If it has, overall (aggregate) data will still be available from the CE.
+
+❗️ The numbers won't change if you select `Active today`, `Active this week`, etc. It simply impacts the list of users, but the numbers are all for the last 90 days. The list also cannot be sorted.
+
+🔎 The trainer should show:
+
+* How to access teh list of user data
+* How to read the user data for a particular user
+
+### Exporting user activity via CSV
+
+As an instance admin, I may want to export usage statistics via CSV in order to analyze them in another tool. To do that, I can navigate to the Usage stats page, and click `Download usage stats archive`. That will give me a CSV of the last 90 days of user activity, separated per day. Though this isn't how we recommend pulling this info in an ongoing fashion (we recommend our API, instead), it will allow you to pull that list for the current date.
+
+❗️ It isn't possible to customize the date interval for the usage stats archive, or customize the content of it.
+
+🔎 The trainer should demonstrate:
+
+* How to export the CSV
+* What the CSV contains
+
+### Exporting user activity via the API
+
+If I'm trying to pull usage activity in an ongoing fashion, the best approach is to use the API. This will show me user activity per user for the last 90 days. For example, running the query:
+
+```
+query{
+	users(first:1000){
+    nodes{
+      username
+      usageStatistics {
+        lastActiveTime
+        lastActiveCodeHostIntegrationTime
+        searchQueries
+        pageViews
+        codeIntelligenceActions
+        findReferencesActions
+      }
+    }
+  }
+}
+```
+
+will show me that information for the first 1,000 users in my instance. Similarly, I can pull DAU, WAU, and MAU numbers for my entire instance by running:
+
+```
+query{
+	site{
+    usageStatistics{
+      daus {
+        userCount
+      }
+      waus{
+        userCount
+      }
+      maus{
+        userCount
+      }
+    }
+  }
+}
+```
+
+If I want to see a list of this month's active users, that is also possible:
+
+```
+query {
+  users(activePeriod: THIS_MONTH) {
+    totalCount
+    nodes {
+      username,
+      usageStatistics {
+        lastActiveTime
+      }
+    	}
+  }
+}
+```
+
+Your CE can also pull ad-hoc reports on usage if requested.
+
+🔎 The trainer should demonstrate:
+
+* Running an API query to view activity for individual users
+* Running an API query to view overall DAU, WAU, and MAU 
+* Running an API query to view this month's active users
 
 ### Conclusion
 
+User activity can be tracked in-app and via the API. This is the basis for user management, which we'll discuss in the next unit.
+
 ### Resources
+
+* [Sourcegraph API](https://docs.sourcegraph.com/api/graphql)
+* [Sourcegraph GraphQL examples](https://docs.sourcegraph.com/api/graphql/examples)
+
 
 ## Unit 3: User Management (In-App and Programatic)
 
