@@ -314,7 +314,7 @@ Alternatively, you can remove an individual user using the CLI. To do that, run 
 
 🔎 The trainer should demonstrate:
 
-* The user management script stored at https://github.com/sourcegraph/customer-assets (this is not a public repo, so the CE can share the information but the user cannot access the repo; you'll need to send the script as a zip file instead)
+* The user management script stored at [https://github.com/sourcegraph/customer-assets](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk) (this is not a public repo, so the CE can share the information but the user cannot access the repo; you'll need to send the script as a zip file instead)
 * The results of running `src user delete -h` in the CLI, which walks through the various deletion options
 
 ### Conclusion
@@ -323,7 +323,7 @@ User management is important, and with tools provided by your CE, should take up
 
 ### Resources
 
-* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets)
+* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk)
 * [CLI documentation](https://docs.sourcegraph.com/cli)
 
 ## Unit 4: Adding New Repos and Troubleshooting Repo Sync
