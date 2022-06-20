@@ -301,7 +301,7 @@ User management is important, and with tools provided by your CE, should take up
 
 ### Resources
 
-* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets) (Private, will need to be granted access by your CE.)
+* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk) (Private, will need to be granted access by your CE.)
 * [CLI documentation](https://docs.sourcegraph.com/cli)
 
 ## Unit 4: Adding New Repos and Troubleshooting Repo Sync
