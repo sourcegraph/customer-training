@@ -123,9 +123,11 @@ This section tracks the progress of any migration run as part of an upgrade. Nor
 
 Clicking the "monitoring" link will bring you to the Grafana instance which ships with your instance. You can set up alerting for passing certain thresholds in the Grafana instance; more information is available in our docs. Our support team may ask you to review content in Grafana for troubleshooting.
 
+The main dashboard will be your overall landing page for the instance; you can see currently-firing alerts in red, and whether they're warning alerts or critical. We also have a Git server dashboard (covering cloning/fetching of repos), a Frontend dashboard (general load and search response time; "frontend" covers more than just the frontend of the app), Repo Updater (connections to the code host), and Zoekt (indexing for search on Sourcegraph itself). 
+
 🔎 The trainer should demonstrate:
 
-* How to access the Grafana dashboards
+* How to access the Grafana dashboards (and the main dashboard, gitserver, frontend, repoupdater, and zoekt dashboards)
 * How to configure alerts for Grafana ([documentation](https://docs.sourcegraph.com/admin/observability/alerting))
 * How to view a list of the included dashboards ([documentation](https://docs.sourcegraph.com/admin/observability/dashboards))
 
