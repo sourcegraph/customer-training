@@ -164,6 +164,20 @@ The admin section of the Sourcegraph site offers a variety of subsections that c
 * [Grafana alerting](https://docs.sourcegraph.com/admin/observability/alerting)
 * [Grafana dashboards](https://docs.sourcegraph.com/admin/observability/dashboards)
 
+### Quiz
+
+1. Where is a new license key added to the Sourcegraph instance?
+  * A. Global settings
+  * B. Admin's personal settings
+  * C. __Site Config__
+  * D. This is managed by the CE
+
+2. In what circumstances might you need to access the Pings page?
+  * A. To configure sending pings to Sourcegraph
+  * B. __If your instance is air-gapped__
+  * C. To disable pings to Sourcegraph
+  * D. This is not needed
+
 ## Unit 2: Viewing and Exporting User Activity
 
 **Learning goals:** After completing this unit, you will be able to export user activity and understand how to view a list of users.
@@ -263,6 +277,20 @@ User activity can be tracked in-app and via the API. This is the basis for user 
 * [Sourcegraph API](https://docs.sourcegraph.com/api/graphql)
 * [Sourcegraph GraphQL examples](https://docs.sourcegraph.com/api/graphql/examples)
 
+### Quiz
+
+1. What sort of API does Sourcegraph have?
+  * A. SOAP
+  * B. REST
+  * C. __GraphQL__
+  * D. No API access is provided
+
+2. How can you access user info about your instance?
+  A. CSV export
+  B. API calls
+  C. __A and B__
+  D. This is exclusively available from the CE
+
 ## Unit 3: User Management (In-App and Programatic)
 
 **Learning goals:** After completing this unit, you will understand how to add and remove users in the app as well as via the API.
@@ -303,6 +331,20 @@ User management is important, and with tools provided by your CE, should take up
 
 * [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk) (Private, will need to be granted access by your CE.)
 * [CLI documentation](https://docs.sourcegraph.com/cli)
+
+### Quiz
+
+1. How do you remove users from the app?
+  * A. In-app user management
+  * B. Via the API
+  * C. Ask your CE
+  * D. __A and B__
+
+2. Are users automatically removed from Sourcegraph if they're removed from your identity provider?
+  * A. Yes, if using code host OAuth
+  * B. Yes, if using SAML
+  * C. Yes, if using username/password
+  * D. __No__ 
 
 ## Unit 4: Adding New Repos and Troubleshooting Repo Sync
 
@@ -355,6 +397,20 @@ Being able to find repo status on your own will allow you to troubleshoot repo i
 
 * [Code host connections](https://docs.sourcegraph.com/admin/external_service)
 
+### Quiz
+
+1. How can you check if a repo is being synced to the instance?
+  * A. Ask your users
+  * B. Ask your CE
+  * C. __Check the code host settings in-app__
+  * D. Ask your CE
+
+2. Where are code host permissions enforced?
+  * A. Site settings
+  * B. __Code host config__
+  * C. Manually configured in the DB
+  * D. Sourcegraph doesn't support this
+
 ## Unit 5: Adding Global Search Contexts
 
 **Learning goals:** After completing this unit, you will understand how to add a global search context to the instance.
@@ -388,3 +444,19 @@ Adding search contexts will ensure that Sourcegraph search is maximally useful t
 ### Resources
 
 * [Search contexts](https://docs.sourcegraph.com/code_search/how-to/search_contexts)
+
+### Quiz
+
+1. What is a search context?
+  * A. Extra info about a search
+  * B. A one-click saved search
+  * C. A note to self
+  * D. __A way of scoping searches to a specific query__
+
+2. Why is it good to add search contexts?
+  * A. __It will make Sourecegraph maximally useful to your team__
+  * B. It makes search results more accurate
+  * C. It will make searches quicker
+  * D. It isn't
+
+
