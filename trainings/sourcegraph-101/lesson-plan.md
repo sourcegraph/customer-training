@@ -318,6 +318,37 @@ Our editors functionality lets you integrate with third-party tools, including y
 * [Integrations](https://docs.sourcegraph.com/integration)
 * [Browser extension](https://docs.sourcegraph.com/integration/browser_extension)
 
+## Unit 8 (Optional): Code Insights
+
+**Learning goals:** After this unit, customers will understand what Code Insights is, how to create a Code Insight, and how to share a Code Insight.
+
+### Intro to Code Insights
+
+As a developer, I may want to track the progress of changes in my code—seeing what versions of a dependency we're using to ensure we're not using out-of-date libraries, tracking linter skips to ensure that we're not bypassing important best practices, or seeing if we're making progress on an internal initiative to ensure all repos have codeowners files. With Insights, I can easily make graphs out of my searches, and so in doing so can track these sorts of initiatives over time, and share them with my colleagues. If you can search it, you can see it!
+
+❗️ This can be a good point to stop and ask what kind of initiatives the customer is tracking, or how they're accomplishing this sort of thing today. That can influence your talk track for what you then show them. 
+
+🔎 The trainer should show:
+
+* The Insights dashboard of their choosing (when in doubt, default to [[Overview] Popular Uses](https://demo.sourcegraph.com/insights/dashboards/ZGFzaGJvYXJkOnsiSWRUeXBlIjoiY3VzdG9tIiwiQXJnIjo3NDU0Nn0=))
+* How to interpret the results of one of the graphs
+* How to access the individual search results from the graphs by clicking in to a data point
+* How to track versions using a `Detect and track patterns` Insight from the Insight creation page
+* How to create a `Track changes` Insight from search results rather than the Insight creation page
+
+❗️Typically actually creating an Insight isn't required—the key is for the user to come away understanding that Insights can be created from the Insights page or from search results.
+
+### Conclusion
+
+The Insights functionality can be a super powerful way to ensure that everyone at your organization can access the same understanding of what's going on in your code, from your code itself. Sharing Insights is a great way to ensure you're on the same page as your colleagues.
+
+### Resources
+
+* [Code Insights Documentation](https://docs.sourcegraph.com/code_insights)
+* [Creating a Code Insight](https://docs.sourcegraph.com/code_insights/quickstart)
+* [Creating a Version Tracking Insight](https://docs.sourcegraph.com/code_insights/explanations/automatically_generated_data_series)
+* [Common Use Cases and Recipes](https://docs.sourcegraph.com/code_insights/references/common_use_cases)
+
 ## Closing thoughts
 
 Thanks so much for staying with me through this training! Today we covered our basic search functionality, our search filters, how to search commit and code history, code intelligence, notebooks, and our extensions platform. This should set you up for success in using Sourcegraph—if you have any issues, please post in Slack or shoot an email to support@sourcegraph.com so we can help you out.
