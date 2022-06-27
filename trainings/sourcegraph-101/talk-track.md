@@ -410,6 +410,61 @@ Our editors functionality lets you integrate with third-party tools, including y
 * [Integrations](https://docs.sourcegraph.com/integration)
 * [Browser extension](https://docs.sourcegraph.com/integration/browser_extension)
 
+## Unit 8 (Optional): Code Insights
+
+**Learning goals:** After this unit, customers will understand what Code Insights is, how to create a Code Insight, and how to share a Code Insight.
+
+### Intro to Code Insights
+
+As a developer, I may want to track the progress of changes in my code—seeing what versions of a dependency we're using to ensure we're not using out-of-date libraries, tracking linter skips to ensure that we're not bypassing important best practices, or seeing if we're making progress on an internal initiative to ensure all repos have codeowners files. With Insights, I can easily make graphs out of my searches, and so in doing so can track these sorts of initiatives over time, and share them with my colleagues. If you can search it, you can see it!
+
+❗️ This can be a good point to stop and ask what kind of initiatives the customer is tracking, or how they're accomplishing this sort of thing today. That can influence your talk track for what you then show them. 
+
+To start, I'm going to show an example dashboard of Code Insights on our instance.
+
+_Open [[Overview] Popular Uses](https://demo.sourcegraph.com/insights/dashboards/ZGFzaGJvYXJkOnsiSWRUeXBlIjoiY3VzdG9tIiwiQXJnIjo3NDU0Nn0=)) on Demo_
+
+As you'll see here, we've got a variety of graphs showing. These graphs sit on the back of our search functionality—they show the number of search results for a particular query at a point in time, and then graph the results. If I want to explore an Insight in-depth, I can click on its name.
+
+_Navigate to [Repos with README files](https://demo.sourcegraph.com/insights/insight/aW5zaWdodF92aWV3OiJzZWFyY2hJbnNpZ2h0cy5pbnNpZ2h0LnJlcG9zV2l0aFJlYWRtZUZpbGVzLXVzZXItMTgi)_
+
+So in this case, I'm tracking which repos have README files, and of those, which are populated. This can be super helpful if I'm trying to encourage README use! 
+
+_Click into a data point._
+
+As you can see, when I click in here, this is running on top of this particular search query. This is tracking the changes between the previous data point and the one I clicked on. 
+
+_Explain the specific search query you clicked on._
+
+As a result of having Insights available, it becomes trivially easy for me to track this info and share it with my teammates and other stakeholders who are interested in the outcome—and once I set it up, I don't have to do anything, the graph will auto-update. 
+
+_Navigate back to the Insights dashboard you were using._
+
+So, if I want to create my own, I can click on `Create Insight` in the top right of the page. You'll see we have three types of Insights—`Track Changes` tracks number of occurrences of a search over time, `Detect and track patterns` does the same but allows you to use a regex capture group as a placeholder, and language insights will generate a snapshot-in-time view of the language breakdown of your code. If I click into `Detect and track patterns` here, you'll see that I can create a new Insight. 
+
+_Show the Insight creation form that link opens up._
+
+With `Detect and Track Patterns`, like I mentioned earlier, you can use a regex capture group, `(.*)`, to indicate where the variable is that the graph should split on. This is most useful for tracking versions—I don't want to have to hand-pick every possible version; this will auto-detect them and build the appropriate graph automatically. Super useful for security teams!
+
+However, I can also create Insights directly from search results. 
+
+_Run a search._
+
+You'll see on the top right of the results page here that I can click `Create Insight`. If I do that, it will open up the Insight creation flow directly. Either way works!
+
+❗️Typically actually creating an Insight isn't required—the key is for the user to come away understanding that Insights can be created from the Insights page or from search results.
+
+### Conclusion
+
+The Insights functionality can be a super powerful way to ensure that everyone at your organization can access the same understanding of what's going on in your code, from your code itself. Sharing Insights is a great way to ensure you're on the same page as your colleagues.
+
+### Resources
+
+* [Code Insights Documentation](https://docs.sourcegraph.com/code_insights)
+* [Creating a Code Insight](https://docs.sourcegraph.com/code_insights/quickstart)
+* [Creating a Version Tracking Insight](https://docs.sourcegraph.com/code_insights/explanations/automatically_generated_data_series)
+* [Common Use Cases and Recipes](https://docs.sourcegraph.com/code_insights/references/common_use_cases)
+
 ## Closing thoughts
 
 Thanks so much for staying with me through this training! Today we covered our basic search functionality, our search filters, how to search commit and code history, code intelligence, notebooks, and our extensions platform. This should set you up for success in using Sourcegraph—if you have any issues, please post in Slack or shoot an email to support@sourcegraph.com so we can help you out.

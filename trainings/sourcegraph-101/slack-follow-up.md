@@ -16,6 +16,11 @@ I wanted to share resources about what we talked about:
 - [Editor plugins](https://docs.sourcegraph.com/integration/editor)
 - [Browser extension](https://docs.sourcegraph.com/integration/browser_extension)
 
+**Code Insights Resources**
+
+- [Code Insights Documentation](https://docs.sourcegraph.com/code_insights)
+- [Common Use Cases and Recipes](https://docs.sourcegraph.com/code_insights/references/common_use_cases)
+
 **Info on how others use the tool:**
 
 - [Sourcegraph Use Cases](https://about.sourcegraph.com/use-cases)
