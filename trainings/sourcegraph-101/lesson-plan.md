@@ -349,6 +349,49 @@ The Insights functionality can be a super powerful way to ensure that everyone a
 * [Creating a Version Tracking Insight](https://docs.sourcegraph.com/code_insights/explanations/automatically_generated_data_series)
 * [Common Use Cases and Recipes](https://docs.sourcegraph.com/code_insights/references/common_use_cases)
 
+## Unit 9 (Optional): Batch Changes
+
+**Learning goals:** After this unit, customers will understand what Batch Changes is, how to create a Batch Change, and how to track the progress of a Batch Change.
+
+### Intro to Batch Changes
+
+As a developer, I may want to change something across many places in my code. For example, I might want to change insensitive language, or might want to apply a linter across multiple repos all at once. Or, I might want to easily bump a dependency version across all of my code, to ensure that I'm not impacted by a vulnerability. With Sourcegraph Batch Changes, it's easy to do this and to track progress.
+
+Sourcegraph Batch Changes follow the following workflow:
+
+1. I identify a Sourcegraph query that will find all the repos I want to modify
+2. I script the change I want to make—this can be as simple as a quick find and replace using a bash script, or as complex as spinning up our build environment and pinning transitive dependencies 
+3. Sourcegraph runs the batch change on those repos either locally or on the Sourcegraph instance
+4. It opens PRs on my behalf, and I can comment on them, merge them, close them, or simply track their status in Sourcegraph.
+5. I'm able to see progress on my change via a burndown chart in Sourcegraph, and am able to confidently answer questions about the progress of the change.
+
+It's a huge force multiplier, particularly for teams working across multiple parts of your codebase, such as DevOps or Security teams.
+
+🔎 The trainer should demonstrate:
+
+* How to access the Batch Changes page
+* How to open an in-progress Batch Change of the trainer's choice
+* How to view the spec for that Batch Change
+* What, at a high level, the parts of the spec are doing (defining the repo list, making the change, determining PR contents, etc.)
+* How to filter PRs by status, check state, and review state
+* What bulk actions (publishing, commenting, merging, closing) are available
+* What the burndown chart looks like and how to filter the burndown chart
+
+
+❗️ You may wish to use [this batch change](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign) to show dashboard filtering and the burndown chart, while using another to explain the spec format.
+
+❗️ It may be worth emphasizing to the customer that Sourcegraph search is used to find the associated repos, but does not limit what actions they can take—those are essentially limited only by what can be scripted by the end user.
+
+### Conclusion
+
+With Batch Changes, I can make a huge impact in my codebase for things as small as a version bump to things as large as a significant refactor, and I have a live-updating dashboard to track how that progress is going. No more spreadsheets and wrangling folks in Slack to coordinate work!
+
+### Resources
+
+* [Batch Changes documentation](https://docs.sourcegraph.com/batch_changes)
+* [Batch Changes examples repo](https://github.com/sourcegraph/batch-change-examples)
+* [Batch changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+
 ## Closing thoughts
 
 Thanks so much for staying with me through this training! Today we covered our basic search functionality, our search filters, how to search commit and code history, code intelligence, notebooks, and our extensions platform. This should set you up for success in using Sourcegraph—if you have any issues, please post in Slack or shoot an email to support@sourcegraph.com so we can help you out.
