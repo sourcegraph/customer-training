@@ -324,7 +324,7 @@ Our editors functionality lets you integrate with third-party tools, including y
 
 ### Intro to Code Insights
 
-As a developer, I may want to track the progress of changes in my code—seeing what versions of a dependency we're using to ensure we're not using out-of-date libraries, tracking linter skips to ensure that we're not bypassing important best practices, or seeing if we're making progress on an internal initiative to ensure all repos have codeowners files. With Insights, I can easily make graphs out of my searches, and so in doing so can track these sorts of initiatives over time, and share them with my colleagues. If you can search it, you can see it!
+As a developer, I may want to track the progress of changes in my code—seeing what versions of a dependency we're using to ensure we're not using out-of-date libraries, tracking the progress of a refactor or migration, seeing the adoption growth of internal libraries and components, tracking linter skips to monitor best practices, or to track and ensure all repos have codeowners files or are connected to CI. With Insights, I can easily make graphs out of my searches, and so in doing so can track these sorts of initiatives over time, and share them with my colleagues. If you can search it, you can see it!
 
 ❗️ This can be a good point to stop and ask what kind of initiatives the customer is tracking, or how they're accomplishing this sort of thing today. That can influence your talk track for what you then show them. 
 
@@ -336,7 +336,9 @@ As a developer, I may want to track the progress of changes in my code—seeing 
 * How to track versions using a `Detect and track patterns` Insight from the Insight creation page
 * How to create a `Track changes` Insight from search results rather than the Insight creation page
 
-❗️Typically actually creating an Insight isn't required—the key is for the user to come away understanding that Insights can be created from the Insights page or from search results.
+❗️Typically actually creating an Insight isn't required—the key is for the user to come away understanding that Insights can be created from the Insights page or from search results. 
+
+The hardest part, and most valuable thing to help with, for most customers and non-Sourcegraph-power-users is refining the regular expression or literal search that actually helps them track what they need. You can direct them to the in-product templates, also [listed here](https://docs.sourcegraph.com/code_insights/references/common_use_cases), but even better is to leave time to work with them to set up the query they need. 
 
 ### Conclusion
 
