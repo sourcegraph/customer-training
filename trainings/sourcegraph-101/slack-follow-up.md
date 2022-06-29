@@ -25,7 +25,8 @@ I wanted to share resources about what we talked about:
 
 * [Batch Changes documentation](https://docs.sourcegraph.com/batch_changes)
 * [Batch Changes examples repo](https://github.com/sourcegraph/batch-change-examples)
-* [Batch changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes Quickstart](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec)
 
 **Info on how others use the tool:**
 
