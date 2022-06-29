@@ -481,7 +481,7 @@ So, to show how this works, I'm going to open up a Batch Change here.
 
 Batch Changes are controlled by what we call a Batch Change spec, which is YAML that outlines what repos I want to make changes to, and what change will be made. Sourcegraph Batch Changes follow the following workflow:
 
-1. I identify a Sourcegraph query that will find all the repos I want to modify—you can see that at th etop of the spec here.
+1. I identify a Sourcegraph query that will find all the repos I want to modify—you can see that at the top of the spec here.
 2. I script the change I want to make—this can be as simple as a quick find and replace using a bash script, or as complex as spinning up our build environment and pinning transitive dependencies 
 3. Sourcegraph runs the batch change on those repos either locally or on the Sourcegraph instance
 4. It opens PRs on my behalf, and I can comment on them, merge them, close them, or simply track their status in Sourcegraph.
@@ -495,7 +495,15 @@ If I click into the individual PR, I can even see a summary of what the change i
 
 *Click to expand the diff.*
 
-To highlight this even further, I want to show a larger batch change.
+To quickly show you what the process of creating a batch change looks like, I'm going to run an [example batch change](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec). I'm going to be running this in the browser, but you can also run this from our CLI—I'm happy to dive into details offline if you want more info.
+
+_Open the [Create batch change](https://demo.sourcegraph.com/batch-changes/create) menu_
+
+This batch change appends `hello world` to `readme.md` files. I can run this in the browser, and if I click `Preview workspaces`, it will show me matching repos. I'm going to go ahead and run the change, and if I click in to the repo name, you'll see it's tracking what it's changing.
+
+_Click in to the repo name to show the changes._
+
+Now if I click `Preview` here, it will publish it to Sourcegraph, but not the code host—to do that, I'd click that `Apply` button here. However, I'm going to leave this batch change unpublished, and show you an already-created batch change from our own code base.
 
 *Open [this batch change](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign).*
 
@@ -529,7 +537,8 @@ With Batch Changes, I can make a huge impact in my codebase for things as small 
 
 * [Batch Changes documentation](https://docs.sourcegraph.com/batch_changes)
 * [Batch Changes examples repo](https://github.com/sourcegraph/batch-change-examples)
-* [Batch changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes Quickstart](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec)
 
 ## Closing thoughts
 
