@@ -1,4 +1,4 @@
-This training is a talk track covering our Sourcegraph 101 material. More senior CEs may prefer the [less plan format](lesson-plan.md), instead.
+This training is a talk track covering our Sourcegraph 101 material. More senior CEs may prefer the [lesson plan format](lesson-plan.md), instead.
 
 # Sourcegraph 101
 
@@ -464,6 +464,81 @@ The Insights functionality can be a super powerful way to ensure that everyone a
 * [Creating a Code Insight](https://docs.sourcegraph.com/code_insights/quickstart)
 * [Creating a Version Tracking Insight](https://docs.sourcegraph.com/code_insights/explanations/automatically_generated_data_series)
 * [Common Use Cases and Recipes](https://docs.sourcegraph.com/code_insights/references/common_use_cases)
+
+## Unit 9 (Optional): Batch Changes
+
+**Learning goals:** After this unit, customers will understand what Batch Changes is, how to create a Batch Change, and how to track the progress of a Batch Change.
+
+### Intro to Batch Changes
+
+As a developer, I may want to change something across many places in my code. For example, I might want to change insensitive language, or might want to apply a linter across multiple repos all at once. Or, I might want to easily bump a dependency version across all of my code, to ensure that I'm not impacted by a vulnerability. With Sourcegraph Batch Changes, it's easy to do this and to track progress. So, to check this out, I'm going to open the Batch Changes page. 
+
+*Open Batch Changes page.*
+
+So, to show how this works, I'm going to open up a Batch Change here. 
+
+*Open [this batch change](https://demo.sourcegraph.com/users/christine/batch-changes/java-remove-catch?visible=7) and navigate to the spec.*
+
+Batch Changes are controlled by what we call a Batch Change spec, which is YAML that outlines what repos I want to make changes to, and what change will be made. Sourcegraph Batch Changes follow the following workflow:
+
+1. I identify a Sourcegraph query that will find all the repos I want to modify—you can see that at the top of the spec here.
+2. I script the change I want to make—this can be as simple as a quick find and replace using a bash script, or as complex as spinning up our build environment and pinning transitive dependencies 
+3. Sourcegraph runs the batch change on those repos either locally or on the Sourcegraph instance
+4. It opens PRs on my behalf, and I can comment on them, merge them, close them, or simply track their status in Sourcegraph.
+5. I'm able to see progress on my change via a burndown chart in Sourcegraph, and am able to confidently answer questions about the progress of the change.
+
+So, if I navigate to the open changeset page, I can see the PRs for this batch change.
+
+*Navigate to the PR tab.*
+
+If I click into the individual PR, I can even see a summary of what the change itself was.
+
+*Click to expand the diff.*
+
+To quickly show you what the process of creating a batch change looks like, I'm going to run an [example batch change](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec). I'm going to be running this in the browser, but you can also run this from our CLI—I'm happy to dive into details offline if you want more info.
+
+_Open the [Create batch change](https://demo.sourcegraph.com/batch-changes/create) menu_
+
+This batch change appends `hello world` to `readme.md` files. I can run this in the browser, and if I click `Preview workspaces`, it will show me matching repos. I'm going to go ahead and run the change, and if I click in to the repo name, you'll see it's tracking what it's changing.
+
+_Click in to the repo name to show the changes._
+
+Now if I click `Preview` here, it will publish it to Sourcegraph, but not the code host—to do that, I'd click that `Apply` button here. However, I'm going to leave this batch change unpublished, and show you an already-created batch change from our own code base.
+
+*Open [this batch change](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign).*
+
+As you can see here, we've got a variety of PRs in different states here. I can filter by PR status, review status, and check status.
+
+*Filter to show only Open PRs.*
+
+From here, I can select the changesets, and take bulk actions on them.
+
+*Use the bulk select checkbox to select the PRs, and click on the dropdown arrow to show all of the bulk actions.*
+
+I can bulk merge these, comment on them to nudge reviewers or provide context, and bulk close them if I decide not to go forward with this. If I decide I want to close the entire Batch Change, I can do that too, and auto-close the associated PRs.
+
+If I want to track progress, I can do that using the burndown chart for this Batch Change.
+
+*Navigate to the burndown chart.*
+
+As you can see, merged PRs are dominating, so I'm going to filter those out.
+
+*Uncheck the merged PR box.*
+
+And with this I can now see a burndown chart of PR status throughout the period that this has been running for everything that hasn't been merged. If a teammate or my manager wants an update on the initiative, it's very easy to provide that to them—I can share or screenshot this chart, and we're very quickly all on the same page.
+
+❗️ It may be worth emphasizing to the customer that Sourcegraph search is used to find the associated repos, but does not limit what actions they can take—those are essentially limited only by what can be scripted by the end user.
+
+### Conclusion
+
+With Batch Changes, I can make a huge impact in my codebase for things as small as a version bump to things as large as a significant refactor, and I have a live-updating dashboard to track how that progress is going. No more spreadsheets and wrangling folks in Slack to coordinate work!
+
+### Resources
+
+* [Batch Changes documentation](https://docs.sourcegraph.com/batch_changes)
+* [Batch Changes examples repo](https://github.com/sourcegraph/batch-change-examples)
+* [Batch Changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes Quickstart](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec)
 
 ## Closing thoughts
 
