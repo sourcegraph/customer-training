@@ -373,6 +373,7 @@ It's a huge force multiplier, particularly for teams working across multiple par
 * How to open an in-progress Batch Change of the trainer's choice
 * How to view the spec for that Batch Change
 * What, at a high level, the parts of the spec are doing (defining the repo list, making the change, determining PR contents, etc.)
+* How to run a Batch Change in the browser (recommend the [Hello World](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec) Batch Change)
 * How to filter PRs by status, check state, and review state
 * What bulk actions (publishing, commenting, merging, closing) are available
 * What the burndown chart looks like and how to filter the burndown chart
@@ -382,6 +383,8 @@ It's a huge force multiplier, particularly for teams working across multiple par
 
 ❗️ It may be worth emphasizing to the customer that Sourcegraph search is used to find the associated repos, but does not limit what actions they can take—those are essentially limited only by what can be scripted by the end user.
 
+❗️ This is writen to have the trainer run the Batch Change in the browser rather than the CLI; the CE can swap to the CLI if preferred or indicated in some way, but browser/SSBC is recommended here for speed.
+
 ### Conclusion
 
 With Batch Changes, I can make a huge impact in my codebase for things as small as a version bump to things as large as a significant refactor, and I have a live-updating dashboard to track how that progress is going. No more spreadsheets and wrangling folks in Slack to coordinate work!
@@ -390,7 +393,8 @@ With Batch Changes, I can make a huge impact in my codebase for things as small 
 
 * [Batch Changes documentation](https://docs.sourcegraph.com/batch_changes)
 * [Batch Changes examples repo](https://github.com/sourcegraph/batch-change-examples)
-* [Batch changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes FAQ](https://docs.sourcegraph.com/batch_changes/references/faq)
+* [Batch Changes Quickstart](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec)
 
 ## Closing thoughts
 
