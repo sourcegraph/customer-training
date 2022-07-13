@@ -106,7 +106,7 @@ When looking at committed code, I sometimes want to narrow down the results so t
 🔎 The trainer should demonstrate:
 
 * How to use the `author:` filter to narrow down the previous `type:diff` search to only code changed by a particular contributor.
-* The `author:` filter takes both display names (e.g. `author:emily`) and code host usernames (e.g. `author:emchap`)
+* The `author:` filter takes display names (e.g. `author:emily`, `author:"emily chapman"`) and email addresses (e.g. `author:sourcegraph.com`)
 
 ❗️ The `author:` filter does take email addresses (e.g. `author:sourcegraph.com` will return all Sourcegraph developers committing under their work email address), but since some users commit code under an auto-generated email address for security (visible by searching `author:github.com`) or their personal addresses (`author:gmail.com`), it's not necessarily useful.
 
