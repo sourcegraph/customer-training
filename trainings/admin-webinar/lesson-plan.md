@@ -317,6 +317,23 @@ Alternatively, you can remove an individual user using the CLI. To do that, run 
 * The user management script stored at [https://github.com/sourcegraph/customer-assets](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk) (this is not a public repo, so the CE can share the information but the user cannot access the repo; you'll need to send the script as a zip file instead)
 * The results of running `src user delete -h` in the CLI, which walks through the various deletion options
 
+### Organizations
+
+Organizations can be accessed under the Organizations tab under the Users & Auth section. You'll use organizations to group users. This can be used to:
+
+* Share access to Insights dashboards
+* Have organization-specific settings and search contexts
+* Share notebooks with other users for editing (otherwise the notebook will remain view-only to the other users)
+
+You can add users to organizations manually, or [automatically add all users to an org](https://docs.sourcegraph.com/admin/organizations#organizations). 
+
+🔎 The trainer should demonstrate:
+
+* Accessing the Organizations page
+* Creating an organization
+* Deleting an organization
+* The [documentation for auto-adding users to a single org](https://docs.sourcegraph.com/admin/organizations#organizations)
+
 ### Conclusion
 
 User management is important, and with tools provided by your CE, should take up relatively little of your time. It is the most common task taken on by our instance admins after repo management, which we'll cover next.
@@ -325,6 +342,7 @@ User management is important, and with tools provided by your CE, should take up
 
 * [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk)
 * [CLI documentation](https://docs.sourcegraph.com/cli)
+* [Organizations](https://docs.sourcegraph.com/admin/organizations#organizations)
 
 ## Unit 4: Adding New Repos and Troubleshooting Repo Sync
 
