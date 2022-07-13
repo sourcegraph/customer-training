@@ -323,14 +323,27 @@ Alternatively, you can remove an individual user using the CLI. To do that, run 
 
 ![The results of running `src user delete -h` in the author's terminal.](https://user-images.githubusercontent.com/9934079/174653791-74617c9a-e3a9-47a0-b618-1a58afd141c9.png)
 
+### Organizations
+
+Organizations can be accessed under the Organizations tab under the Users & Auth section. You'll use organizations to group users. This can be used to:
+
+* Share access to Insights dashboards
+* Have organization-specific settings and search contexts
+* Share notebooks with other users for editing (otherwise the notebook will remain view-only to the other users)
+
+You can add users to organizations manually, or [automatically add all users to an org](https://docs.sourcegraph.com/admin/organizations#organizations). 
+
+To create a new organization, open the organizations tab and click `Create organization`. From the same page, you can edit the members of an organization or delete the organization.
+
 ### Conclusion
 
 User management is important, and with tools provided by your CE, should take up relatively little of your time. It is the most common task taken on by our instance admins after repo management, which we'll cover next.
 
 ### Resources
 
-* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk) (Private, will need to be granted access by your CE.)
+* [Sourcegraph customer assets repo](https://github.com/sourcegraph/customer-assets/tree/main/ce-tools/pysdk)
 * [CLI documentation](https://docs.sourcegraph.com/cli)
+* [Organizations](https://docs.sourcegraph.com/admin/organizations#organizations)
 
 ### Quiz
 

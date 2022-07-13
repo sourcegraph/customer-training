@@ -11,6 +11,7 @@ Thanks so much for joining the admin webinar with me! Hopefully everyone feels e
 * [Pings docs page](https://docs.sourcegraph.com/admin/pings)
 * [Code host connections](https://docs.sourcegraph.com/admin/external_service)
 * [Search contexts](https://docs.sourcegraph.com/code_search/how-to/search_contexts)
+* [Organizations](https://docs.sourcegraph.com/admin/organizations#organizations)
 
 ## Alerting and montioring 
 
