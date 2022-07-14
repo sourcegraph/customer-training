@@ -38,6 +38,7 @@ To get started, I'm going to generate an insight that tracks TypeScript utilizat
 * Show that once the insight is generated, you can filter by repo
 * Show how to access individual data points by clicking in to them
 * Show how to get a shareable link for the insight
+* Show how to create the insight while running a search directly, rather than from the Insights page
 
 As we like to say: if you can search it, you can see it. One thing to note is that we have three permissions levels for an insight: private, global, and per-org. If your team is using orgs, that will allow you to create granular dashboards to share your insights, so that you can share a particular set of graphs with just engineering managers, just frontend engineers, or just the folks working on a particular project. 
 
