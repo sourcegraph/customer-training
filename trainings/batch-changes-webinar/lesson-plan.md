@@ -6,9 +6,9 @@
 
 ## Intro
 
-Today's training is intended to walk users through our Batch Changes product, and show users how to use the feature. By the end of it, we hop that you'll feel comfortable with what Batch Changes is and can do, and will be ready to start with your own changes in Sourcegraph.
+Today's training is intended to walk users through our Batch Changes product, and show users how to use the feature. By the end of it, we hope that you'll feel comfortable with what Batch Changes is and can do, and will be ready to start with your own changes in Sourcegraph.
 
-❗️ If the training is happening in the context of a champion brining in other team members, have them speak at the top about why they think Batch Changes will be useful, and what they envision the team using it for.
+❗️ If the training is happening in the context of a champion bringing in other team members, have them speak at the top about why they think Batch Changes will be useful, and what they envision the team using it for.
 
 ## Unit 1: Get familiar with Batch Changes
 
@@ -18,22 +18,22 @@ Today's training is intended to walk users through our Batch Changes product, an
 
 Batch Changes is a way to script changes to your code. Using Sourcegraph search, you'll find a list of relevant repositories—for example, all repos that have `Dockerfile`s, or all repos that have Java files. Then, using a YAML spec that you write, you'll script out the change that you want to make to your files. We can support something as simple as a find and replace (essentially `sed` on steroids) or as complex as a full refactor. Batch Changes can run across many repos at once, allowing you to make very large-scale changes—particularly helpful for the sorts of rote activities (like adding a new step to the CI pipeline) that may need to happen at scale.
 
-Once the Batch Changes spec is executed, Sourcegraph will generate pull/merge requests on your code host, one per repo (usually—this can be customized). We'll open them on your behalf, and then give you the ability to manage them from within Sourcegraph. You can close individual PRs, comment on them, and even bulk-merge. We also generate a burndown chart for you to track progress. 
+Once the batch change's spec is executed, Sourcegraph will generate pull/merge requests on your code host, one per repo (usually—this can be customized). We'll open them on your behalf, and then give you the ability to manage them from within Sourcegraph. You can close individual PRs, comment on them, and even bulk-merge. We also generate a burndown chart for you to track progress. 
 
 ### Running a Batch Change
 
-To get started, I'm going to run a Batch Change that appends `Hello World` to all my `README` files.
+To get started, I'm going to run a batch change that appends `Hello World` to all my `README` files.
 
-❗️ This is a generic starting point. If you know a different Batch Change will be more appropriate, or the customer has a specific use case in mind, you may want to walk through that change, instead. 
+❗️ This is a generic starting point. If you know a different batch change will be more appropriate, or the customer has a specific use case in mind, you may want to walk through that change, instead. 
 
 🔎 The trainer should demonstrate:
 
-* Adding a Batch Change PAT as an end user.
-* Creating the [Hello World](https://docs.sourcegraph.com/batch_changes/quickstart) Batch Change in the browser as a SSBC. (When creating a new SSBC, `hello world` exists as a default library change—you don't need to copy it from the docs.)
+* Adding a Batch Changes PAT as an end user.
+* Creating the [Hello World](https://docs.sourcegraph.com/batch_changes/quickstart) batch change in the browser as a SSBC. (When creating a new SSBC, `hello world` exists as a default library change—you don't need to copy it from the docs.)
 * Explain the spec's parts, specifically `resositoriesMatchingQuery`, `steps`, and `changesetTemplate`. 
 * The logged information during the execution stage. (Highlight that we're spinning up Docker containers specified by the user.)
 * The results of the preview.
-* Highlight that the Batch Change is not applied yet, and discuss what happens (PRs are opened) when it is.
+* Highlight that the batch change is not applied yet, and discuss what happens (PRs are opened) when it is.
 
 What we just saw is what we call a Server Side Batch Change, or SSBC. That means that it's running directly on the Sourcegraph instance, rather than locally. I can also run this locally, using our CLI. 
 
@@ -73,7 +73,7 @@ Taking a look at this list, are there any that jump out to you as something that
 
 ### Conclusion
 
-Running a Batch Change, whether through SSBC or via the CLI, will allow you to make many changes at once to your codebase. If you can script it, you can apply it. Next up, we'll show what the Batch Change dashboards will show you.
+Running a batch change, whether through SSBC or via the CLI, will allow you to make many changes at once to your codebase. If you can script it, you can apply it. Next up, we'll show what the Batch Changes dashboards will show you.
 
 ### Resources
 
@@ -84,25 +84,25 @@ Running a Batch Change, whether through SSBC or via the CLI, will allow you to m
 
 ## Unit 2: Viewing Batch Change Dashboards
 
-**Learning goals:** After this unit, customers will understand how to view PRs opened by a Batch Change and apply bulk actions to them, as well as viewing and interpreting the generated Burndown chart.
+**Learning goals:** After this unit, customers will understand how to view PRs opened by a batch change and apply bulk actions to them, as well as viewing and interpreting the generated Burndown chart.
 
 ### Viewing Batch Change PRs
 
-Now, as you've seen so far, I've been previewing Batch Changes, rather than applying them. That just means that this is visible on Sourcegraph, but we haven't opened PRs quite yet. Now I'm going to show you what it looks like when a Batch Change has open PRs.
+Now, as you've seen so far, I've been previewing batch changes, rather than applying them. That just means that this is visible on Sourcegraph, but we haven't opened PRs quite yet. Now I'm going to show you what it looks like when a batch change has open PRs.
 
 🔎 The trainer should show:
 
-* The [Medium Tracking Campaign](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign) or other Batch Change of the CE's choice with published PRs.
+* The [Medium Tracking Campaign](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign) or other batch change of the CE's choice with published PRs.
 * How to filter PRs by status, check state, and review state.
 * How to apply bulk actions (comment, merge, publish, close) on open PRs
-* How to view the spec powering a Batch Change from the Dashboard view (clicking the `Spec` tab)
+* How to view the spec powering a batch change from the Dashboard view (clicking the `Spec` tab)
 * Discuss how changesets can be imported, if using the Medium Tracking Campaign and its spec
 
-❗️ Call out that closing a Batch Change will allow you to also close its associated PRs, if there's a mistake made. 
+❗️ Call out that closing a batch change will allow you to also close its associated PRs, if there's a mistake made. 
 
 ### Viewing Batch Change Charts
 
-The final thing I want to highlight here is our Burndown chart. This tracks the progress of PRs associated with the Batch Change, whether imported or created via the change. It's an easy way to stay on top of what's going on with the bulk change, rather than having to follow up with individuals, or keep on top of a spreadsheet. 
+The final thing I want to highlight here is our burndown chart. This tracks the progress of PRs associated with the batch change, whether imported or created via the change. It's an easy way to stay on top of what's going on with the bulk change, rather than having to follow up with individuals, or keep on top of a spreadsheet. 
 
 🔎 The trainer should highlight:
 
