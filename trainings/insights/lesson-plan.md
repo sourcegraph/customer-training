@@ -6,7 +6,7 @@
 
 ## Intro
 
-Today's training is intended to walk users through our Code Insights product, and show users how to use the feature. By the end of it, we hop that you'll feel comfortable with what Code Insights is and can do, and will be ready to start with your own changes in Sourcegraph.
+Today's training is intended to walk users through our Code Insights product, and show users how to use the feature. By the end of it, we hope that you'll feel comfortable with what Code Insights is and can do, and will be ready to start with your own changes in Sourcegraph.
 
 ❗️ If the training is happening in the context of a champion brining in other team members, have them speak at the top about why they think Code Insights will be useful, and what they envision the team using it for.
 
