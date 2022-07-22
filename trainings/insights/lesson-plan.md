@@ -16,7 +16,7 @@ Today's training is intended to walk users through our Code Insights product, an
 
 ### What is Code Insights?
 
-Code Code Insights reveals high-level information about your codebase, based on both how your code changes over time and its current state. It's a way of visualizing your searches as graphs, so that you can track not just what things are like today, but how that has changed over time. This can be super helpful for tracking things like:
+Code Insights reveals high-level information about your codebase, based on both how your code changes over time and its current state. It's a way of visualizing your searches as graphs, so that you can track not just what things are like today, but how that has changed over time. This can be super helpful for tracking things like:
 
 * Migrating from one version of a language or dependency to another
 * Whether folks are adding frequent linter overrides 
