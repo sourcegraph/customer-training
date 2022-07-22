@@ -57,7 +57,7 @@ The insight we just generated is pretty simple—but your insights can be as com
 * The [Insights Recipes page](https://docs.sourcegraph.com/code_insights/references/common_use_cases)
 * Highlight a few use cases there based on what you know of the needs of the group.
 
-❗️ If you don't know the needs of the group—and even if you do—this is a good time to stop and ask questions about what sorts of things people are tracking and how they're doing so today, and what kinds of things they'd like to track but can't.
+❗️ If you don't know the needs of the group—and even if you do—this is a good time to stop and ask questions about what sorts of things people are tracking and how they're doing so today, and what kinds of things they'd like to track but can't. It's also extremely helpful for both your AE and our product team if you ask *why* they are tracking that or want to track that. 
 
 ❗️ If your champion has brought a use case to you for an insight, at this point, have them speak about that use case. 
 
