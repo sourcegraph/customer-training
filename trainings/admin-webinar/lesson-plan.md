@@ -344,7 +344,7 @@ The Analytics functionality will allow your team to track time saved and show th
 
 ### Resources
 
-* TBD once they are released
+* [Admin Analytics Docs](https://docs.sourcegraph.com/admin/admin_analytics)
 
 ## Unit 4: User Management (In-App and Programatic)
 
