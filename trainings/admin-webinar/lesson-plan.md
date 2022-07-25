@@ -177,7 +177,18 @@ The admin section of the Sourcegraph site offers a variety of subsections that c
 
 **Learning goals:** After completing this unit, the customer will be able to export user activity and understand how to view a list of users.
 
-### Viewing user activity
+### Viewing aggregate user activity
+
+To view aggregate user activity, go to the Users section in the Analytics section of the site admin panel. This shows you total active users, total registered users, and provisioned user licenses. The line graph at the top will show you user actions triggered over time or unique users using the app over time, toggled below the graph. You can also see DAU, WAU, and MAU at a glance, averaged out for the time frame you're viewing. Additionally, you'll see a bar graph showing how many days users used the application over the time period you specified—if you're seeing users mostly using Sourcegraph 1 or 2 days per time period, you may want to discuss how to reengage them with your CE.
+
+🔎 The trainer should show:
+
+* How to access the Users Analytics page
+* How to interpret the graph data
+
+❗️ The Usage Stats page has some of the same data; if asked, you can be honest with the user that the User Analytics page is a reimagining of the aggregate data in alignment with our overall value prop, but the Usage Stats page is still helpful to see individual activity.
+
+### Viewing individual user activity
 
 Sourcegraph shows admins individual user activity in-app. To see that, go to the Usage Stats page. From there, you can see a list of users and their page views, search queries, code intelligence actions, and last active information for the last 90 days. 
 
@@ -335,7 +346,7 @@ The Analytics functionality will allow your team to track time saved and show th
 
 * TBD once they are released
 
-## Unit 3: User Management (In-App and Programatic)
+## Unit 4: User Management (In-App and Programatic)
 
 **Learning goals:** After completing this unit, the customer will understand how to add and remove users in the app as well as via the API.
 
@@ -402,7 +413,7 @@ User management is important, and with tools provided by your CE, should take up
 * [CLI documentation](https://docs.sourcegraph.com/cli)
 * [Organizations](https://docs.sourcegraph.com/admin/organizations#organizations)
 
-## Unit 4: Adding New Repos and Troubleshooting Repo Sync
+## Unit 5: Adding New Repos and Troubleshooting Repo Sync
 
 **Learning goals:** After completing this unit, the customer should feel comfortable adding a repository and troubleshooting repo sync issues.
 
@@ -444,7 +455,7 @@ Being able to find repo status on your own will allow you to troubleshoot repo i
 
 * [Code host connections](https://docs.sourcegraph.com/admin/external_service)
 
-## Unit 5: Adding Global Search Contexts
+## Unit 6: Adding Global Search Contexts
 
 **Learning goals:** After completing this unit, an admin should understand how to add a global search context to the instance.
 
