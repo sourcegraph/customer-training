@@ -177,7 +177,18 @@ The admin section of the Sourcegraph site offers a variety of subsections that c
 
 **Learning goals:** After completing this unit, the customer will be able to export user activity and understand how to view a list of users.
 
-### Viewing user activity
+### Viewing aggregate user activity
+
+To view aggregate user activity, go to the Users section in the Analytics section of the site admin panel. This shows you total active users, total registered users, and provisioned user licenses. The line graph at the top will show you user actions triggered over time or unique users using the app over time, toggled below the graph. You can also see DAU, WAU, and MAU at a glance, averaged out for the time frame you're viewing. Additionally, you'll see a bar graph showing how many days users used the application over the time period you specified—if you're seeing users mostly using Sourcegraph 1 or 2 days per time period, you may want to discuss how to reengage them with your CE.
+
+🔎 The trainer should show:
+
+* How to access the Users Analytics page
+* How to interpret the graph data
+
+❗️ The Usage Stats page has some of the same data; if asked, you can be honest with the user that the User Analytics page is a reimagining of the aggregate data in alignment with our overall value prop, but the Usage Stats page is still helpful to see individual activity.
+
+### Viewing individual user activity
 
 Sourcegraph shows admins individual user activity in-app. To see that, go to the Usage Stats page. From there, you can see a list of users and their page views, search queries, code intelligence actions, and last active information for the last 90 days. 
 
@@ -276,8 +287,66 @@ User activity can be tracked in-app and via the API. This is the basis for user 
 * [Sourcegraph API](https://docs.sourcegraph.com/api/graphql)
 * [Sourcegraph GraphQL examples](https://docs.sourcegraph.com/api/graphql/examples)
 
+## Unit 3: Tracking Value with Sourcegraph
 
-## Unit 3: User Management (In-App and Programatic)
+**Learning goals:** After completing this unit, the customer will understand how to use the graphs in the Analytics section of the app to prove value.
+
+### Viewing and using Search Analytics
+
+As of version 3.42 (July 2022), Sourcegraph offers expanded user analytics, accessible in the Analytics section of the site admin panel. The first of these is the Search graph. The graph will show search activity, click activity, file views, and file opens. You can filter by timeframe on the top right of the screen.
+
+Below the graph, you can see calculations of time saved; you can customize these values to match your assumptions, and use that to show how much time Sourcegraph is saving your team based on current usage trends.
+
+🔎 The trainer should demonstrate:
+
+* How to access the Search Analytics graph
+* How to change the timeframe for the graph (up to 3 months of data)
+* How to customize the time saved data below the graph
+
+❗️ Ideally, during the PoC phase you will have discussed important internal metrics with the user (do they care about time saved, ability to complete complex searches, etc). If you have, use that to inform how you discuss the analytics.
+
+### Viewing and using Code Intel Analytics
+
+The Code Intel section of Analytics operates similarly. Code Intel or Code Navigation is our way of finding references to symbols as well as traveling to the definition, and it works cross-repo. You'll see how many `find references` and `go to definition` events have been triggered by your users, and how many of those were cross-repo. You'll see a month of data by default but can change that on the top right.
+
+🔎 The trainer should demonstrate:
+
+* How to access the Code Intel graph
+* How to customize the time saved data below the graph
+
+❗️ Highlight that cross-repo events generally aren't possible without Sourcegraph, particularly if the user is working in a microservices architecture.
+
+❗️ Highlight the benefits and `compiler-accurate` language for LSIF/SCIP, if the customer is using them.
+
+### Viewing and using Batch Change Analytics
+
+❗️Skip this section if the customer isn't using Batch Changes. 
+
+The Batch Changes section of the Analytics tracks the impact of changesets open and merged using the Batch Changes functionality, which allows you to open and manage changesets en masse. You can easily see the number of changesets (PRs, MRs) opened with Sourcegraph, and the number ultimately merged. You can track the amount of time that the merged changesets have saved your team.
+
+🔎 The trainer should demonstrate:
+
+* How to access the Batch Changes graph
+* How to customize the time saved data
+
+### Viewing and using Notebooks Analytics
+
+Notebooks in Sourcegraph allow team members to create living documentation collections of searches, references to files, and explanations for why/why not to do something in the code. The Notebooks section of Analytics shows the number of notebooks created, the number of views of them, and the number of times an embedded block of live-updated content is "run" (updated). Similar to the other panels, you can track the amount of time this saves your team when onboarding a new teammate or sharing context.
+
+🔎 The trainer should demonstrate:
+
+* How to access the Notebooks graph
+* How to customize the time saved data
+
+### Conclusion
+
+The Analytics functionality will allow your team to track time saved and show the value Sourcegraph brings to your team.
+
+### Resources
+
+* [Admin Analytics Docs](https://docs.sourcegraph.com/admin/admin_analytics)
+
+## Unit 4: User Management (In-App and Programatic)
 
 **Learning goals:** After completing this unit, the customer will understand how to add and remove users in the app as well as via the API.
 
@@ -344,7 +413,7 @@ User management is important, and with tools provided by your CE, should take up
 * [CLI documentation](https://docs.sourcegraph.com/cli)
 * [Organizations](https://docs.sourcegraph.com/admin/organizations#organizations)
 
-## Unit 4: Adding New Repos and Troubleshooting Repo Sync
+## Unit 5: Adding New Repos and Troubleshooting Repo Sync
 
 **Learning goals:** After completing this unit, the customer should feel comfortable adding a repository and troubleshooting repo sync issues.
 
@@ -386,7 +455,7 @@ Being able to find repo status on your own will allow you to troubleshoot repo i
 
 * [Code host connections](https://docs.sourcegraph.com/admin/external_service)
 
-## Unit 5: Adding Global Search Contexts
+## Unit 6: Adding Global Search Contexts
 
 **Learning goals:** After completing this unit, an admin should understand how to add a global search context to the instance.
 
