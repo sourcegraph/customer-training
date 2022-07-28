@@ -182,7 +182,17 @@ The admin section of the Sourcegraph site offers a variety of subsections that c
 
 **Learning goals:** After completing this unit, you will be able to export user activity and understand how to view a list of users.
 
-### Viewing user activity
+### Viewing aggregate user activity
+
+To view aggregate user activity, go to the Users section in the Analytics section of the site admin panel. This shows you total active users, total registered users, and provisioned user licenses. The line graph at the top will show you user actions triggered over time or unique users using the app over time, toggled below the graph. You can also see DAU, WAU, and MAU at a glance, averaged out for the time frame you're viewing. Additionally, you'll see a bar graph showing how many days users used the application over the time period you specified—if you're seeing users mostly using Sourcegraph 1 or 2 days per time period, you may want to discuss how to reengage them with your CE.
+
+![The Users analytics report will show you user activity over time](https://user-images.githubusercontent.com/9934079/181608471-d6bb7457-0971-4f05-a03c-1c1b50f67793.png)
+
+Hovering over the DAU/WAU/MAU bar graph will show the exact values.
+
+![Hovering over the DAU/WAU/MAU bar graph will show the exact values.](https://user-images.githubusercontent.com/9934079/181608664-2f9bfe73-bb77-4266-8417-a77518b06fec.png)
+
+### Viewing individual user activity
 
 Sourcegraph shows admins individual user activity in-app. To see that, go to the Usage Stats page. From there, you can see a list of users and their page views, search queries, code intelligence actions, and last active information for the last 90 days. 
 
@@ -291,7 +301,79 @@ User activity can be tracked in-app and via the API. This is the basis for user 
   C. __A and B__
   D. This is exclusively available from the CE
 
-## Unit 3: User Management (In-App and Programatic)
+## Unit 3: Tracking Value with Sourcegraph
+
+**Learning goals:** After completing this unit, you will understand how to use the graphs in the Analytics section of the app to prove value.
+
+### Viewing and using Search Analytics
+
+As of version 3.42 (July 2022), Sourcegraph offers expanded user analytics, accessible in the Analytics section of the site admin panel. The first of these is the Search graph. The graph will show search activity, click activity, file views, and file opens. You can filter by timeframe on the top right of the screen.
+
+![Click on the dropdown menu to change the timeframe for the graph](https://user-images.githubusercontent.com/9934079/181609226-08dae1d5-1817-487d-aa62-e502114e18a0.png)
+
+Below the graph, you can see calculations of time saved; you can customize these values to match your assumptions, and use that to show how much time Sourcegraph is saving your team based on current usage trends.
+
+![Change the values in the Time Saved section to generate custom value calculations](https://user-images.githubusercontent.com/9934079/181609320-405435fb-2cd7-4ce7-b5e0-5f6f30c02fcb.png)
+
+If you have questions about how to best determine appropriate benchmarks or goals to strive for, contact your Customer Engineer for more guidance. 
+
+### Viewing and using Code Intel Analytics
+
+The Code Intel section of Analytics operates similarly. Code Intel or Code Navigation is our way of finding references to symbols as well as traveling to the definition, and it works cross-repo. You'll see how many `find references` and `go to definition` events have been triggered by your users, and how many of those were cross-repo. You'll see a month of data by default but can change that on the top right.
+
+![Hovering over the graph will give you exact data for a particular data point.](https://user-images.githubusercontent.com/9934079/181609525-a4c9677a-0d63-48c3-9197-afb895b3061b.png)
+
+Similar to the Search data, you can customize the time saved estimates below.
+
+![Altering the time estimates will  change the Hours Saved calculation](https://user-images.githubusercontent.com/9934079/181609665-5789825c-717e-4922-9305-dc5f0c7467bf.png)
+
+Precise (compiler-accurate) code intelligence is generally not possible without Sourcegraph, so we suggest weighing that when making your calculations. For more information on configuring precise code navigation, [see our documentation](https://docs.sourcegraph.com/code_intelligence/references/indexers).
+
+### Viewing and using Batch Change Analytics
+
+❗️ Note: Batch Changes is a paid add-on. If you don't see data for it, confirm with your Customer Engineer that this is available for your team.
+
+The Batch Changes section of the Analytics tracks the impact of changesets open and merged using the Batch Changes functionality, which allows you to open and manage changesets en masse. You can easily see the number of changesets (PRs, MRs) opened with Sourcegraph, and the number ultimately merged. You can track the amount of time that the merged changesets have saved your team.
+
+![Hovering over the data points will highlight the exact number of changes](https://user-images.githubusercontent.com/9934079/181617528-e5b31c2c-0cc6-4139-adce-9488be380071.png)
+
+You can customize the time saved metrics below the graph.
+
+![Customizing the minutes saved per changeset merged will alter the overall time saved values.](https://user-images.githubusercontent.com/9934079/181617825-61b0e583-1194-4aa2-98a7-d39f6743b843.png)
+
+### Viewing and using Notebooks Analytics
+
+Notebooks in Sourcegraph allow team members to create living documentation collections of searches, references to files, and explanations for why/why not to do something in the code. The Notebooks section of Analytics shows the number of notebooks created, the number of views of them, and the number of times an embedded block of live-updated content is "run" (updated). 
+
+![Notebooks analytics highlight how many users are viewing and creating notebooks on your instance.](https://user-images.githubusercontent.com/9934079/181617984-90b2b274-fe4f-4daf-a498-3ac730050b2f.png)
+
+Similar to the other panels, you can track the amount of time this saves your team when onboarding a new teammate or sharing context.
+
+![Customizing the minutes saved per notebook will update the time saved statistics for the chart.](https://user-images.githubusercontent.com/9934079/181618075-8d945de4-73af-4c04-885e-698e7561661e.png)
+
+### Conclusion
+
+The Analytics functionality allows you to track time saved and show the value Sourcegraph brings to your team.
+
+### Resources
+
+* [Admin Analytics Docs](https://docs.sourcegraph.com/admin/admin_analytics)
+
+### Quiz
+
+1. What do the analytic graphs in-app allow you to do?
+  * A. __Prove value for Sourcegraph features__
+  * B. Track individual user activity
+  * C. Create custom charts
+  * D. Track what search queries your users are using
+  
+2. What does updating the minutes per action values do?
+  * A. Changes the line graph
+  * B. Nothing
+  * C. Sends data to Sourcegraph
+  * D. __Customizes the time saved estimate__
+
+## Unit 4: User Management (In-App and Programatic)
 
 **Learning goals:** After completing this unit, you will understand how to add and remove users in the app as well as via the API.
 
@@ -359,7 +441,7 @@ User management is important, and with tools provided by your CE, should take up
   * C. Yes, if using username/password
   * D. __No__ 
 
-## Unit 4: Adding New Repos and Troubleshooting Repo Sync
+## Unit 5: Adding New Repos and Troubleshooting Repo Sync
 
 **Learning goals:** After completing this unit, you should feel comfortable adding a repository and troubleshooting repo sync issues.
 
@@ -424,7 +506,7 @@ Being able to find repo status on your own will allow you to troubleshoot repo i
   * C. Manually configured in the DB
   * D. Sourcegraph doesn't support this
 
-## Unit 5: Adding Global Search Contexts
+## Unit 6: Adding Global Search Contexts
 
 **Learning goals:** After completing this unit, you will understand how to add a global search context to the instance.
 
