@@ -33,12 +33,11 @@ Once the extension is installed and pointing to the right instance, you can sear
 * How to apply a file or -file: filter from the dynamic filters, and what it does
 * The repositories listed under the dynamic filters, how they are listed (greatest to least number of results), and what happens when they're clicked on
 
-For example, if I am working on code and want to see what a file looks like on a feature branch, it's easy to do that; similarly, I can easily search within my repo's dependencies to see where an error message I want to reference is located. I can also quickly and easily search code to find code that I might want to reuse.
+For example, if I am working on code and want to see what a file looks like on a feature branch, it's easy to do that; similarly, I can quickly and easily search code to find code that I might want to reuse.
 
 🔎 The trainer should show:
 
 * Navigating from a local file, to the Sourcegraph extension, to see that file on another branch without checking it out
-* For that same repo, running a search using `repo:deps(...)` to find an error message returned by a dependency. 
 * How to discover previously-written code to use as an example for a local challenge (see the `repo:^github\.com/sourcegraph/sourcegraph-.+$  /import .+ from 'rxjs'/` example in [the blog post](https://about.sourcegraph.com/blog/ways-to-use-sourcegraph-extension-for-vs-code)
 
 Say that my search returns a link to a file that I want to explore. You'll see that if I'm looking for a file I don't have stored locally, I will see a read-only view. But, if I open a file that does exist locally, I can actually start to edit that file straight away.
