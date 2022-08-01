@@ -197,21 +197,9 @@ Oftentimes I will want to search only in active repos. The easiest way to do thi
 
 ❗️ The filter doesn't support negation. Someone could use `repo.contains.commit.after(...) select:repo` to get a list of repos and then exclude them in a follow-up query if needed.
 
-### Dependency search (`repo:deps(...)`)
-
-Sometimes, I don't want to search my own code, but the code of the dependencies that are present in my code. This can be helpful for looking at whether we're impacted by a 0-day, or understanding our code graph in general. To set this up, I'll first have to go to the code host page, which only admins will have access to.
-
-🔎 The trainer should demonstrate:
-
-- Adding a dependency code host in the code host section
-- Running a `repo:deps(...)` search on a repo to show the dependencies for that repo, including versions
-- Searching the contents of the dependencies for particular contents
-
-❗️ This feature is in beta and does not support all dependency management tools.
-
 ### Conclusion
 
-Sourcegraph offers a variety of advanced search filters. We covered boolean operators, symbol search, the `select:` keyword, the `repo:contains.file(...)` filter, how to exclude stale repos, and how to saerch your code's dependencies, if configured. Next up, we'll talk about our extensions platform.
+Sourcegraph offers a variety of advanced search filters. We covered boolean operators, symbol search, the `select:` keyword, the `repo:contains.file(...)` filter, and how to exclude stale repos. Next up, we'll talk about our extensions platform.
 
 ### Resources
 
