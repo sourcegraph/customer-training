@@ -93,7 +93,7 @@ Sourcegraph allows for sharing of content via Notebooks, which are modeled on Ju
 
 🔎 The trainer should demonstrate:
 
-- How to access a notebook (feel free to create one or use a relevant one; the [log4j notebook](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MQ==) can also be used)
+- How to access a notebook (feel free to create one or use a relevant one; the [onboarding notebook](https://demo.sourcegraph.com/notebooks/Tm90ZWJvb2s6MjY2) is intended to accompany this demo and can be shared with the customer to serve as the basis for their own content)
 - Running a live query block and opening results from that query
 
 ### Conclusion
