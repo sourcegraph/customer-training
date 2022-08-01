@@ -255,17 +255,9 @@ Oftentimes, as a developer I will want to search only in active repos. The easie
 
 As a note, the filter doesn't support negation. A user can instead use `repo.contains.commit.after(...) select:repo` to get a list of repos and then exclude them in a follow-up query if needed.
 
-### Dependency search (`repo:deps(...)`)
-
-Sometimes, as a developer I don't want to search my own code, but the code of the dependencies that are present in my code. This can be helpful for looking at whether we're impacted by a 0-day, or understanding our code graph in general. To set this up, I'll first have to go to the code host page, which only admins will have access to. From there, I can follow these instructions to [configure dependency search](https://docs.sourcegraph.com/code_search/how-to/dependencies_search).
-
-If my instance admin has added dependency search, I can use the `repo:deps(...)` filter to search them. To do so, I'll replace `...` with my repo name. So, for example, `context:global repo:deps(github.com/sourcegraph/sourcegraph$) patternType:regexp` would return a list of all of the depdencies tracked in supported dependency management tools in the Sourcegraph monorepo. If I then add search terms, such as `log4j`, to build a query like `context:global repo:deps(github.com/sourcegraph/sourcegraph$) log4j patternType:regexp`. In doing so,  I can search those dependencies themselves for that string and find places where my depdencies might be intruding a vulnerability. 
-
-**Note:** This feature is in beta and does not support all dependency management tools. See linked documentation in the Resources section for more information.
-
 ### Conclusion
 
-Sourcegraph offers a variety of advanced search filters. We covered boolean operators, symbol search, the `select:` keyword, the `repo:contains.file(...)` filter, how to exclude stale repos, and how to search your code's dependencies, if configured. Next up, we'll talk about our extensions platform.
+Sourcegraph offers a variety of advanced search filters. We covered boolean operators, symbol search, the `select:` keyword, the `repo:contains.file(...)` filter, and how to exclude stale repos. Next up, we'll talk about our extensions platform.
 
 ### Resources
 
