@@ -1,6 +1,11 @@
 # VSCode webinar
 
-**Goals:** Viewers will leave the day with an understanding of how the Sourcegraph for VSCode extension works, they will have installed in themselves, and they will have run at least one search.
+**Goals:** Viewers will:
+
+* Discover how the Sourcegraph for VSCode extension can be used to search for code right in the editor, no local copy needed
+* Install the extension themselves
+* Run at least one search in VSCode for OSS Code
+* Learn how to incorporate the extension into their day-to-day team programming workflow
 
 ## Intro
 
