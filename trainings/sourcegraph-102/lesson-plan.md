@@ -2,6 +2,8 @@
 
 **Topic:** This training is focused on learning more advanced search functionality with Sourcegraph. For basic search training, check out [Sourcegraph 101](../sourcegraph-101/lesson-plan.md), instead.
 
+**Note:** If you would like a notebook to use while running through this training content, please see [Christine's 102 notebook](https://demo.sourcegraph.com/notebooks/Tm90ZWJvb2s6Mjcx). This is great to have on screen and to provide to the customer after training.
+
 ## Intro
 
 Today's training builds on the search skills taught in Sourcegraph 101, focusing on more advanced search functionality and more complicated queries. By the end of this training, you should feel comfortable searching non-default branches and revisions, searching commit messages, using advanced search filters, and configuring Sourcegraph extensions. You can follow along in your own instance, or on [sourcegraph.com](https://www.sourcegraph.com/search), where you can set up a free account.
