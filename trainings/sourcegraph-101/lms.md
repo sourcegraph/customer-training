@@ -1,10 +1,12 @@
 # Sourcegraph 101
 
-This training covers Sourcegraph 101's content, intended to be added to a customer's LMS system.
+This training covers Sourcegraph 101's content, intended to be added to a customer's LMS system. Video content is linked in the appropriate unit.
 
 ----
 
 ## Unit 1: Get familiar with Sourcegraph
+
+[Video content](https://drive.google.com/file/d/1mUgCMAk0ub1HoMPlCZOkbl93GEAg7eUH/view?usp=sharing)
 
 After completing this unit, you'll be able to: understand what Sourcegraph is and what it does, understand its 5 most common use cases, and learn a little more about how other companies use Sourcegraph.
 
@@ -62,6 +64,8 @@ Sourcegraph is a code search tool that allows you to find all of your company's 
 Answer: D
 
 ## Unit 2: Navigating the Sourcegraph UI
+
+[Video content](https://drive.google.com/file/d/1dEMGG6u-lsb2DTfqJK1QE3w18Tmwbqdv/view?usp=sharing)
 
 After completing this unit, you'll be able to navigate the Sourcegraph home page, understand the search mode buttons, and be able to navigate the search results page. 
 
@@ -135,6 +139,8 @@ Answers:
 3. B
 
 ## Unit 3: Introduction to searching
+
+[Video content](https://drive.google.com/file/d/10URdMlLuMIV59JIXdOP21RvisfUD5R8p/view?usp=sharing)
 
 After completing this unit, you'll have an understanding of our three search types, when you might want to use each, and how to use them.
 
@@ -267,6 +273,8 @@ Answers:
 
 ## Unit 4: Search results
 
+[Video content](https://drive.google.com/file/d/1HpAej_2bj77xgbWuAWetr2d_1xaqiFEY/view?usp=sharing)
+
 After completing this unit, you'll understand the search results page and how to export, save, and link to search results.
 
 ### An introduction to the search results
@@ -383,6 +391,8 @@ Answers:
 3. A
 
 ## Unit 5: Basic search filters
+
+[Video content](https://drive.google.com/file/d/1E804kGEmX7j_Aqj86uia09V0G6MZGu1b/view?usp=sharing)
 
 After completing this unit, you'll be able to use Sourcegraph's most common search filters to structure a search query.
 
