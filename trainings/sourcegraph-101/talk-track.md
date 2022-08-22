@@ -349,25 +349,21 @@ With notebooks, you can share code context and explanations with your teammates.
 
 * [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
 
-## Unit 7: Extensions
+## Unit 7: Integrations
 
-**Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
+**Learning goals:** After this unit, users will understand how to use code editor extensions, in-IDE extensions, browser extension, and search exports.
 
-### Intro to the extensions page
+### Editor integrations 
 
-The final thing that I want to touch on is our extensions platform. You can access that by clicking the puzzle icon at the top right here.
+We integrate with a variety of services, and a particularly important one is our Open in Editor integration.
 
-*Navigate to the [Sourcegraph extensions](https://demo.sourcegraph.com/extensions) page*
+*Navigate to the page to enable Open in Editor*
 
-### Editor extensions 
-
-We integrate with a variety of services here, but the one I particularly want to draw your attention to is this "code editors" section. If you click into that, you'll see a list of supported editors and a generic "open in editor" extension. 
-
-*Navigate to `https://demo.sourcegraph.com/extensions?category=Code+editors`*
-
-You'll want to enable the appropriate extension for your editor, and then click on the extension name to view the customization settings you'll need to configure. 
+You'll want to click here to view the customization settings you'll need to configure. 
 
 *Go to `https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor` and highlight the different config options on that page.*
+
+❗️ This is being written on 2022-08-22 in advance of the 4.0 launch—if this flow is no longer accurate, please open a PR. 
 
 This does rely on having the code locally on your machine—but if you do, you'll have an "open in editor" button in Sourcegraph to open the file locally. And if you want to navigate from your editor back into Sourcegraph, you can do so with the extensions here.
 
@@ -375,13 +371,23 @@ This does rely on having the code locally on your machine—but if you do, you'l
 
 We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at your Sourcegraph instance in your settings. 
 
-### VSCode extension
+### VSCode/Jetbrains extension
 
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
+For VSCode and JetBrains users, we have a more robust integration. With VSCode and JetBrains, you actually can do everything we've seen so far directly in VSCode.
 
-*Share VSCode, open the Sourcegraph extension, run a search*
+*Share VSCode or JetBrains depending on company usage, open the Sourcegraph extension, run a search*
 
-So as you can see here, I'm able to search all of the same code that's on my Sourcegraph instance, no matter what's cloned locally. Everything you can search for in Sourcegraph, across all your code hosts, can now be searched right in VSCode without needing to clone it. We really encourage VSCode users to install this extension, since it gives you all of Sourcegraph's search power right in the environment you're already using.
+So as you can see here, I'm able to search all of the same code that's on my Sourcegraph instance, no matter what's cloned locally. Everything you can search for in Sourcegraph, across all your code hosts, can now be searched right in VSCode/JetBrains without needing to clone it. We really encourage VSCode/JetBrains users to install this extension, since it gives you all of Sourcegraph's search power right in the environment you're already using.
+
+### Search Exports
+
+An additional feature I want to call out is that you may want to export the results of your search. To do that, use our search export feature. When running a search, I can click this export button here to generate a CSV.
+
+*Run search, export results.*
+
+You can see here what that CSV looks like.
+
+*Show CSV*
 
 ### Browser extension
 
