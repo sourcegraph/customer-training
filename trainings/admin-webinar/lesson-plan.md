@@ -19,8 +19,7 @@ To access the site admin section of the site, you'll need to click on your user 
 * Repositories
 * Code intelligence
 * Users & auth
-* Maintenance 
-* Extensions
+* Maintenance
 * Batch Changes
 * API Console
 
@@ -151,7 +150,7 @@ If you're running a Kubernetes install, you'll also have access to the Instrumen
 
 ❗️ If the customer isn't a Kubernetes customer, skip this section.
 
-❗️ The Extensions page and Batch Changes page are typically only relevant to customers setting up a custom extension or setting up a single access token for Batch Changes. As those both would involve CE enablement at the time of configuration, they're not included in this webinar.
+❗️ The Batch Changes page is typically only relevant to customers setting up a single access token for Batch Changes. As this would involve CE enablement at the time of configuration, it's not included in this webinar.
 
 ### API Console
 
