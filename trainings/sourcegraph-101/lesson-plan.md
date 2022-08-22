@@ -268,7 +268,7 @@ With notebooks, you can share code context and explanations with your teammates.
 
 **Learning goals:** After this unit, users will understand how to use code editor extensions, in-IDE extensions, browser extension, and search exports.
 
-### Editor itnegrations 
+### Editor integrations 
 
 We integrate with a variety of services here, a particularly important one is our Editors integrations.
 
