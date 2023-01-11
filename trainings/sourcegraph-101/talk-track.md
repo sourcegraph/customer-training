@@ -236,7 +236,7 @@ If I set this up in my own settings, it will just be a snippet for me. If I'm an
 
 *Navigate to the search screen*
 
-You can see here now that I can click on `fizz buzz` on the left of the screen, and it will append that snippet right to the query I'm running. 
+You can see here now that I can click on `fizz buzz` in the search snippets, and it will append that snippet right to the query I'm running. 
 
 ### Conclusion
 
