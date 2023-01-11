@@ -44,7 +44,7 @@ Sourcegraph is a code search and intelligence platform that allows you to find a
 
 *Share these with the customer after the call, typically in Slack.*
 
-* [Follow-up Slack template](/slack-follow-up.md)
+* [Follow-up Slack template](./slack-follow-up.md)
 
 - [Sourcegraph](https://sourcegraph.com)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
