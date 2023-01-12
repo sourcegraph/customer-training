@@ -377,9 +377,9 @@ This does rely on having the code locally on your machine—but if you do, you'l
 
 We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at your Sourcegraph instance in your settings. 
 
-### VSCode extension
+### VSCode (and other IDE) extension
 
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
+For VSCode, JetBrains and Gitpod users—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
 
 *Share VSCode, open the Sourcegraph extension, run a search*
 
