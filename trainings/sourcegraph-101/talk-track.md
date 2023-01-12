@@ -351,23 +351,25 @@ With notebooks, you can share code context and explanations with your teammates.
 
 ## Unit 7: Extensions
 
+_~~Deprecated.~~ Retained herein to provide historical context should a customer refer to it._
+
 **Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
 
 ### Intro to the extensions page
 
 The final thing that I want to touch on is our extensions platform. You can access that by clicking the puzzle icon at the top right here.
 
-*Navigate to the [Sourcegraph extensions](https://demo.sourcegraph.com/extensions) page*
+*Navigate to the ~~[Sourcegraph extensions](https://demo.sourcegraph.com/extensions) page*
 
 ### Editor extensions 
 
 We integrate with a variety of services here, but the one I particularly want to draw your attention to is this "code editors" section. If you click into that, you'll see a list of supported editors and a generic "open in editor" extension. 
 
-*Navigate to `https://demo.sourcegraph.com/extensions?category=Code+editors`*
+*Navigate to ~~`https://demo.sourcegraph.com/extensions?category=Code+editors`*
 
 You'll want to enable the appropriate extension for your editor, and then click on the extension name to view the customization settings you'll need to configure. 
 
-*Go to `https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor` and highlight the different config options on that page.*
+*Go to ~~`https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor`~~ and highlight the different config options on that page.*
 
 This does rely on having the code locally on your machine—but if you do, you'll have an "open in editor" button in Sourcegraph to open the file locally. And if you want to navigate from your editor back into Sourcegraph, you can do so with the extensions here.
 
