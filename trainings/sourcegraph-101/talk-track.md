@@ -200,7 +200,7 @@ From there, I can click `Create search context` on the top right of the screen.
 
 From here, I can scope the context to either just my username—in which case it will be private to just me—or set a Global owner. That will mean everyone has access to that context. In this case, I'm going to make this a private context. 
 
-You can see here that I have the option to configure this via JSON or via a search query. I'm going to set this up via a search query. Say that I want a search query that only look at Sourcegraph repos, which are all in the `sourcegraph` org in Github. So, what I can do here is set a query for `repo:github.com/sourcegraph`. That will catch all those repos! 
+You can see here that I have the option to configure this via JSON or via a search query. I'm going to set this up via a search query. Say that I want a search query that only look at Sourcegraph repos, which are all in the `sourcegraph` org in GitHub. So, what I can do here is set a query for `repo:github.com/sourcegraph`. That will catch all those repos! 
 
 *Set `repo:github.com/sourcegraph` in the search context menu and save it*
 
