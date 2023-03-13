@@ -65,7 +65,7 @@ Sourcegraph's non-default revision search allows customers to search at any bran
 
 - [Sourcegraph](https://sourcegraph.com)
 - [Sourcegraph Search Documentation](https://docs.sourcegraph.com/code_search/reference/queries#search-pattern-syntax)
-- [Sourcegraph Search Cheat Sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
+- [Sourcegraph Search search cheat sheet](https://about.sourcegraph.com/blog/how-to-search-cheat-sheet)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
 
 ## Unit 2: Searching commits
