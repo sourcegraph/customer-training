@@ -29,7 +29,7 @@ This is a basic template for a new proof of concept launch; we recommend having 
 
 - [How to search code with Sourcegraph — a cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
 - [Sourcegraph search modes (literal, regex, structural)](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
-- [All tutorials, videos, docs](https://learn.sourcegraph.com/)
+- [All tutorials, videos, docs](https://docs.sourcegraph.com/tutorials)
 - Live Technical Demo and Weekly Office Hours will be scheduled shortly
 
 **Slack channel for questions** (Sourcegraph and `<<Customer>>` are in this channel. Please reach out with any questions):
