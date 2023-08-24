@@ -27,8 +27,9 @@ This is a basic template for a new proof of concept launch; we recommend having 
 
 **Enablement:**
 
-- [How to search code with Sourcegraph — a cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
-- [Sourcegraph search modes (literal, regex, structural)](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
+- [Getting Started with Sourcegraph](https://docs.sourcegraph.com/getting-started)
+- [Sourcegraph product tour video](https://www.youtube.com/watch?v=7JeHvfwsxIY)
+- [Basic Code Search Filters](https://www.youtube.com/watch?v=h1Kw0Wd9qZ4)
 - [All tutorials, videos, docs](https://docs.sourcegraph.com/tutorials)
 - Live Technical Demo and Weekly Office Hours will be scheduled shortly
 
