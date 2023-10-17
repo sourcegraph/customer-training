@@ -218,7 +218,7 @@ And that's a wrap! In today's session, we covered the various APIs available, we
 ### Resources 
 
 * Download scripts available here: 
-https://github.com/sourcegraph/customer-assets/tree/main/accounts/JPMC/scripts 
+https://github.com/sourcegraph/customer-assets/tree/main/accounts/
 * Open the API Docs Page
 * Download Postman
 * Preconfigure Apollo Sandbox
