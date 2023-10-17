@@ -217,11 +217,11 @@ And that's a wrap! In today's session, we covered the various APIs available, we
 
 ### Resources 
 
-* Download scripts available here: 
+* Download scripts here (private to Sourcegraph team): 
 https://github.com/sourcegraph/customer-assets/tree/main/accounts/
-* Open the API Docs Page
-* Download Postman
-* Preconfigure Apollo Sandbox
+* Open the API Docs Page: https://docs.sourcegraph.com/api
+* Download Postman: https://www.postman.com/downloads/
+* Preconfigure Apollo Sandbox: https://studio.apollographql.com/sandbox/explorer/
 * Make sure you’re logged into demo.sourcegraph.com
 * Optional:
 * Python GraphQL Scripts: https://gist.github.com/justdueck/4d8e76a489d3b1055d292be2d45cf27f 
