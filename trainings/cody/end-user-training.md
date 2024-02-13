@@ -140,10 +140,10 @@ Cody's autocomplete is designed to integrate seamlessly into a developer's workf
 Example using Python:
 
 1. Start with a blank `.py` file
-2. Add the following comment `"""Sorting routines"""` as the first line; hit <enter> 
-3. Add the following line `def bubble_sort(items_to_sort):` and hit <enter>
+2. Add the following comment `"""Sorting routines"""` as the first line; hit Enter 
+3. Add the following line `def bubble_sort(items_to_sort):` and hit Enter
 4. Let Cody provide an autocomplete suggestion
-5. To accept the suggestion, hit <tab> and then <enter>
+5. To accept the suggestion, hit Tab and then Enter
 
 ## 4. Commands
 
@@ -173,10 +173,10 @@ When a developer selects a piece of code and invokes the /edit command, Cody ope
 
 Example using Python:
 1. Start with a blank `.py` file
-2. Add the following comment `"""Sorting routines"""` as the first line; hit <enter> 
-3. Add the following line `def bubble_sort(items_to_sort):` and hit <enter>
+2. Add the following comment `"""Sorting routines"""` as the first line; hit Enter 
+3. Add the following line `def bubble_sort(items_to_sort):` and hit Enter
 4. Let Cody provide an autocomplete suggestion
-5. To accept the suggestion, hit <tab> and then <enter>
+5. To accept the suggestion, hit Tab and then Enter
 6. Select the suggested code and invoke the `/edit` command and provide the following prompt `add a console logging statement for each sort operation`
 
 ### Custom commands
