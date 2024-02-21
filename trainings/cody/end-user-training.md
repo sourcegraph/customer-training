@@ -19,40 +19,44 @@ Training template intended to be distributed to end users of Cody for Enterprise
 ## 1. Setup
 ### Install the IDE extensions
 #### VS Code
-1. In VS Code, go to the Extensions tab (or `Ctrl/Cmd + Shift + X`)
-2. Search for `Cody AI`
-3. Install & restart VS Code
-4. Open the Cody tab
-5. Click on the **"Sign In to Your Enterprise Instance"** button
-6. Select "Sign in to Sourcegraph Enterprise Instance"
-7. Enter the URL of your Sourcegraph instance (e.g. https://sourcegraph.example.com)
-8. Provide an access token
-9. (Optional) Provide a Github repo URL instead of allowing Cody to infer the Git repository from the workspace.
-    - Open the Cody tab
-    - Open the Settings & Support panel
-    - Click on Settings
-    - Select Cody Extension Settings
-    - Provide a URL for your repo of preference in the Cody: Codebase field
+1. In VS Code, go to the Extensions tab (or `Ctrl/Cmd + Shift + X`).
+2. Search for `Cody AI`.
+3. Install & restart VS Code.
+4. Open the Cody tab.
+5. Click on the **"Sign In to Your Enterprise Instance"** button.
+6. Select "Sign in to Sourcegraph Enterprise Instance".
+7. Enter the URL of your Sourcegraph instance (e.g. https://sourcegraph.example.com). Contact the admin of the Sourcegraph instance in your company to get this URL.
+8. The extension will open your instance URL in a browser window, and you will be asked to authorize the VS Code extension.
+9. Provide an access token.
+10. (Optional) Provide a Github repo URL instead of allowing Cody to infer the Git repository from the workspace.
+    - Open the Cody tab.
+    - Open the Settings & Support panel.
+    - Click on Settings.
+    - Select Cody Extension Settings.
+    - Provide a URL for your repo of preference in the Cody: Codebase field.
 
 #### JetBrains
-1. Click on the IDE & Project Settings icon (top right)
+1. Click on the IDE & Project Settings icon (top right).
 2. Select Plugins...
-3. Select the Marketplace tab
-4. Search for `Sourcegraph Cody` and clock Install
-5. Restart the IDE
-6. Click on the Cody tab (right side of the IDE)
-7. Clock on **"Sign in with an Enterprise Instance"**
-8. Enter the URL of your Sourcegraph instance (e.g. https://sourcegraph.example.com)
-9. Click "Generate new token" which opens a new borwser window
-10. Prive a "Token description" text and an expiration date and click on "+ Generate token"
-11. Copy the token and paste it into the Cody tab and click Sign In
-12. Click on "Get started"
+3. Select the Marketplace tab.
+4. Search for `Sourcegraph Cody` and click Install.
+5. Restart the IDE.
+6. Click on the Cody tab (right side of the IDE).
+7. Click on **"Sign in with an Enterprise Instance"**.
+8. Enter the URL of your Sourcegraph instance (e.g. https://sourcegraph.example.com).
+9. Click "Generate new token" which opens a new browser window.
+10. Prive a "Token description" text and an expiration date and click on "+ Generate token".
+11. Copy the token and paste it into the Cody tab and click Sign In.
+12. Click on "Get started".
+13. (Optional) Provide a repo URL instead of allowing Cody to infer the URL from your Git metadata.
+    - On the Cody extension, click the context selection button at the bottom left-hand corner
+    - Add a Git repository URL to fetch the code graph context data.
 
 ## 2. Cody chat
-Cody chat works like most AI chatbots. You can questions about your code and Cody provide answers based on the context provided in the prompt & your codebase. Here are some examples of what Cody can do:
+Cody chat works like most AI chatbots. You can questions about your code and Cody provides answers based on the context provided in the prompt & your codebase. Here are some examples of what Cody can do:
 
-### General & code specific questions
-Here are some general questions about a repository, file and a code block that can help you get started:
+### General & code-specific questions
+Here are some general questions about a repository, file and code block that can help you get started:
 
 #### What are the core technologies and frameworks in this repo and how is code structured and organized?
 Response example:
@@ -77,7 +81,7 @@ Response example:
 >EnsureHEAD - Checks if a Git repo has a valid HEAD file and creates a default one if needed. This helps ensure the repo is in a valid state.
 
 ### Provide context using `@file` and `@#symbol`
-By default, Cody will use Sourcegraph's Code Search technology to automatically provide the best code context for Chat propmpts. However, you can also provide context using `@file` to Cody.
+By default, Cody will use Sourcegraph's Code Search technology to automatically provide the best code context for Chat prompts. However, you can also provide context using `@file` to Cody.
 
 #### How can I get access requests tokens? Use this as examples @cmd/frontend/graphqlbackend/access_token.go @cmd/frontend/graphqlbackend/client_configuration.go 
 Response example:
@@ -102,14 +106,14 @@ Example:
 
 1. Start with a blank `.py` file
 2. Add the following comment `"""Sourcegraph client library"""`
-3. Open the Cody chat and enter the following prompt `Generate a boilerplate python class that will represent a Sourcegraph client`
+3. Open the Cody chat and enter the following prompt `Generate a boilerplate Python class that will represent a Sourcegraph client`
 4. See the example code provided. You can choose to:
     - Create a new file and paste the code
     - Insert the code at the current cursor position
     - Copy the code to the clipboard
 
 ### Prompts tips & tricks
-Prompts are the secret sauce for AI coding assistants using Large Language Models (LLMs). They aren't just requests; they're the guiding lights that steer Cody toward providing accurate, contextual, and tailored code snippets. For us, software developers, the ability to understand and finesse prompts is a superpower in unleashing the full potential of Cody.
+Prompts are the secret sauce for AI coding assistants using Large Language Models (LLMs). They aren't just requests; they're the guiding lights that steer Cody toward providing accurate, contextual, and tailored code snippets. For us, software developers, the ability to understand and finesse prompts is a superpower in unleashing their full potential of Cody.
 
 #### Persona or Role
 Assign a persona or role to your prompt. This adds an extra layer of context and helps shape the response style. For instance, if you're asking Cody to generate code, assigning a "Beginner Python Developer" persona might result in more beginner-friendly code snippets.
@@ -148,7 +152,7 @@ Example using Python:
 ## 4. Commands
 
 To invoke commands:
-- Highlight code and select the command from the Cody tab/sidebar.
+- Highlight the code and select the command from the Cody tab/sidebar.
 - Use the command palette with Option+C or Alt+C.
 - Right-click on code and select Cody > Choose a command.
 - Type / in the chat bar to get suggestions for available commands
@@ -169,7 +173,7 @@ The /smell command is used to detect "code smells," which are patterns in the co
 When a developer selects a piece of code and invokes the /test command, Cody analyzes the selected code snippet and automatically generates a unit test for it. This functionality is particularly useful for ensuring code quality and early bug detection, as well as saving time that would otherwise be spent manually writing tests.
 
 #### `/edit`
-When a developer selects a piece of code and invokes the /edit command, Cody opens a prompt window to recieve instructions to edit the code. This command is particularly useful for quickly editing code without leaving the editor.
+When a developer selects a piece of code and invokes the /edit command, Cody opens a prompt window to receive instructions to edit the code. This command is particularly useful for quickly editing code without leaving the editor.
 
 Example using Python:
 1. Start with a blank `.py` file
