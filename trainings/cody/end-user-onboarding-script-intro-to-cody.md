@@ -10,7 +10,7 @@ This script template contains multiple talk tracks that can help onboard end use
     - Autocomplete (5 mins)
     - Commands (5 mins)
 5. Cody best practices (10 mins)
-    - Providing context (5 mins)
+    - Providing Context (5 mins)
     - Prompt guidelines (5 mins)
 
 ## 1. Preparation before the onboarding session
@@ -49,7 +49,7 @@ Some of the main Sourcegraph features include:
 | Notebooks       |	Pair code and markdown to create powerful live and persistent documentation                                                                                              |
 
 ## 3. Understanding LLM capabilities and interplay with Cody
-What you can achieve with Cody is tightly coupled to the capabilities of the underlying LLMs used by Cody for Chat and Autocomplete. Therefore, the results you experience with Cody will vary not only depending on the LLM that your Enterprise uses but also on your use cases. Currently, the LLMs are selected by your Sourcegraph instance administrator, and they are set at the instance level, not the individual user level.
+What you can achieve with Cody is tightly coupled to the capabilities of the underlying LLMs used by Cody for Chat and Autocomplete. Therefore, the results you experience with Cody will vary depending on the LLM your Enterprise uses and your use cases. Currently, the LLMs are selected by your Sourcegraph instance administrator, and they are set at the instance level, not the individual user level.
 
 In our experience with customers, we've observed that Cody:
 
@@ -65,7 +65,7 @@ In our experience with customers, we've observed that Cody:
 ## 4. Cody capabilities
 
 ### Chat
-Cody chat works like most AI chatbots. You can questions about your code and Cody provides answers based on the context provided in the prompt & your codebase. Here are some examples of what Cody can do:
+Cody chat works like most AI chatbots. You can ask questions about your code, and Cody provides answers based on the Context supplied in the prompt & your codebase. Here are some examples of what Cody can do:
 
 #### General questions about your code
 Here are some questions about a repository or a file that can help you get started:
@@ -110,13 +110,13 @@ Response example:
 >cmd/gitserver/server/gitdomain_test.go...
 
 #### Generating boilerplate code
-Cody can generate boilerplate code by receiving instructions from the user and leveraging Sourcegraph's code graph to fetch relevant context from the codebase. This allows Cody to produce code that is consistent with the organization's coding practices and existing codebase. 
+Cody can generate boilerplate code by receiving instructions from the user and leveraging Sourcegraph's code graph to fetch relevant Context from the codebase. This allows Cody to produce code consistent with the organization's coding practices and existing codebase. 
 
 Examples:
 
 ##### Python
-1. Create a new file in the IDE. For example `boilerplate.py`
-2. Add the following comment `"""Sourcegraph client library"""`
+1. Create a new file in the IDE. For example, `boilerplate.py`
+2. Add the following comment `"  ""Sourcegraph client library""  "`
 3. Open Cody chat and enter the following prompt `Generate a boilerplate Python class that will represent a Sourcegraph client`
 4. See the example code provided. You can choose to:
     - Insert the code at the current cursor position
@@ -131,7 +131,7 @@ Examples:
     - Copy the code to the clipboard
   
 ##### C#
-1. Create a new file in the IDE. For example `boilerplate.cs`
+1. Create a new file in the IDE. For example, `boilerplate.cs`
 2. Add the following comment `// GraphQL client implementation`
 3. Open Cody chat and enter the following prompt `Generate a boilerplate C# class that will represent a Sourcegraph GraphQL client`
 4. See the example code provided. You can choose to:
@@ -139,7 +139,7 @@ Examples:
     - Copy the code to the clipboard
   
 ##### TypeScript
-1. Create a new file in the IDE. For example `boilerplate.ts`
+1. Create a new file in the IDE. For example, `boilerplate.ts`
 2. Add the following comment `/** GraphQL client implementation */`
 3. Open Cody chat and enter the following prompt `Generate a boilerplate TypeScript class that will represent a Sourcegraph GraphQL client`
 4. See the example code provided. You can choose to:
@@ -153,36 +153,131 @@ Examples:
 
 #### Python
 1. Create a new file in the IDE. For example `autocomplete.py`
-2. Add the following comment `"""Sorting routines"""` as the first line; hit Enter 
+2. Add the following comment `"  "" Sorting routines""  "` as the first line; hit Enter 
 3. Add the following line `def bubble_sort(items_to_sort):` and hit Enter
 4. Let Cody provide an autocomplete suggestion
 5. To accept the suggestion, hit Tab and then Enter
-6. Repeat the process of Tab and Enter until no further suggestions are offered
 
 #### Java
+1. Create a new file in the IDE. For example `autocomplete.java`
+2. Add the following comment `// Sorting routines` as the first line; hit Enter 
+3. Add the following line `public static void bubbleSort(int[] itemsToSort) {` and hit Enter
+4. Let Cody provide an autocomplete suggestion
+5. To accept the suggestion, hit Tab and then Enter
 
-#### (Optional) Show how to integrate the some Cody commands. 
+#### Go
+1. Create a new file in the IDE. For example, `autocomplete.go`
+2. Add the following comment `// Sorting routines` as the first line; hit Enter 
+3. Add the following line `func bubbleSort(itemsToSort []int) {` and hit Enter
+4. Let Cody provide an autocomplete suggestion
+5. To accept the suggestion, hit Tab and then Enter
+
+#### JavaScript
+1. Create a new file in the IDE. For example `autocomplete.js`
+2. Add the following comment `// Sorting routines` as the first line; hit Enter 
+3. Add the following line `function bubbleSort(itemsToSort) {` and hit Enter
+4. Let Cody provide an autocomplete suggestion
+5. To accept the suggestion, hit Tab and then Enter
+
+#### Show how to integrate Cody commands. 
 - Select the code generated by Autocomplete
 - In VS Code:
     - Open up the command palette with `Option+C` or `Alt+C`
-    - Select Explain Code to get a detailed explanation 
-    - Select Edit Code and provide a prompt. For example `add a console logger for every operation`
-    - Select Smell Code to get potential suggestions to improve the selected code
+- In IntelliJ:
+    - Right-click over the selected code
+    - Select Cody > the desired Command
+- Select Explain Code to get a detailed explanation 
+- Select Edit Code and provide a prompt. For example, `add a console logger for every operation`
+- Select Smell Code to get potential suggestions to improve the selected code
 
+### Commands
+Commands are common actions you may want to perform repeatedly. Cody contains predefined, reusable prompts that facilitate common coding actions such as writing, describing, fixing, and understanding code. 
 
+To invoke commands, use any of these options:
+- Highlight the code and select the command from the Cody tab/sidebar
+- Use the command palette with `Option+C` or `Alt+C`
+- Right-click on code and select Cody > Choose a command
+- Type the command in the chat bar
 
+#### Explain Code
+Cody searches the user's codebase and explains the selected code snippet. Users can choose between a high-level explanation or a more detailed one, depending on their needs. This feature is particularly useful for gaining insights into complex code or for educational purposes when learning how a particular piece of code works.
 
+#### Document Code
+Cody analyzes the selected code snippet and automatically generates a comment or documentation block describing the code's functionality. This documentation can include explanations of the purpose of the code, the parameters it uses, the value it returns, and any side effects it may have.
 
-### Provide context using `@file` and `@#symbol`
-By default, Cody will use Sourcegraph's Code Search technology to automatically provide the best code context for Chat prompts. Users can configure more granular control of Cody’s chat context by including @-files or @#-symbols in the chat input.
+#### Find Code Smells/Smell Code
+Cody reviews the code for common anti-patterns or practices that deviate from best coding practices. It then provides feedback on improving the code, suggesting refactoring or optimization opportunities. This command is invaluable for maintaining code quality and ensuring the codebase remains clean and efficient.
 
-#### How can I get access request tokens? Use this as examples @cmd/frontend/graphqlbackend/access_token.go @cmd/frontend/graphqlbackend/client_configuration.go 
+#### Generate Unit Tests/Generate Test
+Cody analyzes the selected code snippet and automatically generates a unit test. This functionality is particularly useful for ensuring code quality and early bug detection and saving time that would otherwise be spent manually writing tests.
+
+#### Edit Code
+Cody opens a prompt window to receive instructions to edit the code. This command is particularly useful for quickly editing code without leaving the editor.
+
+##### Examples:
+
+Setup:
+1. Create a new file in the IDE. For example `autocomplete.js`
+2. Add the following comment `// Sorting routines` as the first line; hit Enter 
+3. Add the following line `function bubbleSort(itemsToSort) {` and hit Enter
+4. Let Cody provide an autocomplete suggestion
+5. To accept the suggestion, hit Tab and then Enter
+
+###### Find Code Smells/Smell Code
+- Select the suggested code and invoke the `Find Code Smells/Smell Code` command
+- Read some of the suggestions listed in the Cody chat
+
+###### Generate Unit Tests/Generate Test
+- Select the suggested code and invoke the `Generate Unit Tests/Generate Test` command
+- In VS Code
+    - The Cody VS Code extension will create a new file called `fileName.test.js` with the unit test code
+    - Hit `Opt+A` or `Ctrl+A` to accept the suggestion
+    - Save the file in the IDE
+- In IntelliJ:
+    - In the Cody chat response, click on the Copy button at the top of the response
+    - Create a new file in the IDE. For example `autocomplete.test.js`
+    - Paste the contents of the Cody generated test
+
+###### Document Code (VS Code only)
+- Select the suggested code and invoke the `Document Code` command
+- Hit `Opt+A` or `Ctrl+A` to accept the suggestion
+- Save the file in the IDE
+
+###### Edit Code (VS Code only)
+- Select the suggested code and invoke the `Edit Code` command, and provide the following prompt `add a console logging statement for each sort operation`
+
+## 5. Cody best practices
+### Providing Context
+Cody employs various methods to gather Context relevant to user input, ensuring the quality of the information provided. These methods include: Local code, Cody Context Search, Keyword Search and the Code Graph. Users also have the option to explicitly specify up to 10 repos they would like Cody to use for context fetching. Here is how you can do so:
+
+#### Sourcegraph web UI
+When using Cody in the Sourcegraph UI, the default context is set to the repository you are currently navigating. You can select up to 10 repos to use as Context for your questions: 
+- While navigating a file in your code, open the Chat Context panel below the chat text box
+- Start typing in the "Add repositories" box to select a repository
+
+#### VS Code
+- Open the Enhanced Context panel in the Cody chat panel by clicking the ✨button next to the chat box. 
+- Make sure the checkbox for Enhanced Context is selected.
+- Click on the Choose Repositories… button.
+- Select up to 10 repositories you would like to include.
+
+#### IntelliJ (JetBrains)
+- Open the Cody panel
+- Click on the + icon under the Cody chat box
+- Type the Repo URL you want to add
+- Only repos indexed on the customer instances are valid
+
+#### Provide context using `@file` and `@#symbol`
+By default, Cody will use Sourcegraph's Code Search technology to automatically provide the best code context for Chat prompts. Users can configure more granular control of Cody's chat context by including @-files or @#-symbols in the chat input.
+
+Examples:
+##### How can I get access request tokens? Use this as examples @cmd/frontend/graphqlbackend/access_token.go @cmd/frontend/graphqlbackend/client_configuration.go 
 Response example:
 >Here are a few ways to get access tokens in Sourcegraph:
 >
 > Use the GraphQL API to create access tokens programmatically:...
 
-#### How can I write a unit test for @cmd/frontend/graphqlbackend/access_requests.go:41-41#accessRequestConnectionStore
+##### How can I write a unit test for @cmd/frontend/graphqlbackend/access_requests.go:41-41#accessRequestConnectionStore
 Response example:
 >Here is an example of how you could write a unit test for the accessRequestConnectionStore struct in access_requests.go:
 >
@@ -192,20 +287,21 @@ Response example:
 >
 >The Nodes method returns expected results...
 
+### Prompt guidelines
 
-### Prompts tips & tricks
-Prompts are the secret sauce for AI coding assistants using Large Language Models (LLMs). They aren't just requests; they're the guiding lights that steer Cody toward providing accurate, contextual, and tailored code snippets. For us, software developers, the ability to understand and finesse prompts is a superpower in unleashing their full potential of Cody.
+#### Prompt tips & tricks
+Prompts are the secret sauce for AI coding assistants using Large Language Models (LLMs). They aren't just requests but the guiding lights that steer Cody toward providing accurate, contextual, and tailored code snippets. For us software developers, the ability to understand and finesse prompts is a superpower in unleashing the full potential of Cody.
 
-#### Persona or Role
-Assign a persona or role to your prompt. This adds an extra layer of context and helps shape the response style. For instance, if you're asking Cody to generate code, assigning a "Beginner Python Developer" persona might result in more beginner-friendly code snippets.
+##### Persona or Role
+Assign a persona or role to your prompt. This adds an extra layer of Context and helps shape the response style. For instance, assigning a "Beginner Python Developer" persona might result in more beginner-friendly code snippets if you ask Cody to generate code.
 
 Example:
 >Generate Python code for a simple web scraping script using BeautifulSoup.
 >
->Task Description: **You are an experienced Python developer** working on a personal project to scrape data from a website. You want to use BeautifulSoup to extract information from HTML pages and save it to a CSV file. Write a Python script that demonstrates how to fetch data from a website, parse the HTML content, and extract specific elements.
+>Task Description: **You are an experienced Python developer** working on a personal project to scrape data from a website. You want to use BeautifulSoup to extract information from HTML pages and save it to a CSV file. Write a Python script demonstrating how to fetch data from a website, parse the HTML content, and extract specific elements.
 
-#### Instruction
-Begin with a high-level task description, followed by specific, step-by-step instructions. For instance, when asking Cody to generate code, outline the overall objective first and then provide detailed instructions for each step. This ensures Cody understands the broader context before diving into specifics.
+##### Instruction
+Begin with a high-level task description, followed by specific, step-by-step instructions. For instance, when asking Cody to generate code, outline the overall objective first and then provide detailed instructions for each step. This ensures Cody understands the broader Context before diving into specifics.
 
 Example:
 >Generate Java code to implement a simple banking system.
@@ -218,51 +314,3 @@ The Bank class should manage multiple accounts and provide methods to create new
 The Account class should represent a bank account and store information such as account number, balance, and owner details. It should also have methods to deposit, withdraw, and check the balance.\
 The Transaction class should represent a transaction between accounts and store details such as transaction type, amount, and timestamp.\
 Implement methods to transfer funds between accounts, view transaction history, and calculate interest for savings accounts.
-
-
-
-## 4. Commands
-
-To invoke commands, use any of these options:
-- Highlight the code and select the command from the Cody tab/sidebar.
-- Use the command palette with Option+C or Alt+C.
-- Right-click on code and select Cody > Choose a command.
-- Type / in the chat bar to get suggestions for available commands
-
-### Out of the box
-Sourcegraph Cody commands are predefined, reusable prompts that facilitate common coding actions such as writing, describing, fixing, and understanding code. 
-
-#### `/explain`
-When a user highlights a piece of code and invokes the /explain command, Cody searches the user's codebase and provides an explanation of the selected code snippet. Users can choose between a high-level explanation or a more detailed one, depending on their needs. This feature is particularly useful for gaining insights into complex code or for educational purposes when learning how a particular piece of code works.
-
-#### `/document`
-When a user selects a piece of code and invokes the /document command, Cody analyzes the selected code snippet and automatically generates a comment or documentation block that describes the functionality of the code. This documentation can include explanations of the purpose of the code, the parameters it uses, the value it returns, and any side effects it may have.
-
-#### `/smell`
-The /smell command is used to detect "code smells," which are patterns in the code that may indicate deeper problems or suggest that a refactor might be beneficial for maintainability and readability. When this command is executed, Cody reviews the code for common anti-patterns or practices that deviate from best coding practices. It then provides feedback on how to improve the code, potentially suggesting refactoring or optimization opportunities. This command is invaluable for maintaining code quality and ensuring that the codebase remains clean and efficient over time
-
-#### `/test`
-When a developer selects a piece of code and invokes the /test command, Cody analyzes the selected code snippet and automatically generates a unit test for it. This functionality is particularly useful for ensuring code quality and early bug detection, as well as saving time that would otherwise be spent manually writing tests.
-
-#### `/edit`
-When a developer selects a piece of code and invokes the /edit command, Cody opens a prompt window to receive instructions to edit the code. This command is particularly useful for quickly editing code without leaving the editor.
-
-Example using Python:
-1. Start with a blank `.py` file
-2. Add the following comment `"""Sorting routines"""` as the first line; hit Enter 
-3. Add the following line `def bubble_sort(items_to_sort):` and hit Enter
-4. Let Cody provide an autocomplete suggestion
-5. To accept the suggestion, hit Tab and then Enter
-6. Select the suggested code and invoke the `/edit` command and provide the following prompt `add a console logging statement for each sort operation`
-
-### Custom commands
-Custom commands allow you to define reusable prompts tailored to your development workflows. They can be stored locally in User Settings or shared in Workspace Settings. Once created, they appear alongside predefined commands in the chat and command palette lists.
-
-Examples of Commands:
-
-1. `/code-snippets`: To analyze how code snippets are related.
-2. `/current-dir`: To explain the current directory's purpose.
-
-Further docs:
-1. [Creating a custom command](https://docs.sourcegraph.com/cody/capabilities/commands#creating-a-custom-command)
-2. [Running custom commands](https://docs.sourcegraph.com/cody/capabilities/commands#running-custom-commands)
