@@ -62,7 +62,36 @@ In our experience with customers, we've observed that Cody:
     - Generating the best solution as measured by custom metrics.
     - Math, data manipulation, or reasoning.
 
-## 4. Cody capabilities
+## 4. Configuring Context for Cody
+Context plays a crucial role in ensuring Cody provides accurate responses to your requests, whether it's through chat, predefined commands, or code completion. Cody leverages both local and remote context to enhance its understanding and effectiveness.
+
+For autocomplete, Cody relies solely on local context, drawing from sources such as the contents of the active file, highlighted code, other open tabs, and recently closed tabs. On the other hand, for chat and commands, Cody utilizes both local and remote context.
+
+To gather remote context, Cody interacts with the Sourcegraph instance associated with your IDE. It performs a search over selected repositories, preprocessing the user prompt by splitting it into tokens. These tokens are then processed by the Sourcegraph search engine, which scans the user-selected repositories and ranks file snippets based on their relevance to the search query. Cody combines the local and remote context, ranks the snippets, and sends the top N snippets along with the prompt to the Language Model (LLM).
+
+To learn more about how Cody understands your codebase, you can refer to this [detailed explanation](https://sourcegraph.com/blog/how-cody-understands-your-codebase).
+
+Let us now take a look at we can configure remote context within Cody.
+
+> Trainer Instructions: 
+> Open the relevant IDE used by the customer. 
+> Open a folder or workspace associated with a repository indexed on the connected Sourcegraph instance. 
+> Explain that the workspace you have open is linked to a repository indexed on the connected Sourcegraph instance, leveraging git information for identification. 
+> Mention any current limitations or issues, such as Cody's inability to automatically identify underlying projects within a GitLab group for example.
+> In VS Code, demonstrate creating a new chat tab, selecting the enhanced context dialog, and showing the relevant repository selected.
+> In IntelliJ (JetBrains), expand the context for the chat and show the repository used for remote context.
+ 
+Expanding remote context in Cody allows you to add additional repositories, up to a maximum of 10. This feature enables you to incorporate repositories with relevant context, such as libraries, frameworks, or SDKs. These repositories may include public or open-source projects, enriching Cody's knowledge base. However, note that while the LLM is trained on versions of these libraries, it may not necessarily be up-to-date with the latest versions.
+
+> Add an additional repository to the remote context used by Cody. (VS Code will provide a dialog to search available repos / JetBrains currently you will need to type repo url). Ideally show how this improves a chat request. Suggest that using a maven or other package host will also demonstrate that sourcegraph can be used for indexing and searching third party repos relevant to the codebase. However not a requirement. Ideally the repo added should be relevant to the workspace repo. For example if using Sourcegraph/sourcegraph use Sourcegraph/Cody or Sourcegraph/sourcegraph-batch-examples.
+
+So with Cody we can set the repositories that we search for remote context. And we can control local context by selecting code and which files we have open in our IDE. We can 
+
+Users can also more granular control of Cody’s context by including @-files or @#-symbols in the chat input. This feature only supports local files and paths relative to your workspace. Start typing @, and Cody will suggest files for you to include. You can also specify which lines from a file you want to include.
+
+> Show an example of using the @ to add specific local files/symbols. 
+
+## 5. Cody capabilities
 
 ### Chat
 Cody chat works like most AI chatbots. You can ask questions about your code, and Cody provides answers based on the Context supplied in the prompt & your codebase. Here are some examples of what Cody can do:
