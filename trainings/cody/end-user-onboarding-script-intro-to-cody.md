@@ -85,9 +85,9 @@ Expanding remote context in Cody allows you to add additional repositories, up t
 
 > Add an additional repository to the remote context used by Cody. (VS Code will provide a dialog to search available repos / JetBrains currently you will need to type repo url). Ideally show how this improves a chat request. Suggest that using a maven or other package host will also demonstrate that sourcegraph can be used for indexing and searching third party repos relevant to the codebase. However not a requirement. Ideally the repo added should be relevant to the workspace repo. For example if using Sourcegraph/sourcegraph use Sourcegraph/Cody or Sourcegraph/sourcegraph-batch-examples.
 
-So with Cody we can set the repositories that we search for remote context. And we can control local context by selecting code and which files we have open in our IDE. We can 
+So with Cody we can set the repositories that we search for remote context. And we can control local context by selecting code and which files we have open in our IDE. 
 
-Users can also more granular control of Cody’s context by including @-files or @#-symbols in the chat input. This feature only supports local files and paths relative to your workspace. Start typing @, and Cody will suggest files for you to include. You can also specify which lines from a file you want to include.
+Users can also more granular control of Cody’s context by including @-files or @#-symbols in the chat input. This feature supports local files and paths relative to your workspace. Start typing @, and Cody will suggest files for you to include. You can also specify which lines from a file you want to include.
 
 > Show an example of using the @ to add specific local files/symbols. 
 
