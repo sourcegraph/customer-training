@@ -1,28 +1,28 @@
 # Configure Cody Plugins
-> This purpose of this run-book/script is to outline the steps required to configure a Cody plugin for an enterprise customer. Enabling a short session to be delivered to developers / engineers to enable them to get up and running with Cody. The assumption is that the audience will have level of knowledge regarding Sourcegraph as a code search platform.
+> The purpose of this run-book/script is to outline the steps required to configure a Cody plugin for an enterprise customer. Enabling a short session to be delivered to developers/engineers to enable them to get up and running with Cody. The assumption is that the audience will have a level of knowledge regarding Sourcegraph as a code search platform.
 
 ## Agenda
-Todays session is going to cover the basics required to setup and configure Cody. The goal is for this session to last no longer than 15 minutes. I plan on covering the following topics:
+Today's session is going to cover the basics required to set up and configure Cody. The goal is for this session to last no longer than 15 minutes. I plan on covering the following topics:
 
-1. Download and installation of Cody plugin or extension for your IDE
-2. Connecting the Cody plugin to a Sourcegraph enterprise instance
+1. Download and install of Cody plugin or extension for your IDE
+2. Connecting the Cody plugin to a Sourcegraph Enterprise instance
 3. How Cody uses Context when responding to your requests or actions
 4. How to configure Cody context
 
 ## Installing and configuring Cody IDE Plugin
 
-First thing we need to do is install the Cody plugin for our IDE. Now in the interests of time I have done this in advance. But I will show you in both VS Code and JetBrains where to find the relevant plugin or extension.
+The first thing we need to do is install the Cody plugin for our IDE. Now in the interests of time, I have done this in advance. But I will show you in both VS Code and JetBrains where to find the relevant plugin or extension.
 
 > I would suggest not downloading and installing the IDE plugin during the session. Purely based on this is a) straightforward for most people in the audience b) takes a little time to download etc. Rather install the plugin beforehand, show the installed extension and navigate to the relevant marketplace page via a browser or via the IDE plugin page. This confirms the name of the Cody plugin. Remove any account settings before starting so that we are not connected to a Sourcegraph enterprise instance.
 > 
 > Visual Studio Code <br>
-> select Code->Settings->Extensions type Cody AI in the dialog to show the installed extension. <br>
+> Select Code->Settings->Extensions type Cody AI in the dialog to show the installed extension. <br>
 > Navigate to the marketplace url or select Marketplace on the extension page within VS Code <br>
 >[Cody AI Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai) <br>
 > 
 > JetBrains <br>
-> select  IntelliJ->Settings->Plugins type Sourcegraph Cody in the dialog to show the installed plugin. <br>
-> Navigate to the plugin url or select the shortcut from within Intellij <br>
+> Select  IntelliJ->Settings->Plugins type Sourcegraph Cody in the dialog to show the installed plugin. <br>
+> Navigate to the plugin url or select the shortcut from within IntelliJ <br>
 >[Sourcegraph Cody JetBrains plugin](https://plugins.jetbrains.com/plugin/9682-sourcegraph-cody--code-search)
 > 
 
@@ -31,7 +31,7 @@ In terms of configuring Cody within your IDE it is pretty straightforward. The m
 
 In short context.
 
-> Open browser with the blog [How cody understands your codebase](https://sourcegraph.com/blog/how-cody-understands-your-codebase).
+> Open the browser with the blog [How Cody understands your codebase](https://sourcegraph.com/blog/how-cody-understands-your-codebase).
 
 Context plays a crucial role in ensuring Cody provides accurate responses to your requests, whether it's through chat, predefined commands, or code completion. Cody leverages both local and remote context to enhance its understanding and effectiveness.
 
@@ -41,12 +41,12 @@ To gather remote context, Cody interacts with the Sourcegraph instance associate
 
 Let us see how to connect Cody to a Sourcegraph instance.
 
-> Outline adding an account with both VS Code and JetBrains. Point out that we do not want to use Cody Free or Pro tier. That we want to connect to an enterprise instance. Note - I need to determine how to remove previous instances on VS Code. On JetBrains remove existing accounts within Cody setting.
+> Outline adding an account with both VS Code and JetBrains. Point out that we do not want to use Cody Free or Pro tier but rather that we want to connect to an enterprise instance. Note - I need to determine how to remove previous instances on VS Code. On JetBrains remove existing accounts within Cody setting.
 > 
 > Visual Studio Code <br>
-> 1. select Cody extension<br>
-> 2. select Account<br>
-> 3. select Sign in to Enterprise instance<br>
+> 1. Select Cody extension<br>
+> 2. Select Account<br>
+> 3. Select Sign in to Enterprise instance<br>
 > 4. Follow workflow<br>
 > 
 > JetBrains <br>
@@ -58,14 +58,14 @@ Now Cody is connected to our Sourcegraph instance we can ideally get better cont
 
 ### Configuring Cody Plugin and Extension
 
-> Outline additional (not required) configuration of Cody plugin / extension. Currently this is only relevant for VS Code. Outline options that can be enabled
-> 1. select Cody extension<br>
-> 2. select Settings<br>
-> 3. outline options that can be enabled<br>
+> Outline additional (not required) configuration of Cody plugin/extension. Currently this is only relevant for VS Code. Outline options that can be enabled
+> 1. Select Cody extension<br>
+> 2. Select Settings<br>
+> 3. Outline options that can be enabled<br>
 > Code Actions, Editor Title Icon, Cody Lenses, Command Hints, Search Context <br>
 > 
 
-No further configuration is required of the plugin or extension. Though there are some additional options that can be selected in VS Code. In my view it is useful to enable all of these options. Code Actions gives you the option to use Cody to fix or explain. We can add a Cody icon to the title bar as well as the status bar. Cody lenses adds a shortcut to your source code.  
+No further configuration is required of the plugin or extension. However, there are some additional options that can be selected in VS Code. In my view, it is useful to enable all of these options. Code Actions gives you the option to use Cody to fix or explain. We can add a Cody icon to the title bar as well as the status bar. Cody lenses adds a shortcut to your source code.  
 
 ## Configuring Cody Context
 
@@ -80,12 +80,12 @@ Previously we outlined how to connect our Cody plugin to a Sourcegraph instance 
  
 Expanding remote context in Cody allows you to add additional repositories, up to a maximum of 10. This feature enables you to incorporate repositories with relevant context, such as libraries, frameworks, or SDKs. These repositories may include public or open-source projects, enriching Cody's knowledge base. However, note that while the LLM is trained on versions of these libraries, it may not necessarily be up-to-date with the latest versions.
 
-> Add an additional repository to the remote context used by Cody. (VS Code will provide a dialog to search available repos / JetBrains currently you will need to type repo url). Ideally show how this improves a chat request. Suggest that using a maven or other package host will also demonstrate that sourcegraph can be used for indexing and searching third party repos relevant to the codebase. However not a requirement. For example if using Sourcegraph/sourcegraph use Sourcegraph/Cody or Sourcegraph/sourcegraph-batch-examples.
+> Add an additional repository to the remote context used by Cody. (VS Code will provide a dialog to search available repos / JetBrains currently you will need to type repo url). Ideally, show how this improves a chat request. Suggest that using a maven or other package host will also demonstrate that sourcegraph can be used for indexing and searching third party repos relevant to the codebase. However not a requirement. For example, if using Sourcegraph/sourcegraph use Sourcegraph/Cody or Sourcegraph/sourcegraph-batch-examples.
 
-So with Cody we can set the repositories that we search for remote context. And we can control local context by selecting code and which files we have open in our IDE. We can 
+So with Cody, we can set the repositories that we search for remote context. And we can control local context by selecting code and which files we have open in our IDE. We can 
 
-Users can also more granular control of Cody’s context by including @-files or @#-symbols in the chat input. This feature only supports local files and paths relative to your workspace. Start typing @, and Cody will suggest files for you to include. You can also specify which lines from a file you want to include.
+Users can also have more granular control of Cody’s context by including @-files or @#-symbols in the chat input. This feature only supports local files and paths relative to your workspace. Start typing @, and Cody will suggest files for you to include. You can also specify which lines from a file you want to include.
 
 > Show an example of using the @ to add specific local files/symbols. 
 
-Show in this session we have show how install and configure the Cody plugin. How to connect Cody to your Sourcegraph instance. Provided an overview about how Cody uses context. Shown how we can configure the repos Cody uses. And finally how we can specify specific files or symbols we want to use as context.
+In this session, we have shown how to install and configure the Cody plugin. How to connect Cody to your Sourcegraph instance. Provided an overview of how Cody uses context. Shown how we can configure the repos Cody uses. And finally how we can specify specific files or symbols we want to use as context.
