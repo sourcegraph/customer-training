@@ -44,7 +44,7 @@ Sourcegraph is a code search and intelligence platform that allows you to find a
 
 *Share these with the customer after the call, typically in Slack.*
 
-* [Follow-up Slack template](/slack-follow-up.md)
+* [Follow-up Slack template](./slack-follow-up.md)
 
 - [Sourcegraph](https://sourcegraph.com)
 - [Sourcegraph Documentation](https://docs.sourcegraph.com)
@@ -236,7 +236,7 @@ If I set this up in my own settings, it will just be a snippet for me. If I'm an
 
 *Navigate to the search screen*
 
-You can see here now that I can click on `fizz buzz` on the left of the screen, and it will append that snippet right to the query I'm running. 
+You can see here now that I can click on `fizz buzz` in the search snippets, and it will append that snippet right to the query I'm running. 
 
 ### Conclusion
 
@@ -351,23 +351,25 @@ With notebooks, you can share code context and explanations with your teammates.
 
 ## Unit 7: Extensions
 
+_~~Deprecated.~~ Retained herein to provide historical context should a customer refer to it._
+
 **Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
 
 ### Intro to the extensions page
 
 The final thing that I want to touch on is our extensions platform. You can access that by clicking the puzzle icon at the top right here.
 
-*Navigate to the [Sourcegraph extensions](https://demo.sourcegraph.com/extensions) page*
+*Navigate to the ~~[Sourcegraph extensions](https://demo.sourcegraph.com/extensions) page*
 
 ### Editor extensions 
 
 We integrate with a variety of services here, but the one I particularly want to draw your attention to is this "code editors" section. If you click into that, you'll see a list of supported editors and a generic "open in editor" extension. 
 
-*Navigate to `https://demo.sourcegraph.com/extensions?category=Code+editors`*
+*Navigate to ~~`https://demo.sourcegraph.com/extensions?category=Code+editors`*
 
 You'll want to enable the appropriate extension for your editor, and then click on the extension name to view the customization settings you'll need to configure. 
 
-*Go to `https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor` and highlight the different config options on that page.*
+*Go to ~~`https://demo.sourcegraph.com/extensions/sourcegraph/open-in-editor`~~ and highlight the different config options on that page.*
 
 This does rely on having the code locally on your machine—but if you do, you'll have an "open in editor" button in Sourcegraph to open the file locally. And if you want to navigate from your editor back into Sourcegraph, you can do so with the extensions here.
 
@@ -375,9 +377,9 @@ This does rely on having the code locally on your machine—but if you do, you'l
 
 We'll share this link with you after the presentation so you can install the right extension for you. You'll just need to point it at your Sourcegraph instance in your settings. 
 
-### VSCode extension
+### VSCode (and other IDE) extension
 
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
+For VSCode, JetBrains and Gitpod users—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
 
 *Share VSCode, open the Sourcegraph extension, run a search*
 
@@ -477,11 +479,11 @@ As a developer, I may want to change something across many places in my code. Fo
 
 So, to show how this works, I'm going to open up a Batch Change here. 
 
-*Open [this batch change](https://demo.sourcegraph.com/users/christine/batch-changes/java-remove-catch?visible=7) and navigate to the spec.*
+*Open [this batch change](https://demo.sourcegraph.com/users/christine/batch-changes/java-remove-catch?visible=7) and navigate to the [spec](https://demo.sourcegraph.com/users/christine/batch-changes/java-remove-catch?tab=spec).*
 
 Batch Changes are controlled by what we call a Batch Change spec, which is YAML that outlines what repos I want to make changes to, and what change will be made. Sourcegraph Batch Changes follow the following workflow:
 
-1. I identify a Sourcegraph query that will find all the repos I want to modify—you can see that at the top of the spec here.
+1. I identify a Sourcegraph query that will find all the repos I want to modify—you can see that at the top of the spec [here](https://demo.sourcegraph.com/users/christine/batch-changes/java-remove-catch?tab=spec).
 2. I script the change I want to make—this can be as simple as a quick find and replace using a bash script, or as complex as spinning up our build environment and pinning transitive dependencies 
 3. Sourcegraph runs the batch change on those repos either locally or on the Sourcegraph instance
 4. It opens PRs on my behalf, and I can comment on them, merge them, close them, or simply track their status in Sourcegraph.
@@ -489,7 +491,7 @@ Batch Changes are controlled by what we call a Batch Change spec, which is YAML 
 
 So, if I navigate to the open changeset page, I can see the PRs for this batch change.
 
-*Navigate to the PR tab.*
+*Navigate to the [PR tab](https://demo.sourcegraph.com/users/christine/batch-changes/java-remove-catch?visible=7).*
 
 If I click into the individual PR, I can even see a summary of what the change itself was.
 
@@ -497,7 +499,7 @@ If I click into the individual PR, I can even see a summary of what the change i
 
 To quickly show you what the process of creating a batch change looks like, I'm going to run an [example batch change](https://docs.sourcegraph.com/batch_changes/quickstart#write-a-batch-spec). I'm going to be running this in the browser, but you can also run this from our CLI—I'm happy to dive into details offline if you want more info.
 
-_Open the [Create batch change](https://demo.sourcegraph.com/batch-changes/create) menu_
+_Open the [Create batch change](https://demo.sourcegraph.com/batch-changes/create) menu. Note the library of batch specs available by way of example. _
 
 This batch change appends `hello world` to `readme.md` files. I can run this in the browser, and if I click `Preview workspaces`, it will show me matching repos. I'm going to go ahead and run the change, and if I click in to the repo name, you'll see it's tracking what it's changing.
 
@@ -509,7 +511,7 @@ Now if I click `Preview` here, it will publish it to Sourcegraph, but not the co
 
 As you can see here, we've got a variety of PRs in different states here. I can filter by PR status, review status, and check status.
 
-*Filter to show only Open PRs.*
+*Filter to show only [Open PRs](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign?status=OPEN) or [Failed PRs](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign?status=FAILED).*
 
 From here, I can select the changesets, and take bulk actions on them.
 
@@ -519,7 +521,7 @@ I can bulk merge these, comment on them to nudge reviewers or provide context, a
 
 If I want to track progress, I can do that using the burndown chart for this Batch Change.
 
-*Navigate to the burndown chart.*
+*Navigate to the [burndown chart](https://demo.sourcegraph.com/users/malo/batch-changes/medium-trackin-campaign?tab=chart).*
 
 As you can see, merged PRs are dominating, so I'm going to filter those out.
 
