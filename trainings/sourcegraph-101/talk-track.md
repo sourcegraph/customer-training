@@ -242,11 +242,6 @@ You can see here now that I can click on `fizz buzz` on the left of the screen, 
 
 With our query filters, you can narrow things down to find just the content you need, based on the results that Sourcegraph is returning!
 
-### Resources
-
-- [Three ways to search code with Sourcegraph](https://learn.sourcegraph.com/three-ways-to-search-code-with-sourcegraph)
-- [Sourcegraph code search cheat sheet](https://learn.sourcegraph.com/how-to-search-code-with-sourcegraph-a-cheat-sheet)
-
 ## Unit 4: Code Monitoring
 
 **Learning goals:** By the end of this unit, users will now how to configure a code monitor.
