@@ -16,7 +16,7 @@ To access the site admin section of the site, you'll need to click on your user 
 
 ![The site admin menu is accessed by clicking on your avatar image.](https://user-images.githubusercontent.com/9934079/174647300-7ae9f594-461b-4d82-b0fd-2127131cca00.png)
 
-The site admin menu has 9 main sections:
+The site admin menu has 8 main sections:
 
 * Statistics
 * Configuration
@@ -24,7 +24,6 @@ The site admin menu has 9 main sections:
 * Code intelligence
 * Users & auth
 * Maintenance 
-* Extensions
 * Batch Changes
 * API Console
 

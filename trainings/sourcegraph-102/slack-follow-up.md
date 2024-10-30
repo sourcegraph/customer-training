@@ -8,9 +8,8 @@ Thanks so much for attending our Sourcegraph 102 training! We covered advanced t
 - [Sourcegraph Search Documentation](https://docs.sourcegraph.com/code_search/reference/queries#search-pattern-syntax)
 - [Dependencies Search](https://docs.sourcegraph.com/code_search/how-to/dependencies_search)
 
-**Extensions and the CLI:**
+**Integrations and the CLI:**
 
-- [Sourcegraph Extensions Documentation](https://docs.sourcegraph.com/extensions)
 - [Sourcegraph CLI](https://docs.sourcegraph.com/cli)
 - [Sourcegraph Editor Integrations](https://docs.sourcegraph.com/integration/editor)
 

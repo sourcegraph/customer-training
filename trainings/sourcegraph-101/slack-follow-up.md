@@ -13,7 +13,7 @@ I wanted to share resources about what we talked about:
 **Integrating with your IDE and other tools:**
 
 * [VSCode extension](https://marketplace.visualstudio.com/items?itemName=sourcegraph.sourcegraph)
-* [Editor plugins](https://docs.sourcegraph.com/integration/editor)
+* [JetBrains extension](https://plugins.jetbrains.com/plugin/9682-sourcegraph)
 * [Browser extension](https://docs.sourcegraph.com/integration/browser_extension)
 
 **Code Insights Resources**

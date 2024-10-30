@@ -264,37 +264,39 @@ With notebooks, you can share code context and explanations with your teammates.
 
 * [Notebooks documentation](https://docs.sourcegraph.com/notebooks)
 
-## Unit 7: Extensions
+## Unit 7: Integrations
 
-**Learning goals:** After this unit, users will understand how our extensions platform functions and that IDE extensions exist.
+**Learning goals:** After this unit, users will understand how to use code editor extensions, in-IDE extensions, browser extension, and search exports.
 
-### Intro to the extensions page
+### Editor integrations 
 
-The final thing we'll look at today is our Extensions platform. You can access that by clicking the puzzle icon at the top right here.
-
-🔎 The trainer should show:
-
-* How to access the Extensions page.
-
-### Editor extensions 
-
-We integrate with a variety of services here, a particularly important one is our Editors extensions.
+We integrate with a variety of services here, a particularly important one is our Editors integrations.
 
 🔎 The trainer should show:
 
-* How to filter to just Editors extensions
-* How to enable the appropriate extension for the IDE the customer is using
-* Where the customer can see the appropriate config options for the extension (on the extension's own landing page)
+* How to access `open-in-editor`
+* Where the customer can see the appropriate config options for the feature
 * How the `open in editor` button works, and its limitations (requiring the code to be stored locally)
 
-### VSCode extension
+### VSCode/JetBrains extension
 
-For VSCode users—and soon JetBrains users!—we have a more robust integration. With VSCode, you actually can do everything we've seen so far directly in VSCode.
+For VSCode and JetBrains users, we have a more robust integration. With VSCode and JetBrains, you actually can do everything we've seen so far directly in VSCode.
 
-🔎 The trainer should show their VSCode window and share:
+🔎 The trainer should show their VSCode or JetBrains window and share:
 
-* How to run a search in VSCode
+* How to run a search in VSCode/JetBrains
 * The fact that this does not require the code to be stored locally
+
+❗️ If possible, pick whichever one is most used at the customer company.
+
+### Search Exports
+
+You may want to export the results of your search. To do that, use our search export feature.
+
+🔎 The trainer should show:
+
+* How to export a search
+* What the exported CSV looks like
 
 ### Browser extension
 
@@ -309,7 +311,7 @@ The final thing I want to touch on is our browser extension, which you can see I
 
 ### Conclusion
 
-Our editors functionality lets you integrate with third-party tools, including your editor, for a seamless experience.
+We integrate with your editor and your code host for a seamless experience, as well as allowing you to export search results. 
 
 ### Resources
 
