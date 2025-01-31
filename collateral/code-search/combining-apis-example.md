@@ -64,6 +64,8 @@ Inputs:
 Outputs:
 * A list of symbols, including each symbol’s name and its range (start line/character, end line/character) in the file.
 
+**Pseudocode**
+
 ```python:pseudo_retrieve_symbols.py
 function getSymbolsInFile(repo, commit, filePath, authToken):
     query = """
