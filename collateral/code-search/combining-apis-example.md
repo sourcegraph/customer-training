@@ -43,6 +43,19 @@ query {
 }
 ```
 
+The returned data will look like this:
+
+```
+    {
+      "range": {
+        "start": { "line": 29, "character": 5 },
+        "end": { "line": 29, "character": 9 }
+      },
+      "symbol": "scip-go gomod github.com/sourcegraph/conc 5f936abd7ae8 `github.com/sourcegraph/conc/pool`/Pool#",
+      "roles": [ "DEFINITION" ]
+    },
+```
+
 Inputs:
 * **repository**: Name or identifier of the repo.
 * **commit**: The commit SHA (or branch name) to query.
@@ -91,19 +104,6 @@ function getSymbolsInFile(repo, commit, filePath, authToken):
     return response.data.repository.commit.blob.lsif.symbols
 ```
 
-The returned data will look like this:
-
-```
-    {
-      "range": {
-        "start": { "line": 29, "character": 5 },
-        "end": { "line": 29, "character": 9 }
-      },
-      "symbol": "scip-go gomod github.com/sourcegraph/conc 5f936abd7ae8 `github.com/sourcegraph/conc/pool`/Pool#",
-      "roles": [ "DEFINITION" ]
-    },
-```
-
 ### 2. Retrieve References to a Symbol
 
 Once you have the symbol’s name and exact range, you can query the [SCIP “usages” or “references” endpoint](https://github.com/sourcegraph/customer-training/blob/main/collateral/code-search/SCIP-API-usage.md#example-usages-endpoint) (sometimes referred to as “usages for symbol”). You’ll supply the symbol’s identifier and range to find all references in the entire codebase.
@@ -142,6 +142,29 @@ query {
     }
   }
 }
+```
+
+This will return output like the following:
+
+```
+  {
+    "usageKind": "REFERENCE",
+    "usageRange": {
+      "repository": "github.com/sourcegraph/conc",
+      "path": "pool/pool.go",
+      "range": {
+        "start": {
+          "line": 10,
+          "character": 12
+        },
+        "end": {
+          "line": 10,
+          "character": 16
+        }
+      }
+    },
+    "surroundingContent": "func New() *Pool {"
+  },
 ```
 
 ##### Pseudocode
@@ -275,11 +298,57 @@ Where:
 * callCodyAPI() is a wrapper around the curl request to the /.api/llm/chat/completions endpoint.
 * saveOrApplyDiff(diff, filePath) can patch the file using standard diff/patch tools, or store it for manual inspection.
 
-**A Note on Including Context in the Prompt**
+### Best Practices for Cody Prompts in Code Transformations
 
-To get the best diffs from Cody, you generally need:
-* The relevant portion of the file (or the entire file if it’s not too large).
-* Clear instructions (for example, “Rename all references to oldSymbolName to newSymbolName, but do not change references to oldSymbolNameFoo or OldSymbolName in comments.”)
+To get high-quality and accurate diffs from Cody, include these key elements in your prompts:
+
+1. **File Context**
+   - Provide the complete file for small to medium files
+   - For large files, include the relevant function/class plus 10-20 lines before and after
+   - Include imports/dependencies that are relevant to the code being modified
+
+2. **Precise Instructions**
+   - Specify the exact transformation needed (e.g., "Rename class Customer to Client")
+   - Include scope limitations (e.g., "Only modify the class name, not instances in comments or strings")
+   - Request specific output format (e.g., "Return the changes as a unified diff")
+
+3. **Additional Context**
+   - Mention any naming conventions to follow
+   - Specify any patterns to preserve or exclude
+   - Include any project-specific requirements
+
+**Example prompt**:
+```
+I am performing a codebase-wide refactoring. Please help me with the following transformation:
+
+Input file: [file content here]
+
+Requirements:
+
+Rename the class Customer to Client
+- Transform all direct references to the Customer class
+- Update any constructor calls from Customer() to Client()
+- Update any type annotations from Customer to Client
+
+Constraints:
+- Do not modify strings in log messages or comments
+- Preserve any instances of CustomerService or CustomerRepository
+- Maintain the existing code style and indentation
+- Follow PascalCase for the new class name
+
+Please return only a unified diff format that I can apply with the patch command.
+```
+
+This prompt example is effective because it:
+1. States the broader context (codebase refactoring)
+2. Lists specific changes needed with clear numbering
+3. Explicitly states what should NOT be changed
+4. Specifies the exact output format needed
+5. Includes naming convention requirements
+6. Preserves related class names that should not be modified
+
+The structured format makes it easy for Cody to understand the scope and requirements, leading to more accurate transformations.
+
 
 ### 5. Review and Commit Changes
 
